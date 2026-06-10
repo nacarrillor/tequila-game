@@ -473,7 +473,8 @@ body {
     }
 
     /* Full-viewport overlay on mobile to prevent clipping by the canvas height */
-    .overlay-screen {
+    #rock-question-screen,
+    #rock-result-screen {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;

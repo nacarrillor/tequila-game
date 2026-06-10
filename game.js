@@ -912,6 +912,42 @@ window.addEventListener("keyup", (e) => {
     keys[e.code] = false;
 });
 
+// ── Touch Controls (Mobile) ──
+(function initTouchControls() {
+    const touchMap = {
+        'touch-left': 'KeyA',
+        'touch-right': 'KeyD',
+        'touch-jump': 'Space'
+    };
+
+    Object.entries(touchMap).forEach(([btnId, keyCode]) => {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+
+        btn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            keys[keyCode] = true;
+            btn.classList.add('active');
+        }, { passive: false });
+
+        btn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            keys[keyCode] = false;
+            btn.classList.remove('active');
+        }, { passive: false });
+
+        btn.addEventListener('touchcancel', (e) => {
+            keys[keyCode] = false;
+            btn.classList.remove('active');
+        });
+    });
+
+    // Prevent default touch behavior on canvas to avoid scrolling while playing
+    const canvas = document.getElementById('gameCanvas');
+    canvas.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
+    canvas.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+})();
+
 // Physics and game update logic
 function update() {
     if (gameState !== "playing") return;

@@ -7,7 +7,7 @@ let currentLevel = 1;
 
 const translations = {
     es: {
-        subtitle: "Exploración de Hidrógeno Natural",
+        subtitle: "",
         roleHades: "Geólogo",
         roleHera: "Geóloga",
         btnPlay: "&#9658; JUGAR",
@@ -170,7 +170,7 @@ const translations = {
         ]
     },
     en: {
-        subtitle: "Natural Hydrogen Exploration",
+        subtitle: "",
         roleHades: "Geologist",
         roleHera: "Geologist",
         btnPlay: "&#9658; PLAY",
@@ -333,7 +333,7 @@ const translations = {
         ]
     },
     fr: {
-        subtitle: "Exploration d'Hydrogène Naturel",
+        subtitle: "",
         roleHades: "Géologue",
         roleHera: "Géologue",
         btnPlay: "&#9658; JOUER",

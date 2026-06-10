@@ -402,10 +402,10 @@ body {
 #touch-controls {
     display: none; /* Hidden by default, shown via JS on touch devices */
     position: fixed;
-    bottom: 15px;
+    bottom: 35px; /* Elevated to avoid phone system swipe bars */
     left: 0;
     right: 0;
-    padding: 0 20px;
+    padding: 0 40px; /* More horizontal spacing from screen edge */
     z-index: 999;
     justify-content: space-between;
     align-items: flex-end;
@@ -415,18 +415,18 @@ body {
 .touch-left-group,
 .touch-right-group {
     display: flex;
-    gap: 12px;
+    gap: 24px; /* Increased gap to avoid misclicks */
     pointer-events: auto;
 }
 
 .touch-btn {
-    width: 64px;
-    height: 64px;
+    width: 76px; /* Larger hit area */
+    height: 76px;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.6);
-    background: rgba(0, 0, 0, 0.35);
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.5rem;
+    border: 3.5px solid rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.8rem;
     font-family: var(--font-arcade);
     cursor: pointer;
     display: flex;
@@ -436,26 +436,28 @@ body {
     user-select: none;
     touch-action: manipulation;
     transition: background 0.1s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .touch-btn:active,
 .touch-btn.active {
-    background: rgba(94, 158, 62, 0.7);
-    transform: scale(0.9);
-    border-color: rgba(255, 255, 255, 0.9);
+    background: rgba(94, 158, 62, 0.85);
+    transform: scale(0.88);
+    border-color: rgba(255, 255, 255, 1);
 }
 
 .touch-btn.touch-jump {
-    width: 76px;
-    height: 76px;
-    font-size: 1.8rem;
-    background: rgba(0, 0, 0, 0.4);
-    border-color: rgba(241, 196, 15, 0.7);
+    width: 92px; /* Bigger jump button for primary action */
+    height: 92px;
+    font-size: 2.1rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-color: rgba(241, 196, 15, 0.85);
+    box-shadow: 0 4px 12px rgba(241, 196, 15, 0.2);
 }
 
 .touch-btn.touch-jump:active,
 .touch-btn.touch-jump.active {
-    background: rgba(241, 196, 15, 0.5);
+    background: rgba(241, 196, 15, 0.7);
     border-color: rgba(241, 196, 15, 1);
 }
 

@@ -507,12 +507,12 @@ function setLanguage(lang) {
     
     // Update DOM texts
     const t = translations[lang];
-    document.getElementById('title-subtitle').innerHTML = t.subtitle;
+    if (document.getElementById('title-subtitle')) document.getElementById('title-subtitle').innerHTML = t.subtitle;
     document.getElementById('char-hades-role').innerHTML = t.roleHades;
     document.getElementById('char-hera-role').innerHTML = t.roleHera;
     document.getElementById('btn-play').innerHTML = t.btnPlay;
-    document.getElementById('tap-prompt').innerHTML = t.tapPrompt;
-    document.getElementById('instructions-text').innerHTML = t.instructions;
+    if (document.getElementById('tap-prompt')) document.getElementById('tap-prompt').innerHTML = t.tapPrompt;
+    if (document.getElementById('instructions-text')) document.getElementById('instructions-text').innerHTML = t.instructions;
     document.getElementById('btn-retry').innerHTML = t.btnRetry;
     document.getElementById('victory-title').innerHTML = t.victoryTitle;
     document.getElementById('victory-details').innerHTML = t.victoryDetails;

@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=Press+Start+2P&display=swap');
+
+:root {
+    /* Flappy-style daytime palette */
+    --sky-top:       #70C5CE;
+    --sky-bottom:    #C9EBF5;
+    --ground-green:  #5E9E3E;
+    --ground-dirt:   #C8A96E;
+    --accent-green:  #3D7A1E;
+    --accent-red:    #E74C3C;
+    --accent-gold:   #F1C40F;
+    --accent-white:  #FFFDE7;
+
+    --text-dark:     #1A1A1A;
+    --text-arcade:   #FFFFFF;
+
+    --panel-bg:      #FFFDE7;
+    --panel-border:  #2C2C2C;
+
+    --font-arcade: 'Press Start 2P', cursive;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body: cielo azul claro como Flappy Bird */
+body {
+    background-color: var(--sky-top);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ── Main layout: solo canvas centrado, sin sidebar ── */
+.cabinet-container {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Ocultar sidebar de geología */
+.info-sidebar {
+    display: none !important;
+}
+
+/* ── Game Canvas wrapper ── */
+.game-screen-wrapper {
+    position: relative;
+    border: 5px solid #2C2C2C;
+    border-radius: 6px;
+    box-shadow:
+        4px 4px 0 #000,
+        0 0 0 2px #fff,
+        6px 6px 0 #000;
+    background: var(--sky-top);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameCanvas {
+    background-color: var(--sky-top);
+    display: block;
+    width: 800px;
+    height: 500px;
+}
+
+/* ── HUD DOM (puntaje flotante sobre canvas, estilo Flappy Facho) ── */
+#game-hud {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hud-box {
+    font-family: var(--font-arcade);
+    font-size: 0.65rem;
+    color: var(--text-arcade);
+    text-align: center;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000;
+    line-height: 1.6;
+}
+
+.hud-box span {
+    display: block;
+    font-size: 1.1rem;
+    color: #FFE040;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000;
+}
+
+/* ── Overlays ── */
+.overlay-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(91, 143, 191, 0.90);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Páramo colombiano overlay: cielo andino + tierra oscura */
+.paramo-overlay {
+    background:
+        linear-gradient(
+            to bottom,
+            #3A5F8A 0%,
+            #5B8FBF 38%,
+            #88C0D8 62%,
+            #4A7C3F 62%,
+            #3A6030 100%
+        );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Frailejones decorativos en los laterales */
+.paramo-deco {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    z-index: 1;
+}
+.paramo-deco.left  { left: 8px;  }
+.paramo-deco.right { right: 8px; }
+
+/* Aseguramos que el card esté encima de los frailejones */
+.paramo-overlay .launcher-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(30, 48, 30, 0.92);
+    border-color: #A0C87A;
+    color: #EEFDE8;
+}
+
+/* Panel blanco estilo retro arcade (como Flappy Bird) */
+.launcher-card {
+    background: var(--panel-bg);
+    border: 4px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 28px 32px;
+    max-width: 560px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 5px 5px 0 #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Título TEQUILA dentro del panel */
+.arcade-title {
+    font-family: var(--font-arcade);
+    font-size: 2rem;
+    color: #F4D03F;
+    text-shadow: 3px 3px 0 #1A4020, -1px -1px 0 #000;
+    letter-spacing: 4px;
+}
+
+.arcade-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: #C8DFA0;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ── Character Cards ── */
+.char-card {
+    background: rgba(60, 100, 50, 0.75);
+    border: 3px solid #7AB832;
+    border-radius: 8px;
+    width: 130px;
+    padding: 12px 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.char-card:hover {
+    border-color: #F4D03F;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 0 rgba(0,0,0,0.4);
+}
+
+.char-card.selected {
+    border-color: var(--ground-green);
+    background: #F0FFF0;
+    box-shadow: 0 4px 0 var(--accent-green);
+}
+
+.char-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    background: #e8f4f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.char-card.selected .char-avatar {
+    border-color: var(--ground-green);
+}
+
+.char-name {
+    font-family: var(--font-arcade);
+    font-weight: 700;
+    font-size: 0.65rem;
+    color: var(--text-dark);
+}
+
+.char-role {
+    font-size: 0.65rem;
+    color: var(--accent-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* ── Botón JUGAR estilo Flappy ── */
+.btn-play {
+    background: var(--ground-green);
+    border: none;
+    border-bottom: 5px solid var(--accent-green);
+    outline: none;
+    color: #fff;
+    font-family: var(--font-arcade);
+    font-size: 0.85rem;
+    padding: 14px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-shadow: 1px 1px 0 #000;
+    transition: var(--transition-smooth);
+}
+
+.btn-play:hover {
+    transform: translateY(-2px);
+    border-bottom-width: 7px;
+    background: #6DB546;
+}
+
+.btn-play:active {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+}
+
+/* ── Texto de instrucciones ── */
+.instructions-text {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: #555;
+    text-align: center;
+    max-width: 460px;
+    line-height: 1.6;
+}
+
+/* ── Prompt parpadeante tipo Flappy Facho ── */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.tap-prompt {
+    font-family: var(--font-arcade);
+    font-size: 0.6rem;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    text-align: center;
+    animation: blink 0.9s step-start infinite;
+    margin-top: 8px;
+}
+
+/* ── Scores row en overlays ── */
+.scores-row {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.score-item {
+    font-family: var(--font-arcade);
+    font-size: 0.6rem;
+    color: #555;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.score-item b {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+/* ── Ocultar elementos del layout anterior ── */
+.game-header,
+.controls-footer {
+    display: none !important;
+}
+
+/* ── Estilos de botones de opciones para el Quiz ── */
+.btn-option {
+    background: #ffffff !important;
+    border: 2px solid #2C2C2C !important;
+    color: #1A1A1A !important;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 6px;
+    width: 100%;
+    text-align: left;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 0 #000;
+}
+
+.btn-option:hover {
+    background: #E8F5E9 !important;
+    border-color: #5E9E3E !important;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+.btn-option:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 0 #000;
+}
+
+/* ── Selector de Idiomas ── */
+.lang-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    z-index: 100;
+}
+
+.lang-btn {
+    background: #FFFDE7;
+    border: 2px solid #2C2C2C;
+    border-radius: 4px;
+    font-family: var(--font-arcade);
+    font-size: 0.65rem;
+    padding: 6px 12px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #000;
+    transition: all 0.2s ease;
+    color: #1A1A1A;
+}
+
+.lang-btn.active {
+    background: var(--ground-green);
+    color: #fff;
+    border-color: #2C2C2C;
+    box-shadow: 1px 1px 0 #000;
+}
+
+.lang-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 0 #000;
+}
+

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEQUILA - Natural Hydrogen Adventure</title>
+    <meta name="description" content="TEQUILA: Exploración de Hidrógeno Natural. Juego de plataformas 2D educativo sobre geología y energía limpia.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main class="cabinet-container">
+        <div class="game-screen-wrapper">
+
+            <!-- ══ HUD DOM flotante (estilo Flappy Facho) ══ -->
+            <div id="game-hud" style="display:none;">
+                <div class="hud-box" id="hud-label-lives">VIDAS <span id="hud-lives">♥♥♥</span></div>
+                <div class="hud-box" id="hud-label-h2" style="display:none;">GAS H₂ <span id="hud-h2">0/60</span></div>
+                <div class="hud-box" id="hud-label-geo" style="display:none;">GEÓFONOS <span id="hud-geo">0/3</span></div>
+                <div class="hud-box" id="hud-label-rocks">MUESTRAS <span id="hud-rocks">0/5</span></div>
+            </div>
+
+            <!-- ══ Pantalla de Selección de Personaje ══ -->
+            <div id="character-select-screen" class="overlay-screen paramo-overlay">
+
+                <!-- Frailejones decorativos (SVG) a los lados -->
+                <div class="paramo-deco left">
+                    <!-- Frailejón izquierdo con flor -->
+                    <svg viewBox="0 0 80 160" width="80" height="160">
+                        <!-- Tronco -->
+                        <rect x="32" y="60" width="16" height="95" rx="5" fill="#6D4C2A" stroke="#3E2A10" stroke-width="1.5"/>
+                        <rect x="34" y="68" width="12" height="4" fill="#8D6239"/>
+                        <rect x="34" y="80" width="12" height="4" fill="#8D6239"/>
+                        <rect x="34" y="92" width="12" height="4" fill="#8D6239"/>
+                        <rect x="34" y="104" width="12" height="4" fill="#8D6239"/>
+                        <rect x="34" y="116" width="12" height="4" fill="#8D6239"/>
+                        <!-- Hojas roseta -->
+                        <ellipse cx="40" cy="60" rx="28" ry="6" fill="#9DB87A" stroke="#5A7A40" stroke-width="1"/>
+                        <ellipse cx="40" cy="60" rx="6" ry="28" fill="#B8CC8A" stroke="#5A7A40" stroke-width="1"/>
+                        <ellipse cx="60" cy="52" rx="20" ry="5" fill="#9DB87A" stroke="#5A7A40" stroke-width="1" transform="rotate(35,60,52)"/>
+                        <ellipse cx="20" cy="52" rx="20" ry="5" fill="#B8CC8A" stroke="#5A7A40" stroke-width="1" transform="rotate(-35,20,52)"/>
+                        <ellipse cx="60" cy="68" rx="20" ry="5" fill="#9DB87A" stroke="#5A7A40" stroke-width="1" transform="rotate(-35,60,68)"/>
+                        <ellipse cx="20" cy="68" rx="20" ry="5" fill="#B8CC8A" stroke="#5A7A40" stroke-width="1" transform="rotate(35,20,68)"/>
+                        <!-- Centro roseta -->
+                        <circle cx="40" cy="60" r="9" fill="#C8DFA0" stroke="#5A7A40" stroke-width="1.5"/>
+                        <!-- Tallo flor -->
+                        <line x1="40" y1="51" x2="40" y2="26" stroke="#6A8040" stroke-width="2.5"/>
+                        <!-- Pétalos -->
+                        <ellipse cx="40" cy="26" rx="10" ry="3" fill="#F4D03F" stroke="#C7A800" stroke-width="1"/>
+                        <ellipse cx="40" cy="26" rx="3" ry="10" fill="#F4D03F" stroke="#C7A800" stroke-width="1"/>
+                        <ellipse cx="33" cy="19" rx="9" ry="3" fill="#F4D03F" stroke="#C7A800" stroke-width="1" transform="rotate(45,33,19)"/>
+                        <ellipse cx="47" cy="19" rx="9" ry="3" fill="#F4D03F" stroke="#C7A800" stroke-width="1" transform="rotate(-45,47,19)"/>
+                        <circle cx="40" cy="26" r="5" fill="#E67E22" stroke="#A04000" stroke-width="1.5"/>
+                    </svg>
+                    <svg viewBox="0 0 55 120" width="55" height="120" style="margin-top:20px;opacity:0.75">
+                        <rect x="22" y="42" width="11" height="75" rx="4" fill="#6D4C2A" stroke="#3E2A10" stroke-width="1"/>
+                        <ellipse cx="27" cy="42" rx="22" ry="5" fill="#9DB87A" stroke="#5A7A40" stroke-width="1"/>
+                        <ellipse cx="27" cy="42" rx="5" ry="22" fill="#B8CC8A" stroke="#5A7A40" stroke-width="1"/>
+                        <circle cx="27" cy="42" r="7" fill="#C8DFA0" stroke="#5A7A40" stroke-width="1"/>
+                    </svg>
+                </div>
+
+                <div class="paramo-deco right">
+                    <!-- Frailejón derecho sin flor -->
+                    <svg viewBox="0 0 70 140" width="70" height="140">
+                        <rect x="28" y="52" width="14" height="84" rx="4" fill="#6D4C2A" stroke="#3E2A10" stroke-width="1.5"/>
+                        <rect x="30" y="60" width="10" height="3" fill="#8D6239"/>
+                        <rect x="30" y="72" width="10" height="3" fill="#8D6239"/>
+                        <rect x="30" y="84" width="10" height="3" fill="#8D6239"/>
+                        <rect x="30" y="96" width="10" height="3" fill="#8D6239"/>
+                        <ellipse cx="35" cy="52" rx="25" ry="6" fill="#B8CC8A" stroke="#5A7A40" stroke-width="1"/>
+                        <ellipse cx="35" cy="52" rx="6" ry="25" fill="#9DB87A" stroke="#5A7A40" stroke-width="1"/>
+                        <ellipse cx="53" cy="44" rx="18" ry="5" fill="#B8CC8A" stroke="#5A7A40" stroke-width="1" transform="rotate(40,53,44)"/>
+                        <ellipse cx="17" cy="44" rx="18" ry="5" fill="#9DB87A" stroke="#5A7A40" stroke-width="1" transform="rotate(-40,17,44)"/>
+                        <circle cx="35" cy="52" r="8" fill="#C8DFA0" stroke="#5A7A40" stroke-width="1.5"/>
+                        <!-- Flor pequeña -->
+                        <line x1="35" y1="44" x2="35" y2="24" stroke="#6A8040" stroke-width="2"/>
+                        <ellipse cx="35" cy="24" rx="8" ry="3" fill="#F4D03F" stroke="#C7A800"/>
+                        <ellipse cx="35" cy="24" rx="3" ry="8" fill="#F4D03F" stroke="#C7A800"/>
+                        <circle cx="35" cy="24" r="4" fill="#E67E22" stroke="#A04000"/>
+                    </svg>
+                </div>
+
+                <div class="launcher-card">
+                    <div class="lang-selector" style="display: flex; gap: 10px; margin-bottom: 10px; justify-content: center; z-index: 100;">
+                        <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+                        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                        <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+                    </div>
+
+                    <h1 class="arcade-title">TEQUILA</h1>
+                    <p class="arcade-subtitle" id="title-subtitle">Exploración de Hidrógeno Natural</p>
+
+                    <div class="character-select-grid" style="display: flex; gap: 20px; margin: 4px 0;">
+                        <div id="char-hades" class="char-card selected" onclick="selectCharacter('male')">
+                            <div class="char-avatar">
+                                <svg style="width:64px;height:72px;" viewBox="0 0 32 36">
+                                    <!-- Cuerpo -->
+                                    <rect x="8" y="22" width="16" height="10" rx="2" fill="#1565C0"/>
+                                    <rect x="12" y="22" width="8" height="10" fill="#E74C3C"/>
+                                    <!-- Pantalon -->
+                                    <rect x="9" y="30" width="14" height="5" rx="1" fill="#BF8A30"/>
+                                    <!-- Botas -->
+                                    <rect x="9" y="33" width="6" height="3" rx="1" fill="#4E342E"/>
+                                    <rect x="17" y="33" width="6" height="3" rx="1" fill="#4E342E"/>
+                                    <!-- Cuello -->
+                                    <rect x="14" y="19" width="4" height="4" rx="1" fill="#fed7aa"/>
+                                    <!-- Pelo lateral (patillas cafe) -->
+                                    <rect x="8" y="14" width="3" height="5" rx="1" fill="#6D3B1E"/>
+                                    <rect x="21" y="14" width="3" height="5" rx="1" fill="#6D3B1E"/>
+                                    <!-- Cara -->
+                                    <rect x="10" y="12" width="12" height="10" rx="3" fill="#fed7aa"/>
+                                    <!-- Pelo corto arriba -->
+                                    <rect x="10" y="10" width="12" height="3" rx="1" fill="#6D3B1E"/>
+                                    <!-- Cejas -->
+                                    <rect x="11" y="14" width="3" height="1" fill="#4E342E"/>
+                                    <rect x="18" y="14" width="3" height="1" fill="#4E342E"/>
+                                    <!-- Ojos -->
+                                    <circle cx="13" cy="17" r="1.8" fill="#fff"/>
+                                    <circle cx="13" cy="17" r="1" fill="#1A1A1A"/>
+                                    <circle cx="19" cy="17" r="1.8" fill="#fff"/>
+                                    <circle cx="19" cy="17" r="1" fill="#1A1A1A"/>
+                                    <!-- Sonrisa -->
+                                    <path d="M13 20 Q16 22 19 20" stroke="#8B4513" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+                                    <!-- Casco blanco -->
+                                    <rect x="9" y="8" width="14" height="6" rx="3" fill="#F5F5F5" stroke="#ccc" stroke-width="0.5"/>
+                                    <rect x="7" y="13" width="18" height="2" rx="1" fill="#D0D0D0" stroke="#bbb" stroke-width="0.5"/>
+                                    <!-- Linterna -->
+                                    <circle cx="21" cy="10" r="2" fill="#FFF9C4" stroke="#ccc" stroke-width="0.5"/>
+                                </svg>
+                            </div>
+                            <div class="char-name">HADES</div>
+                            <div class="char-role" id="char-hades-role">Geólogo</div>
+                        </div>
+
+                        <div id="char-hera" class="char-card" onclick="selectCharacter('female')">
+                            <div class="char-avatar">
+                                <svg style="width:64px;height:72px;" viewBox="0 0 32 36">
+                                    <!-- Cuerpo -->
+                                    <rect x="8" y="22" width="16" height="10" rx="2" fill="#1565C0"/>
+                                    <rect x="12" y="22" width="8" height="10" fill="#E91E8B"/>
+                                    <!-- Pantalon -->
+                                    <rect x="9" y="30" width="14" height="5" rx="1" fill="#BF8A30"/>
+                                    <!-- Botas -->
+                                    <rect x="9" y="33" width="6" height="3" rx="1" fill="#4E342E"/>
+                                    <rect x="17" y="33" width="6" height="3" rx="1" fill="#4E342E"/>
+                                    <!-- Cuello -->
+                                    <rect x="14" y="19" width="4" height="4" rx="1" fill="#FFCBA4"/>
+                                    <!-- Cabello cafe largo (mechones que caen) -->
+                                    <rect x="7" y="14" width="3" height="14" rx="2" fill="#6D3B1E"/>
+                                    <rect x="22" y="14" width="3" height="14" rx="2" fill="#6D3B1E"/>
+                                    <rect x="8" y="24" width="2" height="6" rx="1" fill="#5A2E0C"/>
+                                    <rect x="22" y="24" width="2" height="6" rx="1" fill="#5A2E0C"/>
+                                    <!-- Cara -->
+                                    <rect x="10" y="12" width="12" height="10" rx="3" fill="#FFCBA4"/>
+                                    <!-- Pelo arriba (detras del casco) -->
+                                    <rect x="10" y="10" width="12" height="3" rx="1" fill="#6D3B1E"/>
+                                    <!-- Mejillas -->
+                                    <ellipse cx="12" cy="19" rx="2" ry="1.2" fill="rgba(255,150,150,0.4)"/>
+                                    <ellipse cx="20" cy="19" rx="2" ry="1.2" fill="rgba(255,150,150,0.4)"/>
+                                    <!-- Cejas arqueadas -->
+                                    <path d="M11 14.5 Q13 13.5 15 14.5" stroke="#4E342E" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+                                    <path d="M17 14.5 Q19 13.5 21 14.5" stroke="#4E342E" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+                                    <!-- Ojos grandes -->
+                                    <circle cx="13" cy="17" r="2" fill="#fff"/>
+                                    <circle cx="13" cy="17" r="1.2" fill="#2E7D32"/>
+                                    <circle cx="13" cy="17" r="0.7" fill="#1A1A1A"/>
+                                    <circle cx="19" cy="17" r="2" fill="#fff"/>
+                                    <circle cx="19" cy="17" r="1.2" fill="#2E7D32"/>
+                                    <circle cx="19" cy="17" r="0.7" fill="#1A1A1A"/>
+                                    <!-- Labios -->
+                                    <path d="M13.5 20.5 Q16 22 18.5 20.5" stroke="#E57373" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                                    <!-- Casco blanco -->
+                                    <rect x="9" y="8" width="14" height="6" rx="3" fill="#F5F5F5" stroke="#ccc" stroke-width="0.5"/>
+                                    <rect x="7" y="13" width="18" height="2" rx="1" fill="#D0D0D0" stroke="#bbb" stroke-width="0.5"/>
+                                    <!-- Linterna -->
+                                    <circle cx="21" cy="10" r="2" fill="#FFF9C4" stroke="#ccc" stroke-width="0.5"/>
+                                </svg>
+                            </div>
+                            <div class="char-name">HERA</div>
+                            <div class="char-role" id="char-hera-role">Geóloga</div>
+                        </div>
+                    </div>
+
+                    <button class="btn-play" id="btn-play" onclick="startGame()">&#9658; JUGAR</button>
+                    <div class="tap-prompt" id="tap-prompt">MUÉVETE CON A/D &middot; SALTA CON ESPACIO</div>
+                    <div class="instructions-text" id="instructions-text">
+                        Aspira gas H₂ con <strong>Z</strong> &middot; Instala geófonos con <strong>X</strong> &middot; Perfora con <strong>C</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ Game Over Screen ══ -->
+            <div id="gameover-screen" class="overlay-screen" style="display: none;">
+                <div class="launcher-card">
+                    <h2 class="arcade-title" style="color:#E74C3C; text-shadow: 3px 3px 0 #8B0000;">GAME OVER</h2>
+                    <p id="gameover-reason" style="color: #555; font-size: 0.8rem; text-align: center; line-height: 1.6;">
+                        Te has quedado sin energía exploradora.
+                    </p>
+                    <button class="btn-play" id="btn-retry" onclick="restartGame()">▶ REINTENTAR</button>
+                </div>
+            </div>
+
+            <!-- ══ Victory Screen ══ -->
+            <div id="victory-screen" class="overlay-screen" style="display: none;">
+                <div class="launcher-card">
+                    <h2 class="arcade-title" id="victory-title" style="color:#3D7A1E; text-shadow: 3px 3px 0 #F1C40F;">¡MISIÓN<br>COMPLETADA!</h2>
+
+                    <div id="victory-details" style="background:#F0FFF0; border:2px solid #5E9E3E; border-radius:8px; padding:14px; text-align:center; width:100%; font-size:0.8rem; line-height:1.7; color:#2C2C2C;">
+                        <p style="font-weight:bold; color:#3D7A1E; margin:10px 0;">Tienes conocimientos en geología, pasamos al siguiente nivel.</p>
+                    </div>
+
+                    <button class="btn-play" id="btn-replay" onclick="handleVictoryButtonClick()">▶ SIGUIENTE NIVEL</button>
+                </div>
+            </div>
+
+            <!-- ══ Rock Question Screen ══ -->
+            <div id="rock-question-screen" class="overlay-screen" style="display: none; background: rgba(0, 0, 0, 0.85); justify-content: center; align-items: center; z-index: 100;">
+                <div class="launcher-card" style="max-width: 500px; padding: 25px; text-align: left; gap: 15px; background: #FFFDE7; color: #1A1A1A; border: 4px solid #2C2C2C; display: flex; flex-direction: column;">
+                    <h3 id="question-title" style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 800; margin-bottom: 5px; color: #2C2C2C; border-bottom: 2px solid #5E9E3E; padding-bottom: 10px; line-height: 1.4;">
+                    </h3>
+                    <div id="question-options" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ Rock Result (Snoopy) Screen ══ -->
+            <div id="rock-result-screen" class="overlay-screen" style="display: none; background: rgba(0, 0, 0, 0.85); justify-content: center; align-items: center; z-index: 101;">
+                <div class="launcher-card" style="max-width: 450px; padding: 25px; text-align: center; gap: 20px; background: #FFFDE7; border: 4px solid #2C2C2C; display: flex; flex-direction: column; align-items: center;">
+                    <h3 id="result-title" style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: #2C2C2C; margin: 0;"></h3>
+                    <p id="result-subtitle" style="font-family: var(--font-body); font-size: 0.95rem; color: #555; margin: 0; line-height: 1.4;"></p>
+                    <img id="snoopy-img" src="" alt="Snoopy" style="width: 180px; height: 180px; object-fit: contain; border-radius: 8px; border: 3px solid #2C2C2C; background: white; padding: 5px; box-shadow: 3px 3px 0 #000;" />
+                    <button class="btn-play" id="btn-continue" onclick="closeRockResult()" style="margin-top: 5px; font-family: var(--font-arcade); font-size: 0.8rem;">CONTINUAR</button>
+                </div>
+            </div>
+
+            <!-- ══ Canvas principal ══ -->
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+        </div>
+    </main>
+
+    <!-- Game Scripts -->
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

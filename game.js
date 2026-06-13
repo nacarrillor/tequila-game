@@ -701,47 +701,7 @@ function closeRockResult() {
     }
 }
 
-
-
-function startGame() {
-    AudioSFX.init();
-    AudioSFX.startBGM();
-    gameState = "playing";
-    document.getElementById("character-select-screen").style.display = "none";
-    document.getElementById("game-hud").style.display = "flex";
-    
-    // Apply unique geologist abilities
-    if (selectedChar === "male") { // Hades
-        player.lives = 4; // Resilient tank (4 lives)
-        player.speed = 4.2;
-        player.jumpForce = -11;
-    } else { // Hera
-        player.lives = 3;
-        player.speed = 5.2; // High mobility speed!
-        player.jumpForce = -12.8; // High exploration jumps!
-    }
-    
-    player.correctAnswersCount = 0;
-    player.celebrating = false;
-    player.celebrationTimer = 0;
-    initLevel();
-}
-
-function handleVictoryButtonClick() {
-    if (currentLevel === 1) {
-        currentLevel = 2;
-    } else {
-        currentLevel = 1;
-    }
-    restartGame();
-}
-
-function restartGame() {
-    document.getElementById("gameover-screen").style.display = "none";
-    document.getElementById("victory-screen").style.display = "none";
-    document.getElementById("game-hud").style.display = "flex";
-    
-    // Reset Player
+function resetPlayerState(fullReset) {
     player.x = 100;
     player.y = 200;
     player.vx = 0;
@@ -757,8 +717,7 @@ function restartGame() {
     player.celebrating = false;
     player.celebrationTimer = 0;
     
-    // Re-apply unique geologist abilities
-    if (player.lives <= 0) {
+    if (fullReset) {
         if (selectedChar === "male") { // Bob
             player.lives = 4;
         } else { // Sheena
@@ -779,10 +738,48 @@ function restartGame() {
     activeRockSample = null;
     seaBubbles = [];
     bubbleFloatingTexts = [];
+}
+
+function startGame() {
+    AudioSFX.init();
+    AudioSFX.startBGM();
+    gameState = "playing";
+    document.getElementById("character-select-screen").style.display = "none";
+    document.getElementById("game-hud").style.display = "flex";
+    
+    resetPlayerState(true);
+    currentLevel = 1;
+    initLevel();
+}
+
+function restartGame() {
+    document.getElementById("gameover-screen").style.display = "none";
+    document.getElementById("victory-screen").style.display = "none";
+    
+    if (player.lives <= 0) {
+        // Volver al panel de selección de personaje (panel principal) para iniciar desde 0
+        document.getElementById("character-select-screen").style.display = "flex";
+        document.getElementById("game-hud").style.display = "none";
+        gameState = "menu";
+        return;
+    }
+    
+    document.getElementById("game-hud").style.display = "flex";
+    
+    resetPlayerState(false);
     
     AudioSFX.startBGM();
     gameState = "playing";
     initLevel();
+}
+
+function handleVictoryButtonClick() {
+    if (currentLevel === 1) {
+        currentLevel = 2;
+    } else {
+        currentLevel = 1;
+    }
+    restartGame();
 }
 
 function initLevel() {

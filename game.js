@@ -13,7 +13,7 @@ const translations = {
         btnPlay: "&#9658; JUGAR",
         tapPrompt: "MUÉVETE CON A/D &middot; SALTA CON ESPACIO",
         instructions: "Recoge muestras · Al terminar el nivel, ¡tómate un café! ☕",
-        gameOverReasonEnergy: "Te has quedado sin energía exploradora.",
+        gameOverReasonEnergy: "Te haz quedado sin energia para continuar la mision",
         gameOverReasonPuddle: "Te has hundido en un charco de agua profundo por no saltarlo.",
         gameOverReasonGeyser: "",
         gameOverReasonQuiz: "",

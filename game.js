@@ -816,7 +816,7 @@ function initLevel() {
         ];
         // Spawn Fauna for Level 2
         frogs = [
-            { x: 400, y: getGroundHeight(400) - 20, width: 24, height: 20, vy: 0, timer: 15 },
+            { x: 350, y: getGroundHeight(350) - 20, width: 24, height: 20, vy: 0, timer: 15 },
             { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 45 },
             { x: 2420, y: getGroundHeight(2420) - 20, width: 24, height: 20, vy: 0, timer: 75 }
         ];
@@ -837,14 +837,14 @@ function initLevel() {
         ];
         // Spawn Fauna for Level 1
         frogs = [
-            { x: 400, y: getGroundHeight(400) - 20, width: 24, height: 20, vy: 0, timer: 0 },
-            { x: 1450, y: getGroundHeight(1450) - 20, width: 24, height: 20, vy: 0, timer: 30 },
-            { x: 2350, y: getGroundHeight(2350) - 20, width: 24, height: 20, vy: 0, timer: 60 }
+            { x: 350, y: getGroundHeight(350) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 30 },
+            { x: 3150, y: getGroundHeight(3150) - 20, width: 24, height: 20, vy: 0, timer: 60 }
         ];
         snakes = [
             { x: 930, y: getGroundHeight(930) - 24, width: 32, height: 24, timer: 0 },
-            { x: 1930, y: getGroundHeight(1930) - 24, width: 32, height: 24, timer: 40 },
-            { x: 3100, y: getGroundHeight(3100) - 24, width: 32, height: 24, timer: 80 }
+            { x: 2350, y: getGroundHeight(2350) - 24, width: 32, height: 24, timer: 40 },
+            { x: 3800, y: getGroundHeight(3800) - 24, width: 32, height: 24, timer: 80 }
         ];
     }
 

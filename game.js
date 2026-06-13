@@ -816,7 +816,7 @@ function initLevel() {
         ];
         // Spawn Fauna for Level 2
         frogs = [
-            { x: 480, y: getGroundHeight(480) - 20, width: 24, height: 20, vy: 0, timer: 15 },
+            { x: 400, y: getGroundHeight(400) - 20, width: 24, height: 20, vy: 0, timer: 15 },
             { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 45 },
             { x: 2420, y: getGroundHeight(2420) - 20, width: 24, height: 20, vy: 0, timer: 75 }
         ];
@@ -837,7 +837,7 @@ function initLevel() {
         ];
         // Spawn Fauna for Level 1
         frogs = [
-            { x: 480, y: getGroundHeight(480) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 400, y: getGroundHeight(400) - 20, width: 24, height: 20, vy: 0, timer: 0 },
             { x: 1450, y: getGroundHeight(1450) - 20, width: 24, height: 20, vy: 0, timer: 30 },
             { x: 2350, y: getGroundHeight(2350) - 20, width: 24, height: 20, vy: 0, timer: 60 }
         ];

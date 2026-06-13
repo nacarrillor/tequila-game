@@ -8,8 +8,8 @@ let currentLevel = 1;
 const translations = {
     es: {
         subtitle: "",
-        roleHades: "Geólogo",
-        roleHera: "Geóloga",
+        roleBob: "Geólogo",
+        roleSheena: "Geóloga",
         btnPlay: "&#9658; JUGAR",
         tapPrompt: "MUÉVETE CON A/D &middot; SALTA CON ESPACIO",
         instructions: "Recoge muestras · Al terminar el nivel, ¡tómate un café! ☕",
@@ -18,6 +18,8 @@ const translations = {
         gameOverReasonGeyser: "",
         gameOverReasonQuiz: "Has respondido de manera incorrecta a una pregunta de geología.",
         gameOverReasonLives: "Te has quedado sin vidas exploradoras.",
+        gameOverTitle: "GAME OVER",
+        failedAttemptTitle: "¡OH NO!",
         btnRetry: "▶ REINTENTAR",
         victoryTitle: "¡MISIÓN<br>COMPLETADA!",
         victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">Tienes conocimientos en geología, pasamos al siguiente nivel.</p>`,
@@ -171,8 +173,8 @@ const translations = {
     },
     en: {
         subtitle: "",
-        roleHades: "Geologist",
-        roleHera: "Geologist",
+        roleBob: "Geologist",
+        roleSheena: "Geologist",
         btnPlay: "&#9658; PLAY",
         tapPrompt: "MOVE WITH A/D &middot; JUMP WITH SPACE",
         instructions: "Collect samples · When you finish the level, enjoy a coffee! ☕",
@@ -181,6 +183,8 @@ const translations = {
         gameOverReasonGeyser: "",
         gameOverReasonQuiz: "You answered a geology question incorrectly.",
         gameOverReasonLives: "You ran out of explorer lives.",
+        gameOverTitle: "GAME OVER",
+        failedAttemptTitle: "OH NO!",
         btnRetry: "▶ RETRY",
         victoryTitle: "MISSION<br>COMPLETED!",
         victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">You have knowledge in geology, we move to the next level.</p>`,
@@ -334,8 +338,8 @@ const translations = {
     },
     fr: {
         subtitle: "",
-        roleHades: "Géologue",
-        roleHera: "Géologue",
+        roleBob: "Géologue",
+        roleSheena: "Géologue",
         btnPlay: "&#9658; JOUER",
         tapPrompt: "BOUGEZ AVEC A/D &middot; SAUTEZ AVEC ESPACE",
         instructions: "Collecte des échantillons · Quand tu termines le niveau, bois un café ! ☕",
@@ -344,6 +348,8 @@ const translations = {
         gameOverReasonGeyser: "",
         gameOverReasonQuiz: "Vous avez répondu incorrectement à une question de géologie.",
         gameOverReasonLives: "Vous n'avez plus de vies d'explorateur.",
+        gameOverTitle: "GAME OVER",
+        failedAttemptTitle: "OH NON!",
         btnRetry: "▶ RÉESSAYER",
         victoryTitle: "MISSION<br>ACCOMPLIE!",
         victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">Vous avez des connaissances en géologie, nous passons au niveau suivant.</p>`,
@@ -508,8 +514,8 @@ function setLanguage(lang) {
     // Update DOM texts
     const t = translations[lang];
     if (document.getElementById('title-subtitle')) document.getElementById('title-subtitle').innerHTML = t.subtitle;
-    document.getElementById('char-hades-role').innerHTML = t.roleHades;
-    document.getElementById('char-hera-role').innerHTML = t.roleHera;
+    document.getElementById('char-bob-role').innerHTML = t.roleBob;
+    document.getElementById('char-sheena-role').innerHTML = t.roleSheena;
     document.getElementById('btn-play').innerHTML = t.btnPlay;
     if (document.getElementById('tap-prompt')) document.getElementById('tap-prompt').innerHTML = t.tapPrompt;
     if (document.getElementById('instructions-text')) document.getElementById('instructions-text').innerHTML = t.instructions;
@@ -618,8 +624,8 @@ let drillRig = { x: 3850, y: 150, width: 120, height: 250, drillingDone: false }
 // Character Select Screen handler
 function selectCharacter(gender) {
     selectedChar = gender;
-    document.getElementById("char-hades").classList.toggle("selected", gender === 'male');
-    document.getElementById("char-hera").classList.toggle("selected", gender === 'female');
+    document.getElementById("char-bob").classList.toggle("selected", gender === 'male');
+    document.getElementById("char-sheena").classList.toggle("selected", gender === 'female');
 }
 
 // Custom Rock Question handlers
@@ -752,12 +758,18 @@ function restartGame() {
     player.celebrationTimer = 0;
     
     // Re-apply unique geologist abilities
-    if (selectedChar === "male") { // Hades
-        player.lives = 4;
+    if (player.lives <= 0) {
+        if (selectedChar === "male") { // Bob
+            player.lives = 4;
+        } else { // Sheena
+            player.lives = 3;
+        }
+    }
+    
+    if (selectedChar === "male") { // Bob
         player.speed = 4.2;
         player.jumpForce = -11;
-    } else { // Hera
-        player.lives = 3;
+    } else { // Sheena
         player.speed = 5.2;
         player.jumpForce = -12.8;
     }
@@ -1033,7 +1045,7 @@ function update() {
         return;
     }
 
-    // Slow energy drain (Hades has 25% slower energy drain!)
+    // Slow energy drain (Bob has 25% slower energy drain!)
     let drainRate = selectedChar === "male" ? 0.03 : 0.04;
     player.energy -= drainRate;
     if (player.energy <= 0) {
@@ -1300,19 +1312,28 @@ function update() {
 }
 
 function triggerGameOver(reason) {
+    // Si la muerte no es por quedarse sin vidas, descontar una vida
+    if (reason !== translations[currentLang].gameOverReasonLives) {
+        player.lives--;
+    }
+
     gameState = "gameover";
     AudioSFX.playGameOver();
+    
+    // Determinar título (siempre GAME OVER)
+    const titleText = translations[currentLang].gameOverTitle;
+
     // Congelar pantalla con overlay oscuro dramatico
     ctx.save();
     ctx.fillStyle = "rgba(0, 0, 0, 0.65)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    // Texto GAME OVER en el canvas
+    // Texto GAME OVER o de intento fallido en el canvas
     ctx.font = "bold 36px 'Press Start 2P', monospace";
     ctx.fillStyle = "#E74C3C";
     ctx.shadowColor = "#000";
     ctx.shadowBlur = 12;
     ctx.textAlign = "center";
-    ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 20);
+    ctx.fillText(titleText, canvas.width / 2, canvas.height / 2 - 20);
     ctx.font = "10px 'Press Start 2P', monospace";
     ctx.fillStyle = "#fff";
     ctx.fillText(reason, canvas.width / 2, canvas.height / 2 + 20);
@@ -1321,6 +1342,7 @@ function triggerGameOver(reason) {
     ctx.restore();
     // Mostrar overlay DOM después de un breve delay dramático
     setTimeout(() => {
+        document.getElementById("gameover-title").innerText = titleText;
         document.getElementById("gameover-reason").innerText = reason;
         document.getElementById("gameover-screen").style.display = "flex";
         document.getElementById("game-hud").style.display = "none";
@@ -2480,7 +2502,7 @@ function drawGeologist(ctx, px, py, dir, charType) {
 
     // ── CABELLO (diferenciado por genero) ──
     if (!isMale) {
-        // HERA: mechones que caen a los lados desde debajo del casco
+        // SHEENA: mechones que caen a los lados desde debajo del casco
         ctx.strokeStyle = hairColor;
         ctx.lineCap = 'round';
 
@@ -2513,7 +2535,7 @@ function drawGeologist(ctx, px, py, dir, charType) {
 
         ctx.lineCap = 'butt';
     } else {
-        // HADES: pelo corto masculino
+        // BOB: pelo corto masculino
         ctx.fillStyle = hairColor; ctx.strokeStyle = outline; ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.arc(cx, headY - 5, 12, Math.PI + 0.5, Math.PI * 2 - 0.5);

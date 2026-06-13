@@ -1360,15 +1360,22 @@ function update() {
 
     // Update Snakes
     snakes.forEach(snake => {
-        snake.timer++;
-        if (snake.timer % 150 === 0) {
-            venomProjectiles.push({
-                x: snake.x - 10,
-                y: snake.y + 5,
-                vx: -3.5,
-                width: 10,
-                height: 10
-            });
+        let playerDist = Math.abs(player.x - snake.x);
+        if (playerDist < 350) {
+            snake.timer++;
+            if (snake.timer % 150 === 0) {
+                venomProjectiles.push({
+                    startX: snake.x - 10,
+                    x: snake.x - 10,
+                    y: snake.y + 5,
+                    vx: -3.5,
+                    width: 10,
+                    height: 10,
+                    maxDistance: 220
+                });
+            }
+        } else {
+            snake.timer = 0; // Resetear cuando el jugador se aleja
         }
 
         // Check collision with player
@@ -1390,6 +1397,13 @@ function update() {
         if (projCol) {
             venomProjectiles.splice(i, 1);
             handleFaunaHit();
+            continue;
+        }
+
+        // Limitar la distancia recorrida por el veneno
+        let traveledDistance = Math.abs(proj.x - proj.startX);
+        if (traveledDistance > proj.maxDistance) {
+            venomProjectiles.splice(i, 1);
             continue;
         }
 

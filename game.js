@@ -695,8 +695,8 @@ function closeRockResult() {
             
             gameState = "playing";
         } else {
-            // Si responde mal, es Game Over
-            triggerGameOver(translations[currentLang].gameOverReasonQuiz);
+            // Si responde mal, es muerte (pierde vida)
+            handlePlayerDeath(translations[currentLang].gameOverReasonQuiz);
         }
     }
 }
@@ -1046,7 +1046,7 @@ function update() {
     let drainRate = selectedChar === "male" ? 0.03 : 0.04;
     player.energy -= drainRate;
     if (player.energy <= 0) {
-        triggerGameOver(translations[currentLang].gameOverReasonEnergy);
+        handlePlayerDeath(translations[currentLang].gameOverReasonEnergy);
         return;
     }
 
@@ -1060,7 +1060,7 @@ function update() {
     });
 
     if (inPuddle) {
-        triggerGameOver(translations[currentLang].gameOverReasonPuddle);
+        handlePlayerDeath(translations[currentLang].gameOverReasonPuddle);
         return;
     }
 
@@ -1264,7 +1264,7 @@ function update() {
 
         if (isColliding) {
             if (haz.type === "geyser") {
-                triggerGameOver(translations[currentLang].gameOverReasonGeyser);
+                handlePlayerDeath(translations[currentLang].gameOverReasonGeyser);
                 return;
             }
             if (player.vehicle === "dinosaur") {
@@ -1308,12 +1308,19 @@ function update() {
     }
 }
 
-function triggerGameOver(reason) {
-    // Si la muerte no es por quedarse sin vidas, descontar una vida
-    if (reason !== translations[currentLang].gameOverReasonLives) {
-        player.lives--;
+function handlePlayerDeath(reason) {
+    player.lives--;
+    if (player.lives > 0) {
+        // Reiniciar el nivel conservando las vidas
+        resetPlayerState(false);
+        initLevel();
+    } else {
+        // Si no quedan vidas, Game Over real
+        triggerGameOver(translations[currentLang].gameOverReasonLives);
     }
+}
 
+function triggerGameOver(reason) {
     gameState = "gameover";
     AudioSFX.playGameOver();
     

@@ -122,9 +122,9 @@ const translations = {
                 name: "Muestra 2: Química de la Serpentinización",
                 question: "La serpentinización produce hidrógeno porque...",
                 options: [
-                    "a) El agua rompe los enlaces del olivino liberando hidrógeno del H₂O al oxidar el hierro ferroso a férrico",
-                    "b) El agua disuelve el magnesio del olivino, liberando hidrógeno como subproducto ácido",
-                    "c) La presión fractura el olivino y libera hidrógeno atrapado en su estructura cristalina",
+                    "a) La oxidación del Fe²⁺ a Fe³⁺ del olivino reduce el H⁺ del agua, liberando H₂ molecular",
+                    "b) La reducción del Fe³⁺ a Fe²⁺ durante la hidratación del olivino libera electrones que disocian el H₂O en H₂",
+                    "c) El magnesio liberado del olivino durante la hidratación reacciona con el H₂O produciendo H₂ y brucita",
                     "d) El hierro del olivino reacciona con el CO₂ profundo generando hidrógeno y carbonatos"
                 ],
                 correctIndex: 0,

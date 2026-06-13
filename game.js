@@ -817,13 +817,13 @@ function initLevel() {
         // Spawn Fauna for Level 2
         frogs = [
             { x: 480, y: getGroundHeight(480) - 20, width: 24, height: 20, vy: 0, timer: 15 },
-            { x: 1750, y: getGroundHeight(1750) - 20, width: 24, height: 20, vy: 0, timer: 45 },
-            { x: 2600, y: getGroundHeight(2600) - 20, width: 24, height: 20, vy: 0, timer: 75 }
+            { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 45 },
+            { x: 2420, y: getGroundHeight(2420) - 20, width: 24, height: 20, vy: 0, timer: 75 }
         ];
         snakes = [
-            { x: 950, y: getGroundHeight(950) - 24, width: 32, height: 24, timer: 20 },
-            { x: 1850, y: getGroundHeight(1850) - 24, width: 32, height: 24, timer: 60 },
-            { x: 3100, y: getGroundHeight(3100) - 24, width: 32, height: 24, timer: 100 }
+            { x: 1050, y: getGroundHeight(1050) - 24, width: 32, height: 24, timer: 20 },
+            { x: 1800, y: getGroundHeight(1800) - 24, width: 32, height: 24, timer: 60 },
+            { x: 3300, y: getGroundHeight(3300) - 24, width: 32, height: 24, timer: 100 }
         ];
     } else {
         puddles = [
@@ -837,13 +837,13 @@ function initLevel() {
         ];
         // Spawn Fauna for Level 1
         frogs = [
-            { x: 450, y: getGroundHeight(450) - 20, width: 24, height: 20, vy: 0, timer: 0 },
-            { x: 1650, y: getGroundHeight(1650) - 20, width: 24, height: 20, vy: 0, timer: 30 },
-            { x: 2550, y: getGroundHeight(2550) - 20, width: 24, height: 20, vy: 0, timer: 60 }
+            { x: 480, y: getGroundHeight(480) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 1450, y: getGroundHeight(1450) - 20, width: 24, height: 20, vy: 0, timer: 30 },
+            { x: 2350, y: getGroundHeight(2350) - 20, width: 24, height: 20, vy: 0, timer: 60 }
         ];
         snakes = [
-            { x: 950, y: getGroundHeight(950) - 24, width: 32, height: 24, timer: 0 },
-            { x: 1850, y: getGroundHeight(1850) - 24, width: 32, height: 24, timer: 40 },
+            { x: 930, y: getGroundHeight(930) - 24, width: 32, height: 24, timer: 0 },
+            { x: 1930, y: getGroundHeight(1930) - 24, width: 32, height: 24, timer: 40 },
             { x: 3100, y: getGroundHeight(3100) - 24, width: 32, height: 24, timer: 80 }
         ];
     }

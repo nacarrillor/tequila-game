@@ -16,7 +16,7 @@ const translations = {
         gameOverReasonEnergy: "Te has quedado sin energía exploradora.",
         gameOverReasonPuddle: "Te has hundido en un charco de agua profundo por no saltarlo.",
         gameOverReasonGeyser: "",
-        gameOverReasonQuiz: "Has respondido de manera incorrecta a una pregunta de geología.",
+        gameOverReasonQuiz: "",
         gameOverReasonLives: "Te has quedado sin vidas exploradoras.",
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "¡OH NO!",
@@ -181,7 +181,7 @@ const translations = {
         gameOverReasonEnergy: "You ran out of exploration energy.",
         gameOverReasonPuddle: "You sank into a deep puddle of water because you didn't jump over it.",
         gameOverReasonGeyser: "",
-        gameOverReasonQuiz: "You answered a geology question incorrectly.",
+        gameOverReasonQuiz: "",
         gameOverReasonLives: "You ran out of explorer lives.",
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "OH NO!",
@@ -346,7 +346,7 @@ const translations = {
         gameOverReasonEnergy: "Vous avez manqué d'énergie d'exploration.",
         gameOverReasonPuddle: "Vous avez coulé dans une flaque d'eau profonde pour ne pas l'avoir sautée.",
         gameOverReasonGeyser: "",
-        gameOverReasonQuiz: "Vous avez répondu incorrectement à une question de géologie.",
+        gameOverReasonQuiz: "",
         gameOverReasonLives: "Vous n'avez plus de vies d'explorateur.",
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "OH NON!",
@@ -679,7 +679,14 @@ function answerQuestion(optionIndex) {
     } else {
         resultTitle.textContent = translations[currentLang].incorrectTitle;
         resultTitle.style.color = "#E74C3C";
-        resultSubtitle.textContent = activeRockSample.incorrectFeedback;
+        
+        let feedback = activeRockSample.incorrectFeedback;
+        if (player.lives > 1) {
+            if (currentLang === 'es') feedback = "Respuesta incorrecta. Pierdes una vida.";
+            else if (currentLang === 'fr') feedback = "Réponse incorrecte. Vous perdez une vie.";
+            else feedback = "Incorrect answer. You lose a life.";
+        }
+        resultSubtitle.textContent = feedback;
         snoopyImg.src = "giphy_snoopysad.gif";
     }
     

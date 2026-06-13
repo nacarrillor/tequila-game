@@ -1270,15 +1270,15 @@ function update() {
         if (haz.type === "geyser" && !haz.isErupting) isColliding = false; // geysers only hurt when erupting
 
         if (isColliding) {
+            if (haz.type === "geyser") {
+                handlePlayerDeath(translations[currentLang].gameOverReasonGeyser);
+                return;
+            }
             if (player.vehicle === "dinosaur") {
                 // Dinosaur blocks the hit and gets dismounted
                 player.vehicle = null;
-                if (haz.type === "geyser") {
-                    player.x += player.direction * -80; // Knockback player, don't move geyser
-                } else {
-                    haz.x -= 100; // Push hazard back
-                    player.x += player.direction * -60;
-                }
+                haz.x -= 100; // Push hazard back
+                player.x += player.direction * -60;
                 AudioSFX.playRoar();
             } else {
                 // Direct player hit

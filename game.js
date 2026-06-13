@@ -146,14 +146,14 @@ const translations = {
             },
             {
                 name: "Muestra 4: Secuencia Ofiolítica",
-                question: "¿Cuál es el orden correcto de la secuencia ofiolítica de arriba a abajo?",
+                question: "¿Cuál es el orden estratigráfico correcto de una ofiolita, desde la base hasta el techo?",
                 options: [
-                    "a) Sedimentos → basaltos en almohadilla → diabasas → gabros → peridotitas",
-                    "b) Sedimentos → gabros → diabasas → basaltos en almohadilla → peridotitas",
-                    "c) Peridotitas → gabros → diabasas → basaltos en almohadilla → sedimentos",
-                    "d) Sedimentos → peridotitas → gabros → diabasas → basaltos en almohadilla"
+                    "a) Sedimentos → basaltos en almohadilla → diabasas en diques → gabros → peridotitas",
+                    "b) Sedimentos → gabros → diabasas en diques → basaltos en almohadilla → peridotitas",
+                    "c) Peridotitas → gabros → diabasas en diques → basaltos en almohadilla → sedimentos",
+                    "d) Sedimentos → peridotitas → gabros → diabasas en diques → basaltos en almohadilla"
                 ],
-                correctIndex: 0,
+                correctIndex: 2,
                 correctFeedback: "¡Excelente! Has superado esta pregunta.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             },

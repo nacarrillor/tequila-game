@@ -18,6 +18,7 @@ const translations = {
         gameOverReasonGeyser: "",
         gameOverReasonQuiz: "",
         gameOverReasonLives: "Te has quedado sin vidas exploradoras.",
+        gameOverReasonEnemy: "Te ha atacado la fauna salvaje.",
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "¡OH NO!",
         btnRetry: "▶ REINTENTAR",
@@ -183,6 +184,7 @@ const translations = {
         gameOverReasonGeyser: "",
         gameOverReasonQuiz: "",
         gameOverReasonLives: "You ran out of explorer lives.",
+        gameOverReasonEnemy: "You were attacked by wild fauna.",
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "OH NO!",
         btnRetry: "▶ RETRY",
@@ -348,6 +350,7 @@ const translations = {
         gameOverReasonGeyser: "",
         gameOverReasonQuiz: "",
         gameOverReasonLives: "Vous n'avez plus de vies d'explorateur.",
+        gameOverReasonEnemy: "Vous avez été attaqué par la faune sauvage.",
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "OH NON!",
         btnRetry: "▶ RÉESSAYER",
@@ -593,6 +596,9 @@ let ambientParticles = [];
 let rockSamples = [];
 let seaBubbles = [];
 let puddles = [];
+let frogs = [];
+let snakes = [];
+let venomProjectiles = [];
 
 function getGroundHeight(x) {
     let base = GROUND_Y;
@@ -791,6 +797,9 @@ function handleVictoryButtonClick() {
 
 function initLevel() {
     dinosaurs = [];
+    frogs = [];
+    snakes = [];
+    venomProjectiles = [];
 
     if (currentLevel === 2) {
         // Nivel 2: no hay charcos (desierto seco), solo peligros de cañón
@@ -805,6 +814,17 @@ function initLevel() {
             { x: 1200, y: getGroundHeight(1200), width: 50, height: 40, active: true },
             { x: 2600, y: getGroundHeight(2600), width: 50, height: 40, active: true }
         ];
+        // Spawn Fauna for Level 2
+        frogs = [
+            { x: 700, y: getGroundHeight(700) - 20, width: 24, height: 20, vy: 0, timer: 15 },
+            { x: 1600, y: getGroundHeight(1600) - 20, width: 24, height: 20, vy: 0, timer: 45 },
+            { x: 2800, y: getGroundHeight(2800) - 20, width: 24, height: 20, vy: 0, timer: 75 }
+        ];
+        snakes = [
+            { x: 1100, y: getGroundHeight(1100) - 24, width: 32, height: 24, timer: 20 },
+            { x: 2100, y: getGroundHeight(2100) - 24, width: 32, height: 24, timer: 60 },
+            { x: 3300, y: getGroundHeight(3300) - 24, width: 32, height: 24, timer: 100 }
+        ];
     } else {
         puddles = [
             { x: 1050, width: 70 },
@@ -814,6 +834,17 @@ function initLevel() {
         hazards = [
             { x: 850, y: getGroundHeight(850) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
             { x: 2680, y: getGroundHeight(2680) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 100 }
+        ];
+        // Spawn Fauna for Level 1
+        frogs = [
+            { x: 600, y: getGroundHeight(600) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 1500, y: getGroundHeight(1500) - 20, width: 24, height: 20, vy: 0, timer: 30 },
+            { x: 2400, y: getGroundHeight(2400) - 20, width: 24, height: 20, vy: 0, timer: 60 }
+        ];
+        snakes = [
+            { x: 1200, y: getGroundHeight(1200) - 24, width: 32, height: 24, timer: 0 },
+            { x: 2000, y: getGroundHeight(2000) - 24, width: 32, height: 24, timer: 40 },
+            { x: 3200, y: getGroundHeight(3200) - 24, width: 32, height: 24, timer: 80 }
         ];
     }
 
@@ -1293,6 +1324,81 @@ function update() {
         }
     });
 
+    // Fauna (frogs, snakes, venom) update and collision check
+    function handleFaunaHit() {
+        if (player.vehicle === "skateboard" || player.vehicle === "dinosaur") {
+            player.vehicle = null;
+            player.x += player.direction * -100; // Retroceso
+            player.vx = 0;
+            AudioSFX.playRoar();
+        } else {
+            handlePlayerDeath(translations[currentLang].gameOverReasonEnemy);
+        }
+    }
+
+    // Update Frogs
+    frogs.forEach(frog => {
+        frog.timer++;
+        let localGround = getGroundHeight(frog.x) - frog.height;
+        if (frog.timer % 120 === 0 && frog.y >= localGround) {
+            frog.vy = -7.5; // Salta
+        }
+        frog.vy += 0.25; // Gravedad
+        frog.y += frog.vy;
+        if (frog.y >= localGround) {
+            frog.y = localGround;
+            frog.vy = 0;
+        }
+
+        // Check collision with player
+        let frogCol = Math.abs(player.x + player.width/2 - (frog.x + 12)) < (player.width + 24)/2 &&
+                      Math.abs(player.y + player.height/2 - (frog.y + 10)) < (player.height + 20)/2;
+        if (frogCol) {
+            handleFaunaHit();
+        }
+    });
+
+    // Update Snakes
+    snakes.forEach(snake => {
+        snake.timer++;
+        if (snake.timer % 150 === 0) {
+            venomProjectiles.push({
+                x: snake.x - 10,
+                y: snake.y + 5,
+                vx: -3.5,
+                width: 10,
+                height: 10
+            });
+        }
+
+        // Check collision with player
+        let snakeCol = Math.abs(player.x + player.width/2 - (snake.x + 16)) < (player.width + 32)/2 &&
+                       Math.abs(player.y + player.height/2 - (snake.y + 12)) < (player.height + 24)/2;
+        if (snakeCol) {
+            handleFaunaHit();
+        }
+    });
+
+    // Update Venom Projectiles
+    for (let i = venomProjectiles.length - 1; i >= 0; i--) {
+        let proj = venomProjectiles[i];
+        proj.x += proj.vx;
+        
+        // Colisión con el jugador
+        let projCol = Math.abs(player.x + player.width/2 - (proj.x + 5)) < (player.width + 10)/2 &&
+                      Math.abs(player.y + player.height/2 - (proj.y + 5)) < (player.height + 10)/2;
+        if (projCol) {
+            venomProjectiles.splice(i, 1);
+            handleFaunaHit();
+            continue;
+        }
+
+        // Remove off-screen projectiles
+        if (proj.x < cameraX - 50 || proj.x > cameraX + canvas.width + 50) {
+            venomProjectiles.splice(i, 1);
+        }
+    }
+
 
 
     // 8. Update ambient background particles
@@ -1555,6 +1661,104 @@ function draw() {
         } else {
             drawFrailejón(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.hasFlower, fr.scale);
         }
+    });
+
+    // ── FAUNA (Frogs, Snakes, Venom) ──
+    frogs.forEach(frog => {
+        ctx.save();
+        ctx.fillStyle = "#27AE60"; // Green body
+        ctx.strokeStyle = "#1E8449";
+        ctx.lineWidth = 1.5;
+        
+        // Draw body (ellipse/arc)
+        ctx.beginPath();
+        ctx.ellipse(frog.x + 12, frog.y + 12, 12, 8, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Draw big eyes
+        ctx.fillStyle = "#FFFFFF";
+        ctx.beginPath();
+        ctx.arc(frog.x + 7, frog.y + 5, 4, 0, Math.PI * 2);
+        ctx.arc(frog.x + 17, frog.y + 5, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        
+        ctx.fillStyle = "#000000";
+        ctx.beginPath();
+        ctx.arc(frog.x + 7, frog.y + 5, 1.8, 0, Math.PI * 2);
+        ctx.arc(frog.x + 17, frog.y + 5, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Draw legs
+        ctx.strokeStyle = "#1E8449";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        // Left back leg
+        ctx.moveTo(frog.x + 4, frog.y + 14);
+        ctx.quadraticCurveTo(frog.x - 2, frog.y + 12, frog.x + 2, frog.y + 18);
+        // Right back leg
+        ctx.moveTo(frog.x + 20, frog.y + 14);
+        ctx.quadraticCurveTo(frog.x + 26, frog.y + 12, frog.x + 22, frog.y + 18);
+        ctx.stroke();
+        ctx.restore();
+    });
+
+    snakes.forEach(snake => {
+        ctx.save();
+        ctx.fillStyle = "#D35400"; // Orange/Clay snake body
+        ctx.strokeStyle = "#A04000";
+        ctx.lineWidth = 1.5;
+
+        // Draw coiled tail/body
+        ctx.beginPath();
+        ctx.arc(snake.x + 16, snake.y + 16, 8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        
+        // Draw head
+        ctx.beginPath();
+        ctx.ellipse(snake.x + 12, snake.y + 8, 8, 5, -0.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Draw eyes
+        ctx.fillStyle = "#F1C40F"; // Yellow glowing eyes
+        ctx.beginPath();
+        ctx.arc(snake.x + 9, snake.y + 7, 2, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.fillStyle = "#000000";
+        ctx.beginPath();
+        ctx.arc(snake.x + 9, snake.y + 7, 0.8, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Draw red tongue
+        ctx.strokeStyle = "#E74C3C";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(snake.x + 4, snake.y + 8);
+        ctx.lineTo(snake.x - 2, snake.y + 9);
+        ctx.stroke();
+
+        ctx.restore();
+    });
+
+    venomProjectiles.forEach(proj => {
+        ctx.save();
+        ctx.fillStyle = "#9B59B6"; // Purple venom
+        ctx.shadowColor = "#8E44AD";
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.ellipse(proj.x + 5, proj.y + 5, 5, 4, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Draw a small highlight/glare
+        ctx.fillStyle = "#FFFFFF";
+        ctx.beginPath();
+        ctx.arc(proj.x + 3, proj.y + 3, 1.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
     });
 
     // ── TEXTOS FLOTANTES de medición ppm ──

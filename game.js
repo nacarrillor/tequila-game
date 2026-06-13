@@ -2146,7 +2146,7 @@ function draw() {
     ctx.font = "bold 5px 'Press Start 2P', monospace";
     ctx.fillStyle = "#E74C3C";
     ctx.textAlign = "center";
-    ctx.fillText("SANDRISTAS", shopX + 65, shopY - 86);
+    ctx.fillText("LA PAPA RECORDS", shopX + 65, shopY - 86);
     ctx.textAlign = "left";
 
     // 5. Mesas y sillas plásticas afuera

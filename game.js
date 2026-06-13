@@ -820,11 +820,7 @@ function initLevel() {
             { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 45 },
             { x: 2420, y: getGroundHeight(2420) - 20, width: 24, height: 20, vy: 0, timer: 75 }
         ];
-        snakes = [
-            { x: 1050, y: getGroundHeight(1050) - 24, width: 32, height: 24, timer: 20 },
-            { x: 1800, y: getGroundHeight(1800) - 24, width: 32, height: 24, timer: 60 },
-            { x: 3300, y: getGroundHeight(3300) - 24, width: 32, height: 24, timer: 100 }
-        ];
+        snakes = [];
     } else {
         puddles = [
             { x: 1050, width: 70 },
@@ -841,11 +837,7 @@ function initLevel() {
             { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 30 },
             { x: 3150, y: getGroundHeight(3150) - 20, width: 24, height: 20, vy: 0, timer: 60 }
         ];
-        snakes = [
-            { x: 930, y: getGroundHeight(930) - 24, width: 32, height: 24, timer: 0 },
-            { x: 2350, y: getGroundHeight(2350) - 24, width: 32, height: 24, timer: 40 },
-            { x: 3800, y: getGroundHeight(3800) - 24, width: 32, height: 24, timer: 80 }
-        ];
+        snakes = [];
     }
 
     fairyCircles = [];
@@ -1714,40 +1706,92 @@ function draw() {
 
     snakes.forEach(snake => {
         ctx.save();
-        ctx.fillStyle = "#D35400"; // Orange/Clay snake body
-        ctx.strokeStyle = "#A04000";
-        ctx.lineWidth = 1.5;
-
-        // Draw coiled tail/body
-        ctx.beginPath();
-        ctx.arc(snake.x + 16, snake.y + 16, 8, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
         
-        // Draw head
-        ctx.beginPath();
-        ctx.ellipse(snake.x + 12, snake.y + 8, 8, 5, -0.2, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-
-        // Draw eyes
-        ctx.fillStyle = "#F1C40F"; // Yellow glowing eyes
-        ctx.beginPath();
-        ctx.arc(snake.x + 9, snake.y + 7, 2, 0, Math.PI * 2);
-        ctx.fill();
+        let slither = Math.sin(Date.now() / 120 + snake.x) * 3;
+        let tongueFlicker = Math.sin(Date.now() / 60) > 0.3;
         
-        ctx.fillStyle = "#000000";
+        // Draw Shadow
+        ctx.fillStyle = "rgba(0,0,0,0.15)";
         ctx.beginPath();
-        ctx.arc(snake.x + 9, snake.y + 7, 0.8, 0, Math.PI * 2);
+        ctx.ellipse(snake.x + 16, snake.y + 20, 18, 4, 0, 0, Math.PI * 2);
         ctx.fill();
 
-        // Draw red tongue
-        ctx.strokeStyle = "#E74C3C";
+        // 1. Draw Coiled/Wavy Body Segments
+        // Tail to Head segments
+        const segments = [
+            { dx: 26, dy: 16 + slither * 0.5, r: 4.5, color: "#1E8449" }, // Tail
+            { dx: 22, dy: 13 - slither, r: 6, color: "#27AE60" },
+            { dx: 17, dy: 15 + slither, r: 7, color: "#2ECC71" },
+            { dx: 12, dy: 12 - slither * 0.5, r: 7.5, color: "#27AE60" },
+            { dx: 8, dy: 10 + slither * 0.2, r: 7, color: "#1E8449" } // Neck
+        ];
+
+        // Draw body segments with outlines and stripes
+        segments.forEach((seg, index) => {
+            ctx.fillStyle = seg.color;
+            ctx.strokeStyle = "#145A32";
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(snake.x + seg.dx, snake.y + seg.dy, seg.r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Underbelly yellow-green stripe
+            ctx.fillStyle = "#D5F5E3";
+            ctx.beginPath();
+            ctx.arc(snake.x + seg.dx, snake.y + seg.dy + seg.r * 0.4, seg.r * 0.5, 0, Math.PI);
+            ctx.fill();
+
+            // Diamond patterns/stripes on the back
+            if (index > 0 && index < 4) {
+                ctx.fillStyle = "#F1C40F"; // Gold diamond
+                ctx.beginPath();
+                ctx.moveTo(snake.x + seg.dx, snake.y + seg.dy - seg.r);
+                ctx.lineTo(snake.x + seg.dx - 2, snake.y + seg.dy - seg.r * 0.4);
+                ctx.lineTo(snake.x + seg.dx, snake.y + seg.dy + seg.r * 0.2);
+                ctx.lineTo(snake.x + seg.dx + 2, snake.y + seg.dy - seg.r * 0.4);
+                ctx.closePath();
+                ctx.fill();
+            }
+        });
+
+        // 2. Draw Head (raised, facing left)
+        let headX = snake.x + 3;
+        let headY = snake.y + 7 + slither * 0.1;
+        ctx.fillStyle = "#27AE60";
+        ctx.strokeStyle = "#145A32";
         ctx.lineWidth = 1.5;
+        
         ctx.beginPath();
-        ctx.moveTo(snake.x + 4, snake.y + 8);
-        ctx.lineTo(snake.x - 2, snake.y + 9);
+        ctx.ellipse(headX, headY, 8, 6, -0.15, 0, Math.PI * 2);
+        ctx.fill();
         ctx.stroke();
+
+        // 3. Glowing Red/Yellow Eyes
+        ctx.fillStyle = "#E74C3C"; // Glowing red sclera
+        ctx.beginPath();
+        ctx.arc(headX - 3, headY - 2, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#F1C40F"; // Yellow slit pupil
+        ctx.beginPath();
+        ctx.ellipse(headX - 3.5, headY - 2, 0.7, 1.8, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 4. Forked Flickering Tongue (Red)
+        if (tongueFlicker) {
+            ctx.strokeStyle = "#E74C3C";
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(headX - 6, headY + 1);
+            ctx.lineTo(headX - 12, headY + 2);
+            // Forks
+            ctx.moveTo(headX - 12, headY + 2);
+            ctx.lineTo(headX - 15, headY + 0);
+            ctx.moveTo(headX - 12, headY + 2);
+            ctx.lineTo(headX - 15, headY + 4);
+            ctx.stroke();
+        }
 
         ctx.restore();
     });

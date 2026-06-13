@@ -20,7 +20,7 @@ const translations = {
         gameOverReasonLives: "Te has quedado sin vidas exploradoras.",
         gameOverReasonEnemy: "Te ha atacado la fauna salvaje.",
         gameOverTitle: "GAME OVER",
-        failedAttemptTitle: "¡OH NO!",
+        failedAttemptTitle: "INTÉNTALO DE NUEVO",
         btnRetry: "▶ REINTENTAR",
         victoryTitle: "¡MISIÓN<br>COMPLETADA!",
         victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">Tienes conocimientos en geología, pasamos al siguiente nivel.</p>`,
@@ -186,7 +186,7 @@ const translations = {
         gameOverReasonLives: "You ran out of explorer lives.",
         gameOverReasonEnemy: "You were attacked by wild fauna.",
         gameOverTitle: "GAME OVER",
-        failedAttemptTitle: "OH NO!",
+        failedAttemptTitle: "TRY AGAIN",
         btnRetry: "▶ RETRY",
         victoryTitle: "MISSION<br>COMPLETED!",
         victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">You have knowledge in geology, we move to the next level.</p>`,
@@ -352,7 +352,7 @@ const translations = {
         gameOverReasonLives: "Vous n'avez plus de vies d'explorateur.",
         gameOverReasonEnemy: "Vous avez été attaqué par la faune sauvage.",
         gameOverTitle: "GAME OVER",
-        failedAttemptTitle: "OH NON!",
+        failedAttemptTitle: "RÉESSAYER",
         btnRetry: "▶ RÉESSAYER",
         victoryTitle: "MISSION<br>ACCOMPLIE!",
         victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">Vous avez des connaissances en géologie, nous passons au niveau suivant.</p>`,
@@ -1437,29 +1437,23 @@ function update() {
 
 function handlePlayerDeath(reason) {
     player.lives--;
-    if (player.lives > 0) {
-        // Reiniciar el nivel conservando las vidas
-        resetPlayerState(false);
-        initLevel();
-    } else {
-        // Si no quedan vidas, Game Over real
-        triggerGameOver(translations[currentLang].gameOverReasonLives);
-    }
+    triggerGameOver(reason);
 }
 
 function triggerGameOver(reason) {
     gameState = "gameover";
     AudioSFX.playGameOver();
     
-    // Determinar título (siempre GAME OVER)
-    const titleText = translations[currentLang].gameOverTitle;
+    // Determinar título según vidas restantes
+    const hasLives = player.lives > 0;
+    const titleText = hasLives ? translations[currentLang].failedAttemptTitle : translations[currentLang].gameOverTitle;
 
     // Congelar pantalla con overlay oscuro dramatico
     ctx.save();
     ctx.fillStyle = "rgba(0, 0, 0, 0.65)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    // Texto GAME OVER o de intento fallido en el canvas
-    ctx.font = "bold 36px 'Press Start 2P', monospace";
+    // Texto de título en el canvas
+    ctx.font = "bold 24px 'Press Start 2P', monospace";
     ctx.fillStyle = "#E74C3C";
     ctx.shadowColor = "#000";
     ctx.shadowBlur = 12;

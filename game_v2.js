@@ -396,6 +396,45 @@ const translations = {
                 correctIndex: 1,
                 correctFeedback: "¡Correcto! La pequeña molécula de H2 puede escapar de trampas convencionales.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 8: Helio-3 vs Helio-4",
+                question: "¿Qué diferencia el helio-3 del helio-4 y por qué importa en exploración de H₂?",
+                options: [
+                    "a) El helio-3 se genera en la corteza por desintegración radiactiva y el helio-4 proviene del manto primitivo",
+                    "b) El helio-3 es primordial y predomina en fluidos del manto, mientras el helio-4 se genera en la corteza por desintegración de uranio y torio",
+                    "c) El helio-3 indica serpentinización activa y el helio-4 indica radiolisis como fuente principal del hidrógeno",
+                    "d) Ambos tienen el mismo origen pero el helio-3 migra más rápido por su menor masa y llega antes a superficie"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! El He-3 proviene del manto y el He-4 de la corteza.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 9: Trazadores Gases Nobles",
+                question: "¿Por qué los gases nobles como el helio y el neón son útiles para rastrear el origen del hidrógeno natural?",
+                options: [
+                    "a) Porque los gases nobles reaccionan con el hidrógeno en el subsuelo formando compuestos diagnósticos de cada ambiente geológico",
+                    "b) Porque cada fuente geológica tiene una firma isotópica de gases nobles característica que permite identificar si el fluido viene del manto, la corteza o una mezcla",
+                    "c) Porque los gases nobles son más abundantes que el hidrógeno en cualquier fluido del subsuelo y por eso se detectan primero",
+                    "d) Porque los gases nobles migran exactamente por las mismas rutas que el hidrógeno permitiendo usarlos como trazadores directos"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Exacto! Tienen firmas isotópicas características.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 10: Neón como complemento",
+                question: "¿Por qué el neón puede complementar al helio como trazador de fluidos en zonas de hidrógeno natural?",
+                options: [
+                    "a) Porque el neón es más abundante que el helio en el manto y por tanto más fácil de detectar en pequeñas muestras",
+                    "b) Porque los isótopos del neón permiten distinguir entre componentes atmosféricos, corticales y mantélicos en un mismo fluido",
+                    "c) Porque el neón migra más lento que el helio y por tanto registra procesos más antiguos en la misma zona",
+                    "d) Porque el neón reacciona con el hidrógeno en condiciones de alta presión generando compuestos diagnósticos únicos"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Muy bien! Los isótopos de neón son excelentes discriminadores de fuentes.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
         ]
     },
@@ -788,6 +827,45 @@ const translations = {
                 correctIndex: 1,
                 correctFeedback: "Correct! The small H2 molecule can escape conventional traps.",
                 incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 8: Helium-3 vs Helium-4",
+                question: "What distinguishes helium-3 from helium-4 and why does it matter in natural H₂ exploration?",
+                options: [
+                    "a) Helium-3 is generated in the crust by radioactive decay and helium-4 comes from the primitive mantle",
+                    "b) Helium-3 is primordial and predominates in mantle fluids, while helium-4 is generated in the crust by uranium and thorium decay",
+                    "c) Helium-3 indicates active serpentinization and helium-4 indicates radiolysis as the main source of hydrogen",
+                    "d) Both have the same origin but helium-3 migrates faster due to its lower mass and reaches the surface earlier"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct! He-3 comes from the mantle and He-4 from the crust.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 9: Noble Gas Tracers",
+                question: "Why are noble gases like helium and neon useful for tracing the origin of natural hydrogen?",
+                options: [
+                    "a) Because noble gases react with hydrogen in the subsurface forming diagnostic compounds for each geological environment",
+                    "b) Because each geological source has a characteristic noble gas isotopic signature that allows identifying if the fluid comes from the mantle, crust, or a mixture",
+                    "c) Because noble gases are more abundant than hydrogen in any subsurface fluid and therefore are detected first",
+                    "d) Because noble gases migrate exactly through the same routes as hydrogen, allowing their use as direct tracers"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Exactly! They have characteristic isotopic signatures.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 10: Neon as a complement",
+                question: "Why can neon complement helium as a fluid tracer in natural hydrogen zones?",
+                options: [
+                    "a) Because neon is more abundant than helium in the mantle and therefore easier to detect in small samples",
+                    "b) Because neon isotopes make it possible to distinguish between atmospheric, crustal, and mantle components in the same fluid",
+                    "c) Because neon migrates slower than helium and therefore records older processes in the same zone",
+                    "d) Because neon reacts with hydrogen under high pressure generating unique diagnostic compounds"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Very good! Neon isotopes are excellent source discriminators.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             }
         ]
     },
@@ -1179,6 +1257,45 @@ const translations = {
                 ],
                 correctIndex: 1,
                 correctFeedback: "Correct ! La petite molécule de H2 peut s'échapper des pièges conventionnels.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 8 : Hélium-3 vs Hélium-4",
+                question: "Qu'est-ce qui différencie l'hélium-3 de l'hélium-4 et pourquoi est-ce important dans l'exploration de l'H₂ naturel ?",
+                options: [
+                    "a) L'hélium-3 est généré dans la croûte par désintégration radioactive et l'hélium-4 provient du manteau primitif",
+                    "b) L'hélium-3 est primordial et prédomine dans les fluides du manteau, tandis que l'hélium-4 est généré dans la croûte par la désintégration de l'uranium et du thorium",
+                    "c) L'hélium-3 indique une serpentinisation active et l'hélium-4 indique la radiolyse comme source principale d'hydrogène",
+                    "d) Les deux ont la même origine mais l'hélium-3 migre plus vite grâce à sa masse plus faible et atteint la surface plus tôt"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct ! L'He-3 provient du manteau et l'He-4 de la croûte.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 9 : Traceurs de gaz nobles",
+                question: "Pourquoi les gaz nobles comme l'hélium et le néon sont-ils utiles pour tracer l'origine de l'hydrogène naturel ?",
+                options: [
+                    "a) Parce que les gaz nobles réagissent avec l'hydrogène dans le sous-sol formant des composés diagnostiques pour chaque environnement géologique",
+                    "b) Parce que chaque source géologique a une signature isotopique de gaz nobles caractéristique qui permet d'identifier si le fluide provient du manteau, de la croûte ou d'un mélange",
+                    "c) Parce que les gaz nobles sont plus abondants que l'hydrogène dans tout fluide du sous-sol et sont donc détectés en premier",
+                    "d) Parce que les gaz nobles migrent exactement par les mêmes voies que l'hydrogène, permettant de les utiliser comme traceurs directs"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Exactement ! Ils ont des signatures isotopiques caractéristiques.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 10 : Le néon comme complément",
+                question: "Pourquoi le néon peut-il compléter l'hélium en tant que traceur de fluides dans les zones d'hydrogène naturel ?",
+                options: [
+                    "a) Parce que le néon est plus abondant que l'hélium dans le manteau et donc plus facile à détecter dans de petits échantillons",
+                    "b) Parce que les isotopes du néon permettent de distinguer les composants atmosphériques, crustaux et mantelliques dans un même fluide",
+                    "c) Parce que le néon migre plus lentement que l'hélium et enregistre donc des processus plus anciens dans la même zone",
+                    "d) Parce que le néon réagit avec l'hydrogène sous haute pression générant des composés diagnostiques uniques"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Très bien ! Les isotopes du néon discriminent excellemment les sources.",
                 incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             }
         ]
@@ -1695,7 +1812,7 @@ function initLevel() {
 
     // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 5
     const rockXPositions = currentLevel === 1 ? [500, 1000, 1800, 2400, 3300, 3900, 4800, 5400, 6300, 6900] : 
-                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [400]);
+                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [400, 1100, 1800, 2500, 3200]);
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
@@ -2958,6 +3075,21 @@ function draw() {
     });
 
     // DRAW EDUCATIONAL ROCK SAMPLES
+    // Draw Level 3 islands under the sea rocks
+    if (currentLevel === 3) {
+        rockSamples.forEach((rock, idx) => {
+            if (idx > 0 && !rock.discovered) { // skip the first one since it's on the beach
+                ctx.fillStyle = "#E6C280"; // Sand color
+                ctx.beginPath();
+                ctx.ellipse(rock.x + 15, getGroundHeight(rock.x) + 5, 45, 12, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = "#D4A373";
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+        });
+    }
+
     rockSamples.forEach(rock => {
         if (!rock.discovered) {
             // Glowing aura

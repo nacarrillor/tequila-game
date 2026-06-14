@@ -174,69 +174,108 @@ const translations = {
         ],
         questionsLevel2: [
             {
-                name: "Muestra 1: Tipo de costa",
-                question: "¿Qué caracteriza principalmente a la costa del Chocó en el Pacífico colombiano?",
+                name: "Muestra 1: Subducción",
+                question: "¿Qué ocurre en una zona de subducción?",
                 options: [
-                    "Costa alta y rocosa, con acantilados y playas de arena oscura de origen volcánico",
-                    "Costa baja y arenosa pura, con dunas gigantes y arrecifes de coral extensos",
-                    "Costa deltaica dominada únicamente por depósitos glaciares antiguos",
-                    "Costa de fiordos profundos esculpidos por el hielo"
+                    "Dos placas continentales chocan y forman una cordillera montañosa",
+                    "Una placa oceánica se hunde bajo otra placa porque es más densa",
+                    "El manto asciende entre dos placas separándolas y creando nueva corteza",
+                    "Una placa continental se parte en dos generando un nuevo océano"
                 ],
-                correctIndex: 0,
-                correctFeedback: "¡Correcto! La costa de Chocó es tectónicamente activa y tiene rocas volcánicas y sedimentarias.",
-                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+                correctIndex: 1,
+                correctFeedback: "¡Excelente! Has respondido de manera correcta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             },
             {
-                name: "Muestra 2: Placas tectónicas",
-                question: "¿Qué placas tectónicas interactúan frente a la costa del Pacífico de Colombia generando sismicidad?",
+                name: "Muestra 2: Volcanes de subducción",
+                question: "¿Por qué las zonas de subducción generan volcanes?",
                 options: [
-                    "La Placa de Nazca subduciendo bajo la Placa Sudamericana",
-                    "La Placa del Caribe deslizándose lateralmente bajo la Placa Cocos",
-                    "La Placa Pacífica separándose de la Placa Euroasiática",
-                    "La Placa Escocesa colisionando con la Placa Africana"
+                    "Porque la fricción entre las dos placas genera suficiente calor para fundir la corteza superior",
+                    "Porque la placa que se hunde arrastra agua y sedimentos que bajan la temperatura de fusión del manto",
+                    "Porque la presión que ejerce la placa descendente empuja el magma hacia la superficie",
+                    "Porque la corteza oceánica al hundirse se funde completamente y asciende como magma"
                 ],
-                correctIndex: 0,
-                correctFeedback: "¡Excelente! La subducción de Nazca bajo la Sudamericana es responsable de la fosa y sismicidad.",
-                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! Muy bien contestado.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             },
             {
-                name: "Muestra 3: Arenas oscuras",
-                question: "¿Por qué las arenas de las playas del Chocó tienen un color oscuro característico?",
+                name: "Muestra 3: Dorsal oceánica",
+                question: "¿Qué es una dorsal oceánica y qué tipo de actividad geológica tiene?",
                 options: [
-                    "Por la erosión de rocas volcánicas y basálticas ricas en minerales ferromagnesianos",
-                    "Por la acumulación masiva de carbón mineral arrastrado por los ríos costeros",
-                    "Por la descomposición de materia orgánica de los manglares y alta pluviosidad",
-                    "Por depósitos de petróleo natural que brotan del fondo marino"
+                    "Una cadena montañosa submarina donde dos placas chocan generando terremotos profundos",
+                    "Una zona donde la corteza oceánica es más gruesa por acumulación de sedimentos volcánicos",
+                    "Una cadena montañosa submarina donde dos placas se separan y surge magma formando nueva corteza",
+                    "Una falla oceánica donde una placa se desliza horizontalmente sobre otra sin generar magma"
                 ],
-                correctIndex: 0,
-                correctFeedback: "¡Muy bien! Los basaltos de la serranía de Baudó aportan estos minerales oscuros.",
-                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+                correctIndex: 2,
+                correctFeedback: "¡Excelente! Has superado esta pregunta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             },
             {
-                name: "Muestra 4: Energía del mar",
-                question: "¿Cómo se llama la energía limpia que se obtiene del movimiento de las olas del mar, ideal para el Pacífico?",
+                name: "Muestra 4: Punto caliente",
+                question: "¿Qué es un punto caliente y qué lo diferencia de un volcán de subducción?",
                 options: [
-                    "Energía undimotriz",
-                    "Energía mareomotriz",
-                    "Energía geotérmica marina",
-                    "Energía termoeléctrica costera"
+                    "Un punto caliente es un volcán de dorsal oceánica que emerge sobre el nivel del mar",
+                    "Un punto caliente es una anomalía térmica fija en el manto que perfora la placa independientemente de su posición",
+                    "Un punto caliente es una zona de subducción donde el magma asciende con más velocidad que en otras",
+                    "Un punto caliente es un volcán continental que se forma cuando dos placas continentales chocan"
                 ],
-                correctIndex: 0,
-                correctFeedback: "¡Exacto! La energía undimotriz aprovecha la fuerza de las olas de nuestro gran océano Pacífico.",
-                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! Excelente respuesta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             },
             {
-                name: "Muestra 5: Fosa marina",
-                question: "¿Cuál es el nombre de la fosa oceánica situada frente a la costa colombiana del Pacífico?",
+                name: "Muestra 5: Alteración del olivino",
+                question: "¿Por qué el olivino fresco tiene color verde pero se vuelve marrón en superficie?",
                 options: [
-                    "Fosa de Colombia (o fosa Colombo-Ecuatoriana)",
-                    "Fosa de las Marianas",
-                    "Fosa de Puerto Rico",
-                    "Fosa de Java"
+                    "Porque la luz solar descompone los silicatos del olivino cambiando su estructura cristalina",
+                    "Porque el agua y el oxígeno oxidan el hierro del olivino transformándolo en óxidos marrones",
+                    "Porque al perder presión en superficie el olivino libera magnesio y cambia su composición",
+                    "Porque las bacterias del suelo descomponen el olivino generando compuestos de color marrón"
                 ],
-                correctIndex: 0,
-                correctFeedback: "¡Excelente! Has superado todas las preguntas geológicas de la costa pacífica.",
-                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+                correctIndex: 1,
+                correctFeedback: "¡Excelente! Has respondido de manera correcta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 6: Corteza oceánica joven",
+                question: "¿Por qué la corteza oceánica es más joven que la continental?",
+                options: [
+                    "Porque el agua del océano erosiona la corteza oceánica constantemente renovándola",
+                    "Porque la corteza oceánica se recicla continuamente al hundirse en las zonas de subducción",
+                    "Porque las dorsales oceánicas generan nueva corteza mucho más rápido que los volcanes continentales",
+                    "Porque la corteza continental es más resistente y por eso sobrevive más tiempo sin renovarse"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! Muy bien contestado.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 7: Ciclo de las rocas",
+                question: "¿Qué es el ciclo de las rocas?",
+                options: [
+                    "El proceso por el cual las rocas se erosionan y sus minerales vuelven al mar donde se disuelven",
+                    "La secuencia de transformaciones por la que cualquier tipo de roca puede convertirse en otro tipo con el tiempo",
+                    "El movimiento de las placas tectónicas que recicla la corteza oceánica cada 200 millones de años",
+                    "La alternancia entre periodos de intensa actividad volcánica y periodos de calma geológica"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Exacto! Tienes buenos conocimientos de geología.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 8: Ondas sísmicas",
+                question: "¿Qué información nos da la velocidad de las ondas sísmicas sobre el interior de la Tierra?",
+                options: [
+                    "Nos indica la temperatura exacta de cada capa porque el calor acelera las ondas sísmicas",
+                    "Nos permite calcular la edad de las rocas porque las ondas viajan más lento en rocas más antiguas",
+                    "Nos revela la composición y estado de las capas internas porque las ondas cambian de velocidad al atravesar materiales distintos",
+                    "Nos indica la presión en cada capa porque las ondas se comprimen al encontrar zonas de alta presión"
+                ],
+                correctIndex: 2,
+                correctFeedback: "¡Correcto! Excelente respuesta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
         ],
         questionsLevel3: [
@@ -1358,8 +1397,9 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    // Level 1 rocks: exactly 1 per hill on 10 separate hills
-    const rockXPositions = currentLevel === 1 ? [1025, 1625, 2225, 2825, 3425, 4025, 4625, 5225, 5825, 6425] : [650, 1350, 2100, 2850, 3500];
+    // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 8 rocks, Level 3 has 5
+    const rockXPositions = currentLevel === 1 ? [1025, 1625, 2225, 2825, 3425, 4025, 4625, 5225, 5825, 6425] : 
+                           (currentLevel === 2 ? [500, 1050, 1400, 1950, 2500, 3050, 3500, 3750] : [650, 1350, 2100, 2850, 3500]);
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
     rockSamples = baseQuestions.map((q, idx) => {
@@ -3050,7 +3090,7 @@ function draw() {
     // Draw version tag on canvas
     ctx.font = "6px 'Press Start 2P'";
     ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
-    ctx.fillText("v2.0.5", canvas.width - 55, canvas.height - 13);
+    ctx.fillText("v2.0.6", canvas.width - 55, canvas.height - 13);
 
     // Actualizar HUD DOM (score boxes)
     updateHUD();

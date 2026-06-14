@@ -1525,7 +1525,7 @@ function answerQuestion(optionIndex) {
                 let unlockMsg = translations[currentLang].skateboardUnlock
                     .replace("🛹", "🏄‍♂️")
                     .replace("TRANSPORTE", "TRANSPORTE: ¡TABLA DE SURF!");
-                resultSubtitle.innerHTML += unlockMsg + " (Sube al mar)";
+                resultSubtitle.innerHTML += unlockMsg + " (Ve directo al mar)";
             } else if (currentLevel === 2) {
                 player.vehicle = "dinosaur";
                 let unlockMsg = translations[currentLang].skateboardUnlock
@@ -2350,7 +2350,11 @@ function update() {
             player.vx = 0;
             AudioSFX.playRoar();
         } else {
-            handlePlayerDeath(translations[currentLang].gameOverReasonEnemy);
+            let reason = translations[currentLang].gameOverReasonEnemy;
+            if (currentLevel === 3) {
+                reason = currentLang === "es" ? "Te ha atacado la fauna marina." : "You were attacked by marine fauna.";
+            }
+            handlePlayerDeath(reason);
         }
     }
 

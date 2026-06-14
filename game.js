@@ -1010,30 +1010,25 @@ function getGroundHeight(x) {
     let base = GROUND_Y;
     
     if (currentLevel === 1) {
-        // Hill 1
-        if (x > 900 && x < 1200) {
-            let pct = (x - 900) / 300;
-            base -= Math.sin(pct * Math.PI) * 70;
-        }
-        // Hill 2
-        if (x > 2000 && x < 2300) {
-            let pct = (x - 2000) / 300;
-            base -= Math.sin(pct * Math.PI) * 90;
-        }
-        // Hill 3
-        if (x > 3100 && x < 3400) {
-            let pct = (x - 3100) / 300;
-            base -= Math.sin(pct * Math.PI) * 60;
-        }
-        // Hill 4
-        if (x > 4200 && x < 4500) {
-            let pct = (x - 4200) / 300;
-            base -= Math.sin(pct * Math.PI) * 70;
-        }
-        // Hill 5
-        if (x > 5300 && x < 5600) {
-            let pct = (x - 5300) / 300;
-            base -= Math.sin(pct * Math.PI) * 90;
+        const hills = [
+            { start: 900, end: 1150, h: 70 },
+            { start: 1500, end: 1750, h: 80 },
+            { start: 2100, end: 2350, h: 70 },
+            { start: 2700, end: 2950, h: 60 },
+            { start: 3300, end: 3550, h: 70 },
+            { start: 3900, end: 4150, h: 80 },
+            { start: 4500, end: 4750, h: 70 },
+            { start: 5100, end: 5350, h: 60 },
+            { start: 5700, end: 5950, h: 70 },
+            { start: 6300, end: 6550, h: 80 }
+        ];
+        for (let i = 0; i < hills.length; i++) {
+            let hill = hills[i];
+            if (x > hill.start && x < hill.end) {
+                let pct = (x - hill.start) / 250;
+                base -= Math.sin(pct * Math.PI) * hill.h;
+                break;
+            }
         }
     } else {
         // Hill 1
@@ -1300,17 +1295,17 @@ function initLevel() {
         //
         // Obstacles ON HILLS only (far from rocks):
         puddles = [
-            { x: 2700, width: 75 }
+            { x: 2525, width: 75 }
         ];
         hazards = [
-            { x: 1600, y: getGroundHeight(1600) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
-            { x: 4900, y: getGroundHeight(4900) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
+            { x: 1325, y: getGroundHeight(1325) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
+            { x: 4925, y: getGroundHeight(4925) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
         ];
         // Frogs on flat ground:
         frogs = [
             { x: 700, y: getGroundHeight(700) - 20, width: 24, height: 20, vy: 0, timer: 0 },
-            { x: 3800, y: getGroundHeight(3800) - 20, width: 24, height: 20, vy: 0, timer: 40 },
-            { x: 6000, y: getGroundHeight(6000) - 20, width: 24, height: 20, vy: 0, timer: 80 }
+            { x: 3725, y: getGroundHeight(3725) - 20, width: 24, height: 20, vy: 0, timer: 40 },
+            { x: 6125, y: getGroundHeight(6125) - 20, width: 24, height: 20, vy: 0, timer: 80 }
         ];
         snakes = [];
     }
@@ -1363,8 +1358,8 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    // Level 1 rocks: ALL on hills/mountains, obstacles on flat ground
-    const rockXPositions = currentLevel === 1 ? [1000, 1100, 2100, 2200, 3200, 3300, 4300, 4400, 5400, 5500] : [650, 1350, 2100, 2850, 3500];
+    // Level 1 rocks: exactly 1 per hill on 10 separate hills
+    const rockXPositions = currentLevel === 1 ? [1025, 1625, 2225, 2825, 3425, 4025, 4625, 5225, 5825, 6425] : [650, 1350, 2100, 2850, 3500];
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
     rockSamples = baseQuestions.map((q, idx) => {
@@ -1396,7 +1391,7 @@ function initLevel() {
     frailejones = [];
     // Frailejones placed on flat ground away from obstacles and rocks
     const frailejonesPositions = currentLevel === 1 ? [
-        150, 250, 350, 500, 1350, 1450, 1850, 2450, 2550, 2950, 3550, 3650, 4050, 4650, 4750, 5150, 5800, 6200, 6350, 6550
+        150, 250, 350, 500, 1425, 1475, 2025, 2625, 3225, 3825, 4425, 5025, 5625, 6225, 6550
     ] : [
         150, 850, 1100, 1200, 1800, 2000, 2200, 2900, 3100, 3200, 3900, 4100, 4200, 4700, 4900, 5500, 5700, 5900
     ];
@@ -3055,7 +3050,7 @@ function draw() {
     // Draw version tag on canvas
     ctx.font = "6px 'Press Start 2P'";
     ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
-    ctx.fillText("v2.0.3", canvas.width - 55, canvas.height - 13);
+    ctx.fillText("v2.0.4", canvas.width - 55, canvas.height - 13);
 
     // Actualizar HUD DOM (score boxes)
     updateHUD();

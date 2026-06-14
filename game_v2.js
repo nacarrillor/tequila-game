@@ -1483,11 +1483,11 @@ function initLevel() {
         //
         // Obstacles ON HILLS only (far from rocks):
         puddles = [
-            { x: 1400, width: 60 },
-            { x: 2525, width: 75 },
-            { x: 3050, width: 60 },
-            { x: 3800, width: 60 },
-            { x: 5000, width: 60 }
+            { x: 1850, width: 60 },
+            { x: 2500, width: 60 },
+            { x: 3100, width: 60 },
+            { x: 4200, width: 60 },
+            { x: 5420, width: 60 }
         ];
         hazards = [
             { x: 1325, y: getGroundHeight(1325) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },

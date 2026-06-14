@@ -1658,16 +1658,20 @@ function initLevel() {
         });
     });
 
-    // Generate stunning bio-energy background particles
+    // Generate stunning bio-energy background particles or birds
     ambientParticles = [];
     for (let i = 0; i < 45; i++) {
+        let isBird = currentLevel === 3;
+        if (isBird && i > 15) break; // Solo 15 guacamayas, no 45
         ambientParticles.push({
             x: Math.random() * LEVEL_WIDTH,
-            y: Math.random() * 380,
-            size: Math.random() * 2 + 1,
-            speedX: Math.random() * 0.4 - 0.2,
-            speedY: -Math.random() * 0.3 - 0.1,
-            color: Math.random() > 0.5 ? "rgba(20, 184, 166, 0.45)" : "rgba(251, 191, 36, 0.35)"
+            y: isBird ? Math.random() * 200 + 20 : Math.random() * 380, // Aves vuelan alto
+            size: isBird ? Math.random() * 2 + 3 : Math.random() * 2 + 1,
+            speedX: isBird ? -Math.random() * 2.5 - 1.5 : Math.random() * 0.4 - 0.2, // Aves vuelan rápido hacia la izquierda
+            speedY: isBird ? 0 : -Math.random() * 0.3 - 0.1,
+            color: isBird ? (Math.random() > 0.5 ? "#E74C3C" : "#F1C40F") : (Math.random() > 0.5 ? "rgba(20, 184, 166, 0.45)" : "rgba(251, 191, 36, 0.35)"),
+            isBird: isBird,
+            flapTimer: Math.random() * Math.PI * 2
         });
     }
 }
@@ -2184,6 +2188,13 @@ function update() {
             if (p.life <= 0) {
                 ambientParticles.splice(i, 1);
             }
+        } else if (p.isBird) {
+            // Movimiento ondulante de las guacamayas
+            p.y += Math.sin(Date.now() / 150 + p.flapTimer) * 0.8;
+            if (p.x < -50) {
+                p.x = LEVEL_WIDTH + 100;
+                p.y = Math.random() * 200 + 20;
+            }
         } else {
             if (p.y < 0) {
                 p.y = 380;
@@ -2412,14 +2423,31 @@ function draw() {
 
     // Draw active ground particles (ambient & confetti)
     ambientParticles.forEach(p => {
-        ctx.fillStyle = p.color;
         if (p.isConfetti) {
+            ctx.fillStyle = p.color;
             ctx.save();
             ctx.translate(p.x, p.y);
             ctx.rotate(p.life * 0.08);
             ctx.fillRect(-p.size, -p.size / 2, p.size * 2, p.size);
             ctx.restore();
+        } else if (p.isBird) {
+            // Dibujar Guacamaya
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            // Cuerpo
+            ctx.ellipse(p.x, p.y, p.size * 2, p.size, 0, 0, Math.PI * 2);
+            ctx.fill();
+            // Alas (animadas con el tiempo)
+            let flap = Math.sin(Date.now() / 100 + p.flapTimer);
+            ctx.fillStyle = p.color === "#E74C3C" ? "#3498DB" : "#E74C3C"; // Color secundario del ala
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p.x + p.size * 1.5, p.y - p.size * 3 * flap);
+            ctx.lineTo(p.x - p.size, p.y - p.size * flap);
+            ctx.closePath();
+            ctx.fill();
         } else {
+            ctx.fillStyle = p.color;
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size + 0.5, 0, Math.PI * 2);
             ctx.fill();
@@ -2472,21 +2500,6 @@ function draw() {
             ctx.fillStyle = "rgba(10, 110, 200, 0.85)"; // Océano profundo
             ctx.fillRect(pud.x, py - 6, pud.width, canvas.height - py + 6);
             ctx.strokeRect(pud.x, py - 6, pud.width, canvas.height - py + 6);
-            
-            // Dibujar muelle/plataforma de madera en el borde de la isla
-            ctx.fillStyle = "#8B5A2B"; // Madera
-            ctx.strokeStyle = "#4A2F1D";
-            ctx.lineWidth = 2;
-            
-            // Plataforma
-            ctx.fillRect(pud.x - 80, py - 12, 80, 12);
-            ctx.strokeRect(pud.x - 80, py - 12, 80, 12);
-            
-            // Pilares de madera clavados en la arena/agua
-            for (let px = pud.x - 70; px < pud.x; px += 25) {
-                ctx.fillRect(px, py, 6, canvas.height - py);
-                ctx.strokeRect(px, py, 6, canvas.height - py);
-            }
         } else {
             // Charcos normales
             ctx.beginPath();

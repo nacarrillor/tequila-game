@@ -4204,12 +4204,35 @@ function drawGeologist(ctx, px, py, dir, charType) {
 }
 
 // MAIN CORE LOOP
-function gameLoop() {
-    update();
+const FPS = 60;
+const frameDuration = 1000 / FPS;
+let lastTime = 0;
+let accumulator = 0;
+
+function gameLoop(currentTime) {
+    if (!lastTime) lastTime = currentTime;
+    let deltaTime = currentTime - lastTime;
+    
+    // Prevent "spiral of death" when tab is inactive or massive lag spike
+    if (deltaTime > 250) {
+        deltaTime = 250;
+    }
+    
+    lastTime = currentTime;
+    accumulator += deltaTime;
+    
+    // Run update() exactly 60 times per second, regardless of monitor Hz or lag
+    while (accumulator >= frameDuration) {
+        update();
+        accumulator -= frameDuration;
+    }
+    
+    // Draw once per frame
     draw();
+    
     requestAnimationFrame(gameLoop);
 }
 
 // Start Bucle
 setLanguage('es');
-gameLoop();
+requestAnimationFrame(gameLoop);

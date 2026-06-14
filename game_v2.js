@@ -1203,14 +1203,12 @@ let venomProjectiles = [];
 
 function getGroundHeight(x) {
     let base = GROUND_Y;
-    
     if (currentLevel === 1) {
         const hills = [
             { start: 900, end: 1150, h: 70 },
             { start: 2100, end: 2350, h: 70 },
             { start: 3300, end: 3550, h: 70 },
-            { start: 4500, end: 4750, h: 70 },
-            { start: 5700, end: 5950, h: 70 }
+            { start: 4500, end: 4750, h: 70 }
         ];
         for (let i = 0; i < hills.length; i++) {
             let hill = hills[i];
@@ -1489,8 +1487,7 @@ function initLevel() {
             { x: 2525, width: 75 },
             { x: 2750, width: 60 },
             { x: 3950, width: 60 },
-            { x: 5150, width: 60 },
-            { x: 6350, width: 60 }
+            { x: 5150, width: 60 }
         ];
         hazards = [
             { x: 1325, y: getGroundHeight(1325) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },

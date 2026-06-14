@@ -276,6 +276,32 @@ const translations = {
                 correctIndex: 2,
                 correctFeedback: "¡Correcto! Excelente respuesta.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 9: Islandia vs Andes",
+                question: "¿Por qué los volcanes de Islandia son distintos a los de los Andes?",
+                options: [
+                    "Porque los de Islandia están sobre una dorsal oceánica y producen lavas fluidas, mientras los de los Andes están sobre una zona de subducción y son más explosivos",
+                    "Porque los de Islandia tienen magmas más ricos en sílice lo que los hace más violentos y peligrosos",
+                    "Porque los Andes están sobre un punto caliente mientras Islandia está sobre una zona de subducción",
+                    "Porque los volcanes de dorsal como los de Islandia producen más gases que los de subducción"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Excelente! Has respondido de manera correcta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 10: Xenolitos de peridotita",
+                question: "¿Qué nos indica encontrar xenolitos de peridotita dentro de un basalto volcánico?",
+                options: [
+                    "a) Que el volcán está situado sobre una zona de subducción donde el manto es arrastrado hacia la superficie",
+                    "b) Que el magma basáltico atravesó el manto tan rápido que arrancó fragmentos sin tiempo a fundirlos",
+                    "c) Que la peridotita es más resistente al calor que el basalto y por eso sobrevive dentro de la lava",
+                    "d) Que el volcán es muy antiguo y las peridotitas son restos de erupciones anteriores reincorporados al magma"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! Excelente respuesta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
         ],
         questionsLevel3: [
@@ -514,69 +540,134 @@ const translations = {
         ],
         questionsLevel2: [
             {
-                name: "Sample 1: Coast Type",
-                question: "What mainly characterizes the Chocó coast in the Colombian Pacific?",
+                name: "Sample 1: Subduction",
+                question: "What happens in a subduction zone?",
                 options: [
-                    "High and rocky coast, with cliffs and dark volcanic sand beaches",
-                    "Low and pure sandy coast, with giant dunes and extensive reefs",
-                    "Deltaic coast dominated only by ancient glacial deposits",
-                    "Fjord coast sculpted by ice"
+                    "a) Two continental plates collide and form a mountain range",
+                    "b) An oceanic plate sinks beneath another plate because it is denser",
+                    "c) The mantle rises between two plates, separating them and creating new crust",
+                    "d) A continental plate splits in two, generating a new ocean"
                 ],
-                correctIndex: 0,
-                correctFeedback: "Correct! The Chocó coast is tectonically active and has volcanic and sedimentary rocks.",
-                incorrectFeedback: "Incorrect. Your exploration has ended."
+                correctIndex: 1,
+                correctFeedback: "Excellent! You answered correctly.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             },
             {
-                name: "Sample 2: Tectonic Plates",
-                question: "Which tectonic plates interact in front of Colombia's Pacific coast generating seismicity?",
+                name: "Sample 2: Subduction Volcanoes",
+                question: "Why do subduction zones generate volcanoes?",
                 options: [
-                    "The Nazca Plate subducting under the South American Plate",
-                    "The Caribbean Plate sliding laterally under the Cocos Plate",
-                    "The Pacific Plate separating from the Eurasian Plate",
-                    "The Scotia Plate colliding with the African Plate"
+                    "a) Because friction between the two plates generates enough heat to melt the upper crust",
+                    "b) Because the sinking plate carries water and sediments that lower the melting temperature of the mantle",
+                    "c) Because pressure exerted by the descending plate pushes magma to the surface",
+                    "d) Because the oceanic crust melts completely as it sinks and rises as magma"
                 ],
-                correctIndex: 0,
-                correctFeedback: "Excellent! The subduction of Nazca under the South American is responsible for seismic activity.",
-                incorrectFeedback: "Incorrect. Your exploration has ended."
+                correctIndex: 1,
+                correctFeedback: "Correct! Well answered.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             },
             {
-                name: "Sample 3: Dark Sands",
-                question: "Why do Chocó beach sands have a characteristic dark color?",
+                name: "Sample 3: Mid-Ocean Ridge",
+                question: "What is a mid-ocean ridge and what geological activity does it have?",
                 options: [
-                    "Due to the erosion of volcanic and basaltic rocks rich in ferromagnesian minerals",
-                    "Due to the massive accumulation of mineral coal washed down by coastal rivers",
-                    "Due to the decomposition of organic matter from mangroves and high rainfall",
-                    "Due to natural oil deposits bubbling up from the seabed"
+                    "a) An underwater mountain range where two plates collide generating deep earthquakes",
+                    "b) A zone where oceanic crust is thicker due to the accumulation of volcanic sediments",
+                    "c) An underwater mountain range where two plates separate and magma rises forming new crust",
+                    "d) An oceanic fault where one plate slides horizontally over another without generating magma"
                 ],
-                correctIndex: 0,
-                correctFeedback: "Very well! Basalts from the Baudó range provide these dark minerals.",
-                incorrectFeedback: "Incorrect. Your exploration has ended."
+                correctIndex: 2,
+                correctFeedback: "Excellent! You passed this question.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             },
             {
-                name: "Sample 4: Ocean Energy",
-                question: "What is the clean energy obtained from the movement of ocean waves called?",
+                name: "Sample 4: Hotspot",
+                question: "What is a hotspot and what differentiates it from a subduction volcano?",
                 options: [
-                    "Wave energy (Undimotriz)",
-                    "Tidal energy (Mareomotriz)",
-                    "Marine geothermal energy",
-                    "Coastal thermoelectric energy"
+                    "a) A hotspot is a mid-ocean ridge volcano that emerges above sea level",
+                    "b) A hotspot is a fixed thermal anomaly in the mantle that punches through the plate regardless of its position",
+                    "c) A hotspot is a subduction zone where magma rises faster than in others",
+                    "d) A hotspot is a continental volcano formed when two continental plates collide"
                 ],
-                correctIndex: 0,
-                correctFeedback: "Exactly! Wave energy harnesses the power of the waves in our great Pacific Ocean.",
-                incorrectFeedback: "Incorrect. Your exploration has ended."
+                correctIndex: 1,
+                correctFeedback: "Correct! Excellent answer.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             },
             {
-                name: "Sample 5: Ocean Trench",
-                question: "What is the name of the oceanic trench located off Colombia's Pacific coast?",
+                name: "Sample 5: Olivine Alteration",
+                question: "Why is fresh olivine green but turns brown on the surface?",
                 options: [
-                    "Colombia Trench (or Colombia-Ecuador Trench)",
-                    "Mariana Trench",
-                    "Puerto Rico Trench",
-                    "Java Trench"
+                    "a) Because sunlight breaks down the silicates of olivine, changing its crystal structure",
+                    "b) Because water and oxygen oxidize the iron in olivine, transforming it into brown oxides",
+                    "c) Because when losing pressure on the surface, olivine releases magnesium and changes its composition",
+                    "d) Because soil bacteria decompose olivine, generating brown compounds"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Excellent! You answered correctly.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 6: Young Oceanic Crust",
+                question: "Why is oceanic crust younger than continental crust?",
+                options: [
+                    "a) Because ocean water constantly erodes oceanic crust, renewing it",
+                    "b) Because oceanic crust is continuously recycled by sinking into subduction zones",
+                    "c) Because mid-ocean ridges generate new crust much faster than continental volcanoes",
+                    "d) Because continental crust is more resistant and therefore survives longer without being renewed"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct! Well answered.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 7: Rock Cycle",
+                question: "What is the rock cycle?",
+                options: [
+                    "a) The process by which rocks erode and their minerals return to the sea where they dissolve",
+                    "b) The sequence of transformations by which any type of rock can turn into another type over time",
+                    "c) The tectonic plate movement that recycles oceanic crust every 200 million years",
+                    "d) The alternation between periods of intense volcanic activity and periods of geological calm"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Exactly! You have good knowledge of geology.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 8: Seismic Waves",
+                question: "What information does the speed of seismic waves give us about the interior of the Earth?",
+                options: [
+                    "a) It indicates the exact temperature of each layer because heat accelerates seismic waves",
+                    "b) It allows us to calculate the age of rocks because waves travel slower in older rocks",
+                    "c) It reveals the composition and state of the internal layers because waves change speed when passing through different materials",
+                    "d) It indicates the pressure in each layer because waves compress when encountering high pressure zones"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Correct! Excellent answer.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 9: Iceland vs Andes",
+                question: "Why are Iceland's volcanoes different from those in the Andes?",
+                options: [
+                    "Because Iceland's are on a mid-ocean ridge and produce fluid lavas, while the Andes are on a subduction zone and are more explosive",
+                    "Because Iceland's have magmas richer in silica, making them more violent and dangerous",
+                    "Because the Andes are on a hotspot while Iceland is on a subduction zone",
+                    "Because ridge volcanoes like Iceland's produce more gases than subduction volcanoes"
                 ],
                 correctIndex: 0,
-                correctFeedback: "Excellent! You have passed all geological questions for the Pacific coast.",
-                incorrectFeedback: "Incorrect. Your exploration has ended."
+                correctFeedback: "Excellent! You answered correctly.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 10: Peridotite Xenoliths",
+                question: "What does finding peridotite xenoliths within a volcanic basalt indicate to us?",
+                options: [
+                    "a) That the volcano is located on a subduction zone where the mantle is dragged to the surface",
+                    "b) That the basaltic magma traveled through the mantle so quickly that it tore off fragments without time to melt them",
+                    "c) That peridotite is more heat-resistant than basalt and thus survives within the lava",
+                    "d) That the volcano is very old and peridotites are remnants of previous eruptions reincorporated into the magma"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct! Excellent answer.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             }
         ],
         questionsLevel3: [
@@ -815,69 +906,134 @@ const translations = {
         ],
         questionsLevel2: [
             {
-                name: "Échantillon 1 : Type de côte",
-                question: "Qu'est-ce qui caractérise principalement la côte du Chocó dans le Pacifique colombien ?",
+                name: "Échantillon 1 : Subduction",
+                question: "Que se passe-t-il dans une zone de subduction ?",
                 options: [
-                    "Côte haute et rocheuse, avec des falaises et des plages de sable noir d'origine volcanique",
-                    "Côte basse et sableuse pure, avec des dunes géantes et de grands récifs coralliens",
-                    "Côte deltaïque dominée uniquement par d'anciens dépôts glaciaires",
-                    "Côte de fjords sculptés par la glace"
+                    "a) Deux plaques continentales entrent en collision et forment une chaîne de montagnes",
+                    "b) Une plaque océanique plonge sous une autre plaque car elle est plus dense",
+                    "c) Le manteau remonte entre deux plaques, les séparant et créant une nouvelle croûte",
+                    "d) Une plaque continentale se sépare en deux, générant un nouvel océan"
                 ],
-                correctIndex: 0,
-                correctFeedback: "Correct ! La côte de Chocó est tectoniquement active et possède des roches volcaniques et sédimentaires.",
-                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+                correctIndex: 1,
+                correctFeedback: "Excellent ! Vous avez répondu correctement.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             },
             {
-                name: "Échantillon 2 : Plaques tectoniques",
-                question: "Quelles plaques tectoniques interagissent au large de la côte Pacifique de la Colombie ?",
+                name: "Échantillon 2 : Volcans de subduction",
+                question: "Pourquoi les zones de subduction génèrent-elles des volcans ?",
                 options: [
-                    "La plaque de Nazca subductant sous la plaque sud-américaine",
-                    "La plaque caraïbe glissant latéralement sous la plaque de Cocos",
-                    "La plaque Pacifique se séparant de la plaque eurasienne",
-                    "La plaque de Scotia entrant en collision avec la plaque africaine"
+                    "a) Parce que la friction entre les deux plaques génère assez de chaleur pour fondre la croûte supérieure",
+                    "b) Parce que la plaque qui plonge entraîne de l'eau et des sédiments qui abaissent la température de fusion du manteau",
+                    "c) Parce que la pression exercée par la plaque descendante pousse le magma vers la surface",
+                    "d) Parce que la croûte océanique fond complètement en plongeant et remonte sous forme de magma"
                 ],
-                correctIndex: 0,
-                correctFeedback: "Excellent ! La subduction de Nazca sous la plaque sud-américaine est responsable de l'activité sismique.",
-                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+                correctIndex: 1,
+                correctFeedback: "Correct ! Bien répondu.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             },
             {
-                name: "Échantillon 3 : Sables noirs",
-                question: "Pourquoi les sables des plages du Chocó ont-ils une couleur sombre caractéristique ?",
+                name: "Échantillon 3 : Dorsale océanique",
+                question: "Qu'est-ce qu'une dorsale océanique et quel type d'activité géologique a-t-elle ?",
                 options: [
-                    "En raison de l'érosion des roches volcaniques et basaltiques riches en minéraux ferromagnésiens",
-                    "En raison de l'accumulation massive de charbon minéral entraîné par les rivières côtières",
-                    "En raison de la décomposition de la matière organique des mangroves et des fortes précipitations",
-                    "En raison de gisements de pétrole naturel bouillonnant du fond marin"
+                    "a) Une chaîne de montagnes sous-marine où deux plaques entrent en collision, générant des séismes profonds",
+                    "b) Une zone où la croûte océanique est plus épaisse en raison de l'accumulation de sédiments volcaniques",
+                    "c) Une chaîne de montagnes sous-marine où deux plaques se séparent et le magma remonte pour former une nouvelle croûte",
+                    "d) Une faille océanique où une plaque glisse horizontalement sur une autre sans générer de magma"
                 ],
-                correctIndex: 0,
-                correctFeedback: "Très bien ! Les basaltes de la chaîne de Baudó fournissent ces minéraux sombres.",
-                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+                correctIndex: 2,
+                correctFeedback: "Excellent ! Vous avez réussi cette question.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             },
             {
-                name: "Échantillon 4 : Énergie de l'océan",
-                question: "Comment appelle-t-on l'énergie propre obtenue par le mouvement des vagues de l'océan ?",
+                name: "Échantillon 4 : Point chaud",
+                question: "Qu'est-ce qu'un point chaud et qu'est-ce qui le différencie d'un volcan de subduction ?",
                 options: [
-                    "Énergie houlomotrice",
-                    "Énergie marémotrice",
-                    "Énergie géothermique marine",
-                    "Énergie thermoélectrique côtière"
+                    "a) Un point chaud est un volcan de dorsale océanique qui émerge au-dessus du niveau de la mer",
+                    "b) Un point chaud est une anomalie thermique fixe dans le manteau qui perce la plaque indépendamment de sa position",
+                    "c) Un point chaud est une zone de subduction où le magma remonte plus vite qu'ailleurs",
+                    "d) Un point chaud est un volcan continental formé lorsque deux plaques continentales entrent en collision"
                 ],
-                correctIndex: 0,
-                correctFeedback: "Exactement ! L'énergie houlomotrice exploite la puissance des vagues dans notre grand Océan Pacifique.",
-                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+                correctIndex: 1,
+                correctFeedback: "Correct ! Excellente réponse.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             },
             {
-                name: "Échantillon 5 : Fosse océanique",
-                question: "Quel est le nom de la fosse océanique située au large de la côte Pacifique colombienne ?",
+                name: "Échantillon 5 : Altération de l'olivine",
+                question: "Pourquoi l'olivine fraîche est-elle verte mais devient-elle brune en surface ?",
                 options: [
-                    "Fosse de Colombie (ou Fosse Colombo-Équatorienne)",
-                    "Fosse des Mariannes",
-                    "Fosse de Porto Rico",
-                    "Fosse de Java"
+                    "a) Parce que la lumière du soleil décompose les silicates de l'olivine, modifiant sa structure cristalline",
+                    "b) Parce que l'eau et l'oxygène oxydent le fer de l'olivine, le transformant en oxydes bruns",
+                    "c) Parce qu'en perdant de la pression en surface, l'olivine libère du magnésium et change de composition",
+                    "d) Parce que les bactéries du sol décomposent l'olivine, générant des composés bruns"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Excellent ! Vous avez répondu correctement.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 6 : Croûte océanique jeune",
+                question: "Pourquoi la croûte océanique est-elle plus jeune que la croûte continentale ?",
+                options: [
+                    "a) Parce que l'eau de l'océan érode constamment la croûte océanique, la renouvelant",
+                    "b) Parce que la croûte océanique est continuellement recyclée en plongeant dans les zones de subduction",
+                    "c) Parce que les dorsales océaniques génèrent une nouvelle croûte beaucoup plus vite que les volcans continentaux",
+                    "d) Parce que la croûte continentale est plus résistante et survit donc plus longtemps sans être renouvelée"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct ! Bien répondu.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 7 : Cycle des roches",
+                question: "Qu'est-ce que le cycle des roches ?",
+                options: [
+                    "a) Le processus par lequel les roches s'érodent et leurs minéraux retournent à la mer où ils se dissolvent",
+                    "b) La séquence de transformations par laquelle n'importe quel type de roche peut se transformer en un autre type au fil du temps",
+                    "c) Le mouvement des plaques tectoniques qui recycle la croûte océanique tous les 200 millions d'années",
+                    "d) L'alternance entre des périodes d'activité volcanique intense et des périodes de calme géologique"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Exact ! Vous avez de bonnes connaissances en géologie.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 8 : Ondes sismiques",
+                question: "Quelle information la vitesse des ondes sismiques nous donne-t-elle sur l'intérieur de la Terre ?",
+                options: [
+                    "a) Elle indique la température exacte de chaque couche car la chaleur accélère les ondes sismiques",
+                    "b) Elle nous permet de calculer l'âge des roches car les ondes voyagent plus lentement dans les roches plus anciennes",
+                    "c) Elle révèle la composition et l'état des couches internes car les ondes changent de vitesse en traversant des matériaux différents",
+                    "d) Elle indique la pression dans chaque couche car les ondes se compriment en rencontrant des zones de haute pression"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Correct ! Excellente réponse.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 9 : Islande vs Andes",
+                question: "Pourquoi les volcans d'Islande sont-ils différents de ceux des Andes ?",
+                options: [
+                    "a) Parce que ceux d'Islande sont sur une dorsale océanique et produisent des laves fluides, tandis que ceux des Andes sont sur une zone de subduction et sont plus explosifs",
+                    "b) Parce que ceux d'Islande ont des magmas plus riches en silice, ce qui les rend plus violents et dangereux",
+                    "c) Parce que les Andes sont sur un point chaud tandis que l'Islande est sur une zone de subduction",
+                    "d) Parce que les volcans de dorsale comme ceux d'Islande produisent plus de gaz que les volcans de subduction"
                 ],
                 correctIndex: 0,
-                correctFeedback: "Excellent ! Vous avez réussi toutes les questions géologiques sur la côte Pacifique.",
-                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+                correctFeedback: "Excellent ! Vous avez répondu correctement.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 10 : Xénolites de péridotite",
+                question: "Que nous indique la présence de xénolites de péridotite dans un basalte volcanique ?",
+                options: [
+                    "a) Que le volcan est situé sur une zone de subduction où le manteau est entraîné vers la surface",
+                    "b) Que le magma basaltique a traversé le manteau si rapidement qu'il a arraché des fragments sans avoir le temps de les fondre",
+                    "c) Que la péridotite est plus résistante à la chaleur que le basalte et survit donc au sein de la lave",
+                    "d) Que le volcan est très ancien et que les péridotites sont des restes d'éruptions antérieures réincorporés dans le magma"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct ! Excellente réponse.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             }
         ],
         questionsLevel3: [
@@ -1397,9 +1553,10 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 8 rocks, Level 3 has 5
+    // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 5
     const rockXPositions = currentLevel === 1 ? [1025, 1625, 2225, 2825, 3425, 4025, 4625, 5225, 5825, 6425] : 
-                           (currentLevel === 2 ? [500, 1050, 1400, 1950, 2500, 3050, 3500, 3750] : [650, 1350, 2100, 2850, 3500]);
+                           (currentLevel === 2 ? [500, 850, 1100, 1450, 1850, 2150, 2500, 2900, 3250, 3600] : [650, 1350, 2100, 2850, 3500]);
+
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
     rockSamples = baseQuestions.map((q, idx) => {

@@ -1370,7 +1370,7 @@ let player = {
     jumpForce: -11,
     isGrounded: false,
     direction: 1, // 1 = right, -1 = left
-    lives: 3,
+    lives: 5,
     energy: 100, // Energy counts down like Adventure Island
     h2Collected: 0, // Sniffing soil gas
     geophonesPlaced: 0, // Geophysics seismic network (needs 3)

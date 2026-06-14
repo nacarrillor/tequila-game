@@ -1484,20 +1484,19 @@ function initLevel() {
         // Obstacles ON HILLS only (far from rocks):
         puddles = [
             { x: 1850, width: 60 },
-            { x: 2500, width: 60 },
-            { x: 3100, width: 60 },
-            { x: 4200, width: 60 },
-            { x: 5420, width: 60 }
+            { x: 2600, width: 60 },
+            { x: 3850, width: 60 },
+            { x: 5400, width: 60 }
         ];
         hazards = [
-            { x: 1325, y: getGroundHeight(1325) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
-            { x: 4925, y: getGroundHeight(4925) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
+            { x: 1250, y: getGroundHeight(1250) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
+            { x: 4900, y: getGroundHeight(4900) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
         ];
         // Frogs on flat ground:
         frogs = [
-            { x: 700, y: getGroundHeight(700) - 20, width: 24, height: 20, vy: 0, timer: 0 },
-            { x: 3725, y: getGroundHeight(3725) - 20, width: 24, height: 20, vy: 0, timer: 40 },
-            { x: 6125, y: getGroundHeight(6125) - 20, width: 24, height: 20, vy: 0, timer: 80 }
+            { x: 650, y: getGroundHeight(650) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 3100, y: getGroundHeight(3100) - 20, width: 24, height: 20, vy: 0, timer: 40 },
+            { x: 6150, y: getGroundHeight(6150) - 20, width: 24, height: 20, vy: 0, timer: 80 }
         ];
         snakes = [];
     }

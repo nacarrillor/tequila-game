@@ -1253,7 +1253,7 @@ function update() {
     // 5. Dinosaur interaction (Mounting dinosaur - made MUCH easier: automatically mounts upon contact!)
     player.dinoNearby = null;
     dinosaurs.forEach(dino => {
-        if (dino.active && Math.abs(player.x - dino.x) < 65 && Math.abs(player.y - (getGroundHeight(dino.x) - dino.height)) < 70) {
+        if (player.correctAnswersCount >= 2 && dino.active && Math.abs(player.x - dino.x) < 65 && Math.abs(player.y - (getGroundHeight(dino.x) - dino.height)) < 70) {
             player.dinoNearby = dino;
             if (player.vehicle !== "dinosaur") {
                 player.vehicle = "dinosaur";
@@ -2079,7 +2079,7 @@ function draw() {
 
     // ── DINOSAURIOS — verdes vivos estilo Mario Bros ──
     dinosaurs.forEach(dino => {
-        if (dino.active) {
+        if (player.correctAnswersCount >= 2 && dino.active) {
             let walkCycle = Math.sin(Date.now() / 150) * 8;
             // Cuerpo verde vivo
             ctx.fillStyle = "#27AE60";

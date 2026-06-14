@@ -1459,7 +1459,8 @@ function selectLevel(lvl) {
     document.getElementById("btn-lvl3").classList.toggle("active", lvl === 3);
 }
 
-// Custom Rock Question handlers
+let quizTimerInterval = null;
+
 function showQuestionModal(rock) {
     activeRockSample = rock;
     gameState = "quiz";
@@ -1478,10 +1479,41 @@ function showQuestionModal(rock) {
         optionsDiv.appendChild(btn);
     });
     
+    // Timer logic
+    const totalQuizTime = 15; // 15 seconds to answer
+    let quizTimeRemaining = totalQuizTime;
+    const timerBar = document.getElementById("question-timer-bar");
+    if (timerBar) {
+        timerBar.style.width = "100%";
+        timerBar.style.backgroundColor = "#2ecc71"; // Green
+    }
+    
+    if (quizTimerInterval) clearInterval(quizTimerInterval);
+    quizTimerInterval = setInterval(() => {
+        quizTimeRemaining -= 0.1;
+        let pct = (quizTimeRemaining / totalQuizTime) * 100;
+        if (pct < 0) pct = 0;
+        
+        if (timerBar) {
+            timerBar.style.width = pct + "%";
+            if (pct < 25) {
+                timerBar.style.backgroundColor = "#e74c3c"; // Red
+            } else if (pct < 50) {
+                timerBar.style.backgroundColor = "#f1c40f"; // Yellow
+            }
+        }
+        
+        if (quizTimeRemaining <= 0) {
+            clearInterval(quizTimerInterval);
+            answerQuestion(-1); // -1 means timeout
+        }
+    }, 100);
+    
     document.getElementById("rock-question-screen").style.display = "flex";
 }
 
 function answerQuestion(optionIndex) {
+    if (quizTimerInterval) clearInterval(quizTimerInterval);
     document.getElementById("rock-question-screen").style.display = "none";
     
     const resultScreen = document.getElementById("rock-result-screen");
@@ -1489,7 +1521,8 @@ function answerQuestion(optionIndex) {
     const resultSubtitle = document.getElementById("result-subtitle");
     const snoopyImg = document.getElementById("snoopy-img");
     
-    const isCorrect = (optionIndex === activeRockSample.correctIndex);
+    const isTimeout = (optionIndex === -1);
+    const isCorrect = !isTimeout && (optionIndex === activeRockSample.correctIndex);
     activeRockSample.wasAnsweredCorrectly = isCorrect;
     
     if (isCorrect) {
@@ -1529,7 +1562,11 @@ function answerQuestion(optionIndex) {
         resultTitle.style.color = "#E74C3C";
         
         let feedback = activeRockSample.incorrectFeedback;
-        if (player.lives > 1) {
+        if (isTimeout) {
+            if (currentLang === 'es') feedback = "¡Se agotó el tiempo! Respuesta incorrecta.";
+            else if (currentLang === 'fr') feedback = "Temps écoulé ! Mauvaise réponse.";
+            else feedback = "Time's up! Incorrect answer.";
+        } else if (player.lives > 1) {
             if (currentLang === 'es') feedback = "Respuesta incorrecta. Pierdes una vida.";
             else if (currentLang === 'fr') feedback = "Réponse incorrecte. Vous perdez une vie.";
             else feedback = "Incorrect answer. You lose a life.";
@@ -1537,6 +1574,7 @@ function answerQuestion(optionIndex) {
         resultSubtitle.textContent = feedback;
         snoopyImg.src = "giphy_snoopysad.gif";
     }
+    
     
     resultScreen.style.display = "flex";
 }

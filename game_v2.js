@@ -1627,7 +1627,14 @@ function initLevel() {
             { x: 600, width: 3500 }
         ];
         hazards = [];
-        frogs = [];
+        // Octopuses in the sea (reusing frogs array)
+        frogs = [
+            { x: 800,  y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 0 },
+            { x: 1300, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 45 },
+            { x: 1900, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 90 },
+            { x: 2600, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 15 },
+            { x: 3200, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 60 }
+        ];
         snakes = [];
         fruits = [
             { x: 300, y: 250, type: "banana" },
@@ -1653,7 +1660,8 @@ function initLevel() {
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
-    rockSamples = baseQuestions.map((q, idx) => {
+    const selectedQuestions = baseQuestions.slice(0, rockXPositions.length);
+    rockSamples = selectedQuestions.map((q, idx) => {
         const x = rockXPositions[idx];
         const y = getGroundHeight(x) - 30;
 
@@ -2137,12 +2145,12 @@ function update() {
         }
     }
 
-    // Update Frogs
+    // Update Frogs (or Octopuses in Level 3)
     frogs.forEach(frog => {
         frog.timer++;
         let localGround = getGroundHeight(frog.x) - frog.height;
         if (frog.timer % 120 === 0 && frog.y >= localGround) {
-            frog.vy = -7.5; // Salta
+            frog.vy = currentLevel === 3 ? -9.5 : -7.5; // Los pulpos saltan más alto
         }
         frog.vy += 0.25; // Gravedad
         frog.y += frog.vy;

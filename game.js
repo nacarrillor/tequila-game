@@ -173,6 +173,73 @@ const translations = {
                 correctFeedback: "¡Excelente! Has superado esta pregunta.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
+        ],
+        questionsLevel3: [
+            {
+                name: "Muestra 1: Tipo de costa",
+                question: "¿Qué caracteriza principalmente a la costa del Chocó en el Pacífico colombiano?",
+                options: [
+                    "Costa alta y rocosa, con acantilados y playas de arena oscura de origen volcánico",
+                    "Costa baja y arenosa pura, con dunas gigantes y arrecifes de coral extensos",
+                    "Costa deltaica dominada únicamente por depósitos glaciares antiguos",
+                    "Costa de fiordos profundos esculpidos por el hielo"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Correcto! La costa de Chocó es tectónicamente activa y tiene rocas volcánicas y sedimentarias.",
+                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+            },
+            {
+                name: "Muestra 2: Placas tectónicas",
+                question: "¿Qué placas tectónicas interactúan frente a la costa del Pacífico de Colombia generando sismicidad?",
+                options: [
+                    "La Placa de Nazca subduciendo bajo la Placa Sudamericana",
+                    "La Placa del Caribe deslizándose lateralmente bajo la Placa Cocos",
+                    "La Placa Pacífica separándose de la Placa Euroasiática",
+                    "La Placa Escocesa colisionando con la Placa Africana"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Excelente! La subducción de Nazca bajo la Sudamericana es responsable de la fosa y sismicidad.",
+                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+            },
+            {
+                name: "Muestra 3: Arenas oscuras",
+                question: "¿Por qué las arenas de las playas del Chocó tienen un color oscuro característico?",
+                options: [
+                    "Por la erosión de rocas volcánicas y basálticas ricas en minerales ferromagnesianos",
+                    "Por la acumulación masiva de carbón mineral arrastrado por los ríos costeros",
+                    "Por la descomposición de materia orgánica de los manglares y alta pluviosidad",
+                    "Por depósitos de petróleo natural que brotan del fondo marino"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Muy bien! Los basaltos de la serranía de Baudó aportan estos minerales oscuros.",
+                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+            },
+            {
+                name: "Muestra 4: Energía del mar",
+                question: "¿Cómo se llama la energía limpia que se obtiene del movimiento de las olas del mar, ideal para el Pacífico?",
+                options: [
+                    "Energía undimotriz",
+                    "Energía mareomotriz",
+                    "Energía geotérmica marina",
+                    "Energía termoeléctrica costera"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Exacto! La energía undimotriz aprovecha la fuerza de las olas de nuestro gran océano Pacífico.",
+                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+            },
+            {
+                name: "Muestra 5: Fosa marina",
+                question: "¿Cuál es el nombre de la fosa oceánica situada frente a la costa colombiana del Pacífico?",
+                options: [
+                    "Fosa de Colombia (o fosa Colombo-Ecuatoriana)",
+                    "Fosa de las Marianas",
+                    "Fosa de Puerto Rico",
+                    "Fosa de Java"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Excelente! Has superado todas las preguntas geológicas de la costa pacífica.",
+                incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+            }
         ]
     },
     en: {
@@ -342,6 +409,72 @@ const translations = {
                 correctFeedback: "Excellent! You passed this question.",
                 incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             }
+        ],
+        questionsLevel3: [
+            {
+                name: "Sample 1: Coast Type",
+                question: "What mainly characterizes the Chocó coast in the Colombian Pacific?",
+                options: [
+                    "High and rocky coast, with cliffs and dark volcanic sand beaches",
+                    "Low and pure sandy coast, with giant dunes and extensive reefs",
+                    "Deltaic coast dominated only by ancient glacial deposits",
+                    "Fjord coast sculpted by ice"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Correct! The Chocó coast is tectonically active and has volcanic and sedimentary rocks.",
+                incorrectFeedback: "Incorrect. Your exploration has ended."
+            },
+            {
+                name: "Sample 2: Tectonic Plates",
+                question: "Which tectonic plates interact in front of Colombia's Pacific coast generating seismicity?",
+                options: [
+                    "The Nazca Plate subducting under the South American Plate",
+                    "The Caribbean Plate sliding laterally under the Cocos Plate",
+                    "The Pacific Plate separating from the Eurasian Plate",
+                    "The Scotia Plate colliding with the African Plate"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent! The subduction of Nazca under the South American is responsible for seismic activity.",
+                incorrectFeedback: "Incorrect. Your exploration has ended."
+            },
+            {
+                name: "Sample 3: Dark Sands",
+                question: "Why do Chocó beach sands have a characteristic dark color?",
+                options: [
+                    "Due to the erosion of volcanic and basaltic rocks rich in ferromagnesian minerals",
+                    "Due to the massive accumulation of mineral coal washed down by coastal rivers",
+                    "Due to the decomposition of organic matter from mangroves and high rainfall",
+                    "Due to natural oil deposits bubbling up from the seabed"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Very well! Basalts from the Baudó range provide these dark minerals.",
+                incorrectFeedback: "Incorrect. Your exploration has ended."
+            },
+            {
+                name: "Sample 4: Ocean Energy",
+                question: "What is the clean energy obtained from the movement of ocean waves called?",
+                options: [
+                    "Wave energy (Undimotriz)",
+                    "Tidal energy (Mareomotriz)",
+                    "Marine geothermal energy",
+                    "Coastal thermoelectric energy"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Exactly! Wave energy harnesses the power of the waves in our great Pacific Ocean.",
+                incorrectFeedback: "Incorrect. Your exploration has ended."
+            },
+            {
+                name: "Sample 5: Ocean Trench",
+                question: "What is the name of the oceanic trench located off Colombia's Pacific coast?",
+                options: [
+                    "Colombia Trench (or Colombia-Ecuador Trench)",
+                    "Mariana Trench",
+                    "Puerto Rico Trench",
+                    "Java Trench"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent! You have passed all geological questions for the Pacific coast.",
+                incorrectFeedback: "Incorrect. Your exploration has ended."
         ]
     },
     fr: {
@@ -511,6 +644,73 @@ const translations = {
                 correctFeedback: "Excellent ! Vous avez réussi cette question.",
                 incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             }
+        ],
+        questionsLevel3: [
+            {
+                name: "Échantillon 1 : Type de côte",
+                question: "Qu'est-ce qui caractérise principalement la côte du Chocó dans le Pacifique colombien ?",
+                options: [
+                    "Côte haute et rocheuse, avec des falaises et des plages de sable noir d'origine volcanique",
+                    "Côte basse et sableuse pure, avec des dunes géantes et de grands récifs coralliens",
+                    "Côte deltaïque dominée uniquement par d'anciens dépôts glaciaires",
+                    "Côte de fjords sculptés par la glace"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Correct ! La côte de Chocó est tectoniquement active et possède des roches volcaniques et sédimentaires.",
+                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+            },
+            {
+                name: "Échantillon 2 : Plaques tectoniques",
+                question: "Quelles plaques tectoniques interagissent au large de la côte Pacifique de la Colombie ?",
+                options: [
+                    "La plaque de Nazca subductant sous la plaque sud-américaine",
+                    "La plaque caraïbe glissant latéralement sous la plaque de Cocos",
+                    "La plaque Pacifique se séparant de la plaque eurasienne",
+                    "La plaque de Scotia entrant en collision avec la plaque africaine"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent ! La subduction de Nazca sous la plaque sud-américaine est responsable de l'activité sismique.",
+                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+            },
+            {
+                name: "Échantillon 3 : Sables noirs",
+                question: "Pourquoi les sables des plages du Chocó ont-ils une couleur sombre caractéristique ?",
+                options: [
+                    "En raison de l'érosion des roches volcaniques et basaltiques riches en minéraux ferromagnésiens",
+                    "En raison de l'accumulation massive de charbon minéral entraîné par les rivières côtières",
+                    "En raison de la décomposition de la matière organique des mangroves et des fortes précipitations",
+                    "En raison de gisements de pétrole naturel bouillonnant du fond marin"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Très bien ! Les basaltes de la chaîne de Baudó fournissent ces minéraux sombres.",
+                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+            },
+            {
+                name: "Échantillon 4 : Énergie de l'océan",
+                question: "Comment appelle-t-on l'énergie propre obtenue par le mouvement des vagues de l'océan ?",
+                options: [
+                    "Énergie houlomotrice",
+                    "Énergie marémotrice",
+                    "Énergie géothermique marine",
+                    "Énergie thermoélectrique côtière"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Exactement ! L'énergie houlomotrice exploite la puissance des vagues dans notre grand Océan Pacifique.",
+                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+            },
+            {
+                name: "Échantillon 5 : Fosse océanique",
+                question: "Quel est le nom de la fosse océanique située au large de la côte Pacifique colombienne ?",
+                options: [
+                    "Fosse de Colombie (ou Fosse Colombo-Équatorienne)",
+                    "Fosse des Mariannes",
+                    "Fosse de Porto Rico",
+                    "Fosse de Java"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent ! Vous avez réussi toutes les questions géologiques sur la côte Pacifique.",
+                incorrectFeedback: "Incorrect. Votre exploration est terminée."
+            }
         ]
     }
 };
@@ -535,7 +735,7 @@ function setLanguage(lang) {
     document.getElementById('btn-retry').innerHTML = t.btnRetry;
     document.getElementById('victory-title').innerHTML = t.victoryTitle;
     document.getElementById('victory-details').innerHTML = t.victoryDetails;
-    document.getElementById('btn-replay').innerHTML = currentLevel === 1 ? t.btnNextLevel : t.btnReplay;
+    document.getElementById('btn-replay').innerHTML = currentLevel < 3 ? t.btnNextLevel : t.btnReplay;
     document.getElementById('btn-continue').innerHTML = t.btnContinue;
     
     // Update HUD labels (we preserve the spans!)
@@ -685,14 +885,23 @@ function answerQuestion(optionIndex) {
         
         player.correctAnswersCount = (player.correctAnswersCount || 0) + 1;
         if (player.correctAnswersCount === 2) {
-            player.vehicle = currentLevel === 2 ? "dinosaur" : "skateboard";
-            let unlockMsg = translations[currentLang].skateboardUnlock;
-            if (currentLevel === 2) {
-                unlockMsg = unlockMsg
+            if (currentLevel === 3) {
+                player.vehicle = "surfboard";
+                let unlockMsg = translations[currentLang].skateboardUnlock
+                    .replace("🛹", "🏄‍♂️")
+                    .replace("TRANSPORTE", "TRANSPORTE: ¡TABLA DE SURF!");
+                resultSubtitle.innerHTML += unlockMsg;
+                AudioSFX.playSurf();
+            } else if (currentLevel === 2) {
+                player.vehicle = "dinosaur";
+                let unlockMsg = translations[currentLang].skateboardUnlock
                     .replace("🛹", "🦖")
                     .replace("TRANSPORTE", "TRANSPORTE: ¡DINOSAURIO!");
+                resultSubtitle.innerHTML += unlockMsg;
+            } else {
+                player.vehicle = "skateboard";
+                resultSubtitle.innerHTML += translations[currentLang].skateboardUnlock;
             }
-            resultSubtitle.innerHTML += unlockMsg;
         }
     } else {
         resultTitle.textContent = translations[currentLang].incorrectTitle;
@@ -801,6 +1010,8 @@ function restartGame() {
 function handleVictoryButtonClick() {
     if (currentLevel === 1) {
         currentLevel = 2;
+    } else if (currentLevel === 2) {
+        currentLevel = 3;
     } else {
         currentLevel = 1;
     }
@@ -813,7 +1024,23 @@ function initLevel() {
     snakes = [];
     venomProjectiles = [];
 
-    if (currentLevel === 2) {
+    if (currentLevel === 3) {
+        // Nivel 3: Playa de Chocó
+        puddles = [];
+        hazards = [
+            { x: 950,  y: getGroundHeight(950)  - 15, width: 35, height: 15, type: "log" },
+            { x: 2100, y: getGroundHeight(2100) - 15, width: 35, height: 15, type: "log" },
+            { x: 3050, y: getGroundHeight(3050) - 15, width: 35, height: 15, type: "log" }
+        ];
+        dinosaurs = [];
+        frogs = [
+            { x: 450,  y: getGroundHeight(450) - 20, width: 24, height: 20, vy: 0, timer: 20 },
+            { x: 1200, y: getGroundHeight(1200) - 20, width: 24, height: 20, vy: 0, timer: 50 },
+            { x: 2350, y: getGroundHeight(2350) - 20, width: 24, height: 20, vy: 0, timer: 80 },
+            { x: 3200, y: getGroundHeight(3200) - 20, width: 24, height: 20, vy: 0, timer: 10 }
+        ];
+        snakes = [];
+    } else if (currentLevel === 2) {
         // Nivel 2: no hay charcos (desierto seco), solo peligros de cañón
         puddles = [];
         hazards = [
@@ -875,7 +1102,8 @@ function initLevel() {
     ];
 
     // Cargar preguntas según nivel (geología básica en Nivel 1, hidrógeno en Nivel 2)
-    const activeQuestions = currentLevel === 1 ? translations[currentLang].questions : translations[currentLang].questionsLevel2;
+    const activeQuestions = currentLevel === 1 ? translations[currentLang].questions : 
+                            (currentLevel === 2 ? translations[currentLang].questionsLevel2 : translations[currentLang].questionsLevel3);
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
@@ -1106,9 +1334,10 @@ function update() {
         return;
     }
 
-    // 1. Horizontal Movement (Skateboard has speed boost!)
+    // 1. Horizontal Movement (Skateboard/Surfboard speed boosts!)
     let currentSpeed = player.speed;
     if (player.vehicle === "skateboard") currentSpeed = player.speed * 1.8;
+    else if (player.vehicle === "surfboard") currentSpeed = player.speed * 1.95;
 
     if (keys["ArrowRight"] || keys["KeyD"]) {
         player.vx = currentSpeed;
@@ -1125,6 +1354,7 @@ function update() {
     if (isJumpKeyPressed && player.isGrounded) {
         let jumpPower = player.jumpForce;
         if (player.vehicle === "skateboard") jumpPower = player.jumpForce * 1.25;
+        else if (player.vehicle === "surfboard") jumpPower = player.jumpForce * 1.15;
         
         player.vy = jumpPower;
         player.isGrounded = false;
@@ -1305,6 +1535,11 @@ function update() {
         if (haz.type === "geyser" && !haz.isErupting) isColliding = false; // geysers only hurt when erupting
 
         if (isColliding) {
+            if (haz.type === "log") {
+                let logDeathMsg = currentLang === 'es' ? "Tropezaste con un tronco en la playa." : (currentLang === 'fr' ? "Vous avez trébuché sur un tronc sur la plage." : "You tripped over a log on the beach.");
+                handlePlayerDeath(logDeathMsg);
+                return;
+            }
             if (haz.type === "geyser") {
                 handlePlayerDeath(translations[currentLang].gameOverReasonGeyser);
                 return;
@@ -1330,7 +1565,7 @@ function update() {
 
     // Fauna (frogs, snakes, venom) update and collision check
     function handleFaunaHit() {
-        if (player.vehicle === "skateboard" || player.vehicle === "dinosaur") {
+        if (player.vehicle === "skateboard" || player.vehicle === "dinosaur" || player.vehicle === "surfboard") {
             player.vehicle = null;
             player.x += player.direction * -100; // Retroceso
             player.vx = 0;
@@ -1491,7 +1726,10 @@ function draw() {
 
     // ── Sky gradient ──
     let gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    if (currentLevel === 2) {
+    if (currentLevel === 3) {
+        gradient.addColorStop(0,   "#00c6ff"); // bright tropical cyan
+        gradient.addColorStop(1,   "#0072ff"); // deep ocean blue
+    } else if (currentLevel === 2) {
         gradient.addColorStop(0,   "#2E1A47"); // deep purple sunset
         gradient.addColorStop(0.5, "#D35400"); // bright orange
         gradient.addColorStop(1,   "#F39C12"); // sunset yellow
@@ -1504,7 +1742,7 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // ── White/Pinkish clouds parallax (capa 1 — lentas) ──
-    ctx.fillStyle = currentLevel === 2 ? "rgba(244, 143, 177, 0.55)" : "rgba(255, 255, 255, 0.82)";
+    ctx.fillStyle = currentLevel === 3 ? "rgba(255, 255, 255, 0.88)" : (currentLevel === 2 ? "rgba(244, 143, 177, 0.55)" : "rgba(255, 255, 255, 0.82)");
     let cloudOffset1 = (cameraX * 0.12) % canvas.width;
     let cloudSeeds1 = [60, 200, 370, 520, 680];
     cloudSeeds1.forEach(cx => {
@@ -1514,7 +1752,20 @@ function draw() {
 
     // ── Sol ──
     let sunX = 680 - (cameraX * 0.05) % 800;
-    if (currentLevel === 2) {
+    if (currentLevel === 3) {
+        // Golden tropical sun for Level 3
+        ctx.fillStyle = "rgba(254, 240, 138, 0.22)";
+        ctx.beginPath();
+        ctx.arc(sunX, 80, 50, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#FBBF24";
+        ctx.beginPath();
+        ctx.arc(sunX, 80, 36, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "#D97706";
+        ctx.lineWidth = 3;
+        ctx.stroke();
+    } else if (currentLevel === 2) {
         // Large majestic sunset sun near the horizon (no face)
         ctx.fillStyle = "rgba(243, 156, 18, 0.25)";
         ctx.beginPath();
@@ -1558,7 +1809,7 @@ function draw() {
     }
 
     // ── Nubes capa 2 — más rápidas ──
-    ctx.fillStyle = currentLevel === 2 ? "rgba(255, 171, 145, 0.45)" : "rgba(255, 255, 255, 0.65)";
+    ctx.fillStyle = currentLevel === 3 ? "rgba(255, 255, 255, 0.75)" : (currentLevel === 2 ? "rgba(255, 171, 145, 0.45)" : "rgba(255, 255, 255, 0.65)");
     let cloudOffset2 = (cameraX * 0.22) % canvas.width;
     let cloudSeeds2 = [130, 310, 490, 700];
     cloudSeeds2.forEach(cx => {
@@ -1567,7 +1818,31 @@ function draw() {
     });
 
     // ── Parallax mountains / canyon walls ──
-    if (currentLevel === 2) {
+    if (currentLevel === 3) {
+        // Distant green jungle islands in Chocó
+        let islandOff = (cameraX * 0.15) % 400;
+        ctx.fillStyle = "#1E4620";  // dark jungle green silhouette
+        for (let i = -1; i < 4; i++) {
+            let ix = i * 400 - islandOff;
+            ctx.beginPath();
+            ctx.moveTo(ix, GROUND_Y + 10);
+            ctx.quadraticCurveTo(ix + 100, GROUND_Y - 50, ix + 200, GROUND_Y - 25);
+            ctx.quadraticCurveTo(ix + 300, GROUND_Y - 70, ix + 400, GROUND_Y + 10);
+            ctx.closePath();
+            ctx.fill();
+        }
+        ctx.fillStyle = "#113014";  // darker background layer
+        let islandOff2 = (cameraX * 0.22) % 300;
+        for (let i = -1; i < 5; i++) {
+            let ix = i * 300 - islandOff2;
+            ctx.beginPath();
+            ctx.moveTo(ix, GROUND_Y + 14);
+            ctx.quadraticCurveTo(ix + 80, GROUND_Y - 30, ix + 150, GROUND_Y - 15);
+            ctx.quadraticCurveTo(ix + 220, GROUND_Y - 45, ix + 300, GROUND_Y + 14);
+            ctx.closePath();
+            ctx.fill();
+        }
+    } else if (currentLevel === 2) {
         // Reddish-orange canyon walls / flat-topped mesas
         let hillOff = (cameraX * 0.18) % 360;
         ctx.fillStyle = "#7E3D2F";  // dark clay brown
@@ -1634,7 +1909,7 @@ function draw() {
 
     // ── GROUND ──
     // Soil base
-    ctx.fillStyle = currentLevel === 2 ? "#A04000" : "#8D6239"; // red-orange clay vs dark brown dirt
+    ctx.fillStyle = currentLevel === 3 ? "#1C2833" : (currentLevel === 2 ? "#A04000" : "#8D6239"); // deep sea blue/grey vs clay vs dirt
     ctx.beginPath();
     ctx.moveTo(0, canvas.height);
     for (let x = 0; x <= LEVEL_WIDTH; x += 15) {
@@ -1645,7 +1920,7 @@ function draw() {
     ctx.fill();
 
     // Ground surface crust
-    ctx.strokeStyle = currentLevel === 2 ? "#D35400" : "#5E9E3E"; // bright orange crust vs green grass
+    ctx.strokeStyle = currentLevel === 3 ? "#3498DB" : (currentLevel === 2 ? "#D35400" : "#5E9E3E"); // ocean blue vs orange crust vs green grass
     ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.moveTo(0, getGroundHeight(0));
@@ -1653,6 +1928,18 @@ function draw() {
         ctx.lineTo(x, getGroundHeight(x));
     }
     ctx.stroke();
+
+    // Wave foam for Level 3 (beach/sea effect)
+    if (currentLevel === 3) {
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, getGroundHeight(0) + 4);
+        for (let x = 0; x <= LEVEL_WIDTH; x += 25) {
+            ctx.lineTo(x, getGroundHeight(x) + 4 + Math.sin(Date.now()/200 + x)*2);
+        }
+        ctx.stroke();
+    }
 
     // Draw puddles (charcos de agua)
     puddles.forEach(pud => {
@@ -1666,9 +1953,11 @@ function draw() {
         ctx.stroke();
     });
 
-    // ── VEGETATION (Frailejones / Wax Palms) ──
+    // ── VEGETATION (Frailejones / Wax Palms / Cocoteros) ──
     frailejones.forEach(fr => {
-        if (currentLevel === 2) {
+        if (currentLevel === 3) {
+            drawCocotero(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.scale);
+        } else if (currentLevel === 2) {
             drawPalmaDeCera(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.scale);
         } else {
             drawFrailejón(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.hasFlower, fr.scale);
@@ -1678,41 +1967,80 @@ function draw() {
     // ── FAUNA (Frogs, Snakes, Venom) ──
     frogs.forEach(frog => {
         ctx.save();
-        ctx.fillStyle = "#27AE60"; // Green body
-        ctx.strokeStyle = "#1E8449";
-        ctx.lineWidth = 1.5;
-        
-        // Draw body (ellipse/arc)
-        ctx.beginPath();
-        ctx.ellipse(frog.x + 12, frog.y + 12, 12, 8, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
+        if (currentLevel === 3) {
+            // Draw Jumping Octopus
+            ctx.fillStyle = "#8E44AD"; // Purple body
+            ctx.strokeStyle = "#5B2C6F";
+            ctx.lineWidth = 1.5;
+            
+            // Round head/mantle
+            ctx.beginPath();
+            ctx.arc(frog.x + 12, frog.y + 10, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
 
-        // Draw big eyes
-        ctx.fillStyle = "#FFFFFF";
-        ctx.beginPath();
-        ctx.arc(frog.x + 7, frog.y + 5, 4, 0, Math.PI * 2);
-        ctx.arc(frog.x + 17, frog.y + 5, 4, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-        
-        ctx.fillStyle = "#000000";
-        ctx.beginPath();
-        ctx.arc(frog.x + 7, frog.y + 5, 1.8, 0, Math.PI * 2);
-        ctx.arc(frog.x + 17, frog.y + 5, 1.8, 0, Math.PI * 2);
-        ctx.fill();
+            // Big expressive eyes
+            ctx.fillStyle = "#FFFFFF";
+            ctx.beginPath();
+            ctx.arc(frog.x + 8, frog.y + 10, 3.5, 0, Math.PI * 2);
+            ctx.arc(frog.x + 16, frog.y + 10, 3.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            
+            ctx.fillStyle = "#000000";
+            ctx.beginPath();
+            ctx.arc(frog.x + 8, frog.y + 10, 1.5, 0, Math.PI * 2);
+            ctx.arc(frog.x + 16, frog.y + 10, 1.5, 0, Math.PI * 2);
+            ctx.fill();
 
-        // Draw legs
-        ctx.strokeStyle = "#1E8449";
-        ctx.lineWidth = 2.5;
-        ctx.beginPath();
-        // Left back leg
-        ctx.moveTo(frog.x + 4, frog.y + 14);
-        ctx.quadraticCurveTo(frog.x - 2, frog.y + 12, frog.x + 2, frog.y + 18);
-        // Right back leg
-        ctx.moveTo(frog.x + 20, frog.y + 14);
-        ctx.quadraticCurveTo(frog.x + 26, frog.y + 12, frog.x + 22, frog.y + 18);
-        ctx.stroke();
+            // Tentacles (squiggly lines below)
+            ctx.strokeStyle = "#8E44AD";
+            ctx.lineWidth = 2.5;
+            let legWiggle = Math.sin(Date.now() / 80) * 3;
+            for (let t = 0; t < 4; t++) {
+                let tx = frog.x + 5 + t * 4;
+                ctx.beginPath();
+                ctx.moveTo(tx, frog.y + 18);
+                ctx.quadraticCurveTo(tx + legWiggle, frog.y + 23, tx + (t % 2 === 0 ? 3 : -3), frog.y + 25);
+                ctx.stroke();
+            }
+        } else {
+            ctx.fillStyle = "#27AE60"; // Green body
+            ctx.strokeStyle = "#1E8449";
+            ctx.lineWidth = 1.5;
+            
+            // Draw body (ellipse/arc)
+            ctx.beginPath();
+            ctx.ellipse(frog.x + 12, frog.y + 12, 12, 8, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Draw big eyes
+            ctx.fillStyle = "#FFFFFF";
+            ctx.beginPath();
+            ctx.arc(frog.x + 7, frog.y + 5, 4, 0, Math.PI * 2);
+            ctx.arc(frog.x + 17, frog.y + 5, 4, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            
+            ctx.fillStyle = "#000000";
+            ctx.beginPath();
+            ctx.arc(frog.x + 7, frog.y + 5, 1.8, 0, Math.PI * 2);
+            ctx.arc(frog.x + 17, frog.y + 5, 1.8, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw legs
+            ctx.strokeStyle = "#1E8449";
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            // Left back leg
+            ctx.moveTo(frog.x + 4, frog.y + 14);
+            ctx.quadraticCurveTo(frog.x - 2, frog.y + 12, frog.x + 2, frog.y + 18);
+            // Right back leg
+            ctx.moveTo(frog.x + 20, frog.y + 14);
+            ctx.quadraticCurveTo(frog.x + 26, frog.y + 12, frog.x + 22, frog.y + 18);
+            ctx.stroke();
+        }
         ctx.restore();
     });
 
@@ -2022,7 +2350,20 @@ function draw() {
 
     // ── OBSTÁCULOS / HAZARDS — colores contrastantes de día ──
     hazards.forEach(haz => {
-        if (haz.type === "geyser") {
+        if (haz.type === "log") {
+            let logY = getGroundHeight(haz.x);
+            // Draw a brown log on the beach
+            ctx.fillStyle = "#5c3d24";
+            ctx.fillRect(haz.x, logY - 15, 35, 15);
+            // End details
+            ctx.fillStyle = "#8a5c37";
+            ctx.beginPath();
+            ctx.arc(haz.x, logY - 7.5, 7.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(haz.x + 35, logY - 7.5, 7.5, 0, Math.PI * 2);
+            ctx.fill();
+        } else if (haz.type === "geyser") {
             // Base del géiser: rojo ladrillo
             ctx.fillStyle = "#C0392B";
             ctx.fillRect(haz.x, GROUND_Y - 16, haz.width, 16);
@@ -2261,7 +2602,31 @@ function draw() {
     let ph = player.height;
 
     // ── VEHÍCULOS ──
-    if (player.vehicle === "skateboard") {
+    if (player.vehicle === "surfboard") {
+        ctx.save();
+        // Sombra / Water splash shadow
+        ctx.fillStyle = "rgba(255,255,255,0.4)"; // White water foam shadow
+        ctx.beginPath();
+        ctx.ellipse(px + pw/2, py + ph, 26, 5, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Surfboard (pointed oval shape, cyan/yellow tropical colors)
+        ctx.fillStyle = "#E74C3C"; // Tropical red-orange
+        ctx.strokeStyle = "#FFFFFF";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(px + pw/2, py + ph - 2, 24, 4, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Decorative stripe
+        ctx.fillStyle = "#F1C40F"; // Yellow stripe
+        ctx.beginPath();
+        ctx.ellipse(px + pw/2, py + ph - 2, 24, 1.2, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.restore();
+    } else if (player.vehicle === "skateboard") {
         ctx.save();
         // Sombra
         ctx.fillStyle = "rgba(0,0,0,0.2)";
@@ -2693,6 +3058,51 @@ function drawPalmaDeCera(ctx, x, groundY, height, scale) {
         ctx.restore();
     }
     ctx.restore();
+
+    ctx.restore();
+}
+
+// ═══════════════════════════════════════════════════════════
+// COCOTERO — Palmera de playa del Pacífico (Chocó)
+// ═══════════════════════════════════════════════════════════
+function drawCocotero(ctx, x, groundY, height, scale) {
+    ctx.save();
+    ctx.translate(x, groundY);
+    ctx.scale(scale, scale);
+
+    // Sombra
+    ctx.fillStyle = "rgba(0,0,0,0.15)";
+    ctx.beginPath();
+    ctx.ellipse(0, 4, 15, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Tronco (curvo café)
+    ctx.strokeStyle = "#8d6239";
+    ctx.lineWidth = 6;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(-15, -height/2, -5, -height);
+    ctx.stroke();
+
+    // Cocos
+    ctx.fillStyle = "#4a2711";
+    ctx.beginPath(); ctx.arc(-8, -height - 2, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(-2, -height + 2, 5, 0, Math.PI * 2); ctx.fill();
+
+    // Hojas de palmera oscilando levemente
+    ctx.strokeStyle = "#27ae60";
+    ctx.lineWidth = 4.5;
+    let windWiggle = Math.sin(Date.now() / 600) * 0.08;
+    for (let i = 0; i < 6; i++) {
+        let angle = -Math.PI / 2 + (i - 2.5) * 0.45 + windWiggle;
+        let lx = Math.cos(angle) * 38;
+        let ly = Math.sin(angle) * 38;
+        ctx.beginPath();
+        ctx.moveTo(-5, -height);
+        ctx.quadraticCurveTo(-5 + lx/2, -height + ly/2 - 10, -5 + lx, -height + ly);
+        ctx.stroke();
+    }
 
     ctx.restore();
 }

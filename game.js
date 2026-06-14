@@ -475,6 +475,7 @@ const translations = {
                 correctIndex: 0,
                 correctFeedback: "Excellent! You have passed all geological questions for the Pacific coast.",
                 incorrectFeedback: "Incorrect. Your exploration has ended."
+            }
         ]
     },
     fr: {

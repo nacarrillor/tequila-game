@@ -3053,6 +3053,11 @@ function draw() {
     ctx.fillText(`${translations[currentLang].energyLabel}${Math.floor(player.energy)}%`, 18, canvas.height - 13);
     ctx.shadowColor = "transparent";
 
+    // Draw version tag on canvas
+    ctx.font = "6px 'Press Start 2P'";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+    ctx.fillText("v2.0.2", canvas.width - 55, canvas.height - 13);
+
     // Actualizar HUD DOM (score boxes)
     updateHUD();
 

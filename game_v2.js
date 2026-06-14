@@ -1806,9 +1806,6 @@ function initLevel() {
             { x: 7625, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
         ];
     } else {
-        LEVEL_WIDTH = 4000;
-        drillRig.x = 3650;
-        
         // Puddles will serve as the infinite sea starting at x=600, ending at x=7400 (before the shop)
         puddles = [
             { x: 600, width: 6800 }

@@ -1518,6 +1518,11 @@ function answerQuestion(optionIndex) {
                 resultSubtitle.innerHTML += translations[currentLang].skateboardUnlock;
             }
         }
+        
+        if (currentLevel === 3 && activeRockSample && activeRockSample.x > 600) {
+            // Restore surfboard immediately if answered correctly on a sea island
+            player.vehicle = "surfboard";
+        }
     } else {
         player.correctAnswersCount = 0; // Reset on incorrect answer
         resultTitle.textContent = translations[currentLang].incorrectTitle;
@@ -2045,9 +2050,27 @@ function update() {
         }
     });
 
-    if (inPuddle && player.vehicle !== "surfboard") {
+    let onAnyIsland = false;
+    let onUndiscoveredIsland = false;
+    if (currentLevel === 3) {
+        rockSamples.forEach((rock, idx) => {
+            if (idx > 0) {
+                let playerMidX = player.x + player.width / 2;
+                if (Math.abs(playerMidX - (rock.x + 15)) < 45) {
+                    onAnyIsland = true;
+                    if (!rock.discovered) onUndiscoveredIsland = true;
+                }
+            }
+        });
+    }
+
+    if (inPuddle && !onAnyIsland && player.vehicle !== "surfboard") {
         handlePlayerDeath(translations[currentLang].gameOverReasonPuddle);
         return;
+    }
+
+    if (onUndiscoveredIsland && player.vehicle === "surfboard") {
+        player.vehicle = null;
     }
 
     // 1. Horizontal Movement (Skateboard/Surfboard speed boosts!)
@@ -3078,14 +3101,43 @@ function draw() {
     // Draw Level 3 islands under the sea rocks
     if (currentLevel === 3) {
         rockSamples.forEach((rock, idx) => {
-            if (idx > 0 && !rock.discovered) { // skip the first one since it's on the beach
+            if (idx > 0) { // always draw the island, even if discovered!
+                let ix = rock.x + 15;
+                let iy = getGroundHeight(rock.x) + 5;
                 ctx.fillStyle = "#E6C280"; // Sand color
                 ctx.beginPath();
-                ctx.ellipse(rock.x + 15, getGroundHeight(rock.x) + 5, 45, 12, 0, 0, Math.PI * 2);
+                ctx.ellipse(ix, iy, 45, 12, 0, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.strokeStyle = "#D4A373";
                 ctx.lineWidth = 2;
                 ctx.stroke();
+
+                // Draw Turtle
+                ctx.save();
+                ctx.translate(ix - 25, iy - 6);
+                
+                // Legs
+                ctx.fillStyle = "#2ECC71"; // lighter green
+                ctx.beginPath(); ctx.ellipse(-6, -5, 4, 3, 0.5, 0, Math.PI*2); ctx.fill();
+                ctx.beginPath(); ctx.ellipse(6, -4, 4, 3, -0.5, 0, Math.PI*2); ctx.fill();
+                ctx.beginPath(); ctx.ellipse(-6, 5, 4, 3, -0.5, 0, Math.PI*2); ctx.fill();
+                ctx.beginPath(); ctx.ellipse(6, 4, 4, 3, 0.5, 0, Math.PI*2); ctx.fill();
+                
+                // Head
+                ctx.beginPath();
+                ctx.arc(10, 0, 3.5, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Turtle shell
+                ctx.fillStyle = "#27AE60"; // dark green
+                ctx.beginPath();
+                ctx.ellipse(0, 0, 10, 6, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = "#1E8449";
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+                
+                ctx.restore();
             }
         });
     }

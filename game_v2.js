@@ -1482,8 +1482,8 @@ function showQuestionModal(rock) {
     // Timer logic using player's main energy
     if (quizTimerInterval) clearInterval(quizTimerInterval);
     quizTimerInterval = setInterval(() => {
-        // Drain main energy (e.g., 0.5 per 100ms = 5 per second)
-        player.energy -= 0.5;
+        // Drain main energy (e.g., 0.15 per 100ms = 1.5 per second)
+        player.energy -= 0.15;
         
         // Force canvas redraw so the user sees the bottom energy bar shrinking
         draw();

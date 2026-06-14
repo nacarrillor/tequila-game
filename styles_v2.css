@@ -464,14 +464,18 @@ body {
 /* ══ Mobile Responsive ══ */
 @media (max-width: 850px) {
     .game-screen-wrapper {
-        border-width: 2px;
-        box-shadow: 2px 2px 0 #000;
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: #1A1A1A; /* Black bars for empty space */
     }
 
     #gameCanvas {
-        width: 100vw;
-        height: 62.5vw; /* Keep 800:500 = 8:5 aspect ratio */
-        max-height: 100vh;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Preserves exactly 800x500 aspect ratio without squashing */
     }
 
     /* Absolute-positioned, scrollable overlays on mobile to prevent clipping and layout shifting */

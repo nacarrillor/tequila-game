@@ -1455,20 +1455,20 @@ function initLevel() {
         drillRig.x = 3850;
         puddles = [];
         hazards = [
-            { x: 900,  y: getGroundHeight(900)  - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
+            { x: 750,  y: getGroundHeight(750)  - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
             { x: 2200, y: getGroundHeight(2200) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 },
-            { x: 3100, y: getGroundHeight(3100) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 40 }
+            { x: 3200, y: getGroundHeight(3200) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 40 }
         ];
         // Dinosaurios salvajes en el mapa del nivel 2
         dinosaurs = [
-            { x: 1200, y: getGroundHeight(1200), width: 50, height: 40, active: true },
-            { x: 2600, y: getGroundHeight(2600), width: 50, height: 40, active: true }
+            { x: 1150, y: getGroundHeight(1150), width: 50, height: 40, active: true },
+            { x: 2800, y: getGroundHeight(2800), width: 50, height: 40, active: true }
         ];
         // Spawn Fauna for Level 2
         frogs = [
-            { x: 350, y: getGroundHeight(350) - 20, width: 24, height: 20, vy: 0, timer: 15 },
+            { x: 300, y: getGroundHeight(300) - 20, width: 24, height: 20, vy: 0, timer: 15 },
             { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 45 },
-            { x: 2420, y: getGroundHeight(2420) - 20, width: 24, height: 20, vy: 0, timer: 75 }
+            { x: 2600, y: getGroundHeight(2600) - 20, width: 24, height: 20, vy: 0, timer: 75 }
         ];
         snakes = [];
     } else {
@@ -1551,7 +1551,7 @@ function initLevel() {
 
     // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 5
     const rockXPositions = currentLevel === 1 ? [1025, 1625, 2225, 2825, 3425, 4025, 4625, 5225, 5825, 6425] : 
-                           (currentLevel === 2 ? [500, 850, 1100, 1450, 1850, 2150, 2500, 2900, 3250, 3600] : [650, 1350, 2100, 2850, 3500]);
+                           (currentLevel === 2 ? [500, 950, 1350, 1750, 2000, 2400, 3000, 3400, 3600, 3800] : [650, 1350, 2100, 2850, 3500]);
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 

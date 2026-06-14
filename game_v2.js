@@ -1881,7 +1881,7 @@ function update() {
         }
     });
 
-    if (inPuddle) {
+    if (inPuddle && player.vehicle !== "surfboard") {
         handlePlayerDeath(translations[currentLang].gameOverReasonPuddle);
         return;
     }

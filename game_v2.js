@@ -4002,7 +4002,7 @@ function drawGeologist(ctx, px, py, dir, charType) {
     ctx.fillStyle = "#4E342E"; ctx.strokeStyle = outline; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.roundRect(px, py + 42, 11, 7, 2); ctx.fill(); ctx.stroke();
     ctx.beginPath(); ctx.roundRect(px + 13, py + 42, 11, 7, 2); ctx.fill(); ctx.stroke();
-    ctx.fillStyle = "#6D4C41";
+    ctx.fillStyle = currentLevel === 3 ? skinColor : "#6D4C41"; // Shorts en la playa
     ctx.beginPath(); ctx.roundRect(px + 1, py + 34, 9, 10, 2); ctx.fill(); ctx.stroke();
     ctx.beginPath(); ctx.roundRect(px + 14, py + 34, 9, 10, 2); ctx.fill(); ctx.stroke();
 

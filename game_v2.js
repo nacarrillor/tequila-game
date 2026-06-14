@@ -2334,6 +2334,21 @@ function draw() {
         ctx.strokeStyle = "#D97706";
         ctx.lineWidth = 3;
         ctx.stroke();
+        
+        // Cara del sol (Flappy Bird style)
+        ctx.fillStyle = "#D97706";
+        ctx.beginPath(); ctx.arc(sunX - 11, 73, 5, 0, Math.PI * 2); ctx.fill(); // ojo izq
+        ctx.beginPath(); ctx.arc(sunX + 11, 73, 5, 0, Math.PI * 2); ctx.fill(); // ojo der
+        ctx.fillStyle = "#fff";
+        ctx.beginPath(); ctx.arc(sunX - 11, 73, 3, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(sunX + 11, 73, 3, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = "#D97706";
+        // Sonrisa
+        ctx.beginPath();
+        ctx.arc(sunX, 82, 12, 0.2, Math.PI - 0.2);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "#B45F06";
+        ctx.stroke();
     } else if (currentLevel === 2) {
         // Large majestic sunset sun near the horizon (no face)
         ctx.fillStyle = "rgba(243, 156, 18, 0.25)";

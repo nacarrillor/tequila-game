@@ -1744,7 +1744,7 @@ function update() {
         if (Math.abs(player.x - fruit.x) < 30 && Math.abs(player.y - fruit.y) < 50) {
             if (fruit.type === "canister") {
                 const discoveredCount = rockSamples.filter(r => r.discovered).length;
-                if (discoveredCount >= 5) {
+                if (discoveredCount >= rockSamples.length) {
                     fruits.splice(idx, 1);
                     player.celebrating = true;
                     player.celebrationTimer = 150; // 150 frames (~2.5s) de celebración
@@ -2820,7 +2820,7 @@ function draw() {
     // 6. Indicador de texto al llegar
     if (player.x > shopX - 80 && player.x < shopX + 180) {
         const discoveredCount = rockSamples.filter(r => r.discovered).length;
-        if (discoveredCount < 5) {
+        if (discoveredCount < rockSamples.length) {
             ctx.fillStyle = "rgba(0,0,0,0.75)";
             ctx.fillRect(shopX + 10, shopY - 122, 110, 15);
             ctx.strokeStyle = "#FFF";
@@ -2829,7 +2829,7 @@ function draw() {
             
             ctx.font = "bold 4.5px 'Press Start 2P', monospace";
             ctx.fillStyle = "#FFF";
-            ctx.fillText("BUSCA LAS 5 MUESTRAS", shopX + 14, shopY - 112);
+            ctx.fillText(`BUSCA LAS ${rockSamples.length} MUESTRAS`, shopX + 14, shopY - 112);
         }
     }
     ctx.restore();

@@ -2236,8 +2236,8 @@ function draw() {
     // ── Sky gradient ──
     let gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
     if (currentLevel === 3) {
-        gradient.addColorStop(0,   "#00c6ff"); // bright tropical cyan
-        gradient.addColorStop(1,   "#0072ff"); // deep ocean blue
+        gradient.addColorStop(0,   "#4ED4FF"); // lighter bright tropical cyan
+        gradient.addColorStop(1,   "#AEEAFF"); // pale blue horizon
     } else if (currentLevel === 2) {
         gradient.addColorStop(0,   "#2E1A47"); // deep purple sunset
         gradient.addColorStop(0.5, "#D35400"); // bright orange
@@ -2418,7 +2418,7 @@ function draw() {
 
     // ── GROUND ──
     // Soil base
-    ctx.fillStyle = currentLevel === 3 ? "#1C2833" : (currentLevel === 2 ? "#A04000" : "#8D6239"); // deep sea blue/grey vs clay vs dirt
+    ctx.fillStyle = currentLevel === 3 ? "#C2B280" : (currentLevel === 2 ? "#A04000" : "#8D6239"); // sand vs clay vs dirt
     ctx.beginPath();
     ctx.moveTo(0, canvas.height);
     for (let x = 0; x <= LEVEL_WIDTH; x += 15) {
@@ -2429,7 +2429,7 @@ function draw() {
     ctx.fill();
 
     // Ground surface crust
-    ctx.strokeStyle = currentLevel === 3 ? "#3498DB" : (currentLevel === 2 ? "#D35400" : "#5E9E3E"); // ocean blue vs orange crust vs green grass
+    ctx.strokeStyle = currentLevel === 3 ? "#E3D398" : (currentLevel === 2 ? "#D35400" : "#5E9E3E"); // bright sand vs orange crust vs green grass
     ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.moveTo(0, getGroundHeight(0));
@@ -2450,16 +2450,40 @@ function draw() {
         ctx.stroke();
     }
 
-    // Draw puddles (charcos de agua)
+    // Draw puddles (charcos de agua / mar)
     puddles.forEach(pud => {
         let py = getGroundHeight(pud.x);
         ctx.fillStyle = "#4FA9E6";
         ctx.strokeStyle = "#2980B9";
         ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.ellipse(pud.x + pud.width/2, py, pud.width/2, 4, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
+        
+        if (pud.width > 1000) {
+            // Es el mar gigante del Nivel 3
+            ctx.fillStyle = "rgba(10, 110, 200, 0.85)"; // Océano profundo
+            ctx.fillRect(pud.x, py - 6, pud.width, canvas.height - py + 6);
+            ctx.strokeRect(pud.x, py - 6, pud.width, canvas.height - py + 6);
+            
+            // Dibujar muelle/plataforma de madera en el borde de la isla
+            ctx.fillStyle = "#8B5A2B"; // Madera
+            ctx.strokeStyle = "#4A2F1D";
+            ctx.lineWidth = 2;
+            
+            // Plataforma
+            ctx.fillRect(pud.x - 80, py - 12, 80, 12);
+            ctx.strokeRect(pud.x - 80, py - 12, 80, 12);
+            
+            // Pilares de madera clavados en la arena/agua
+            for (let px = pud.x - 70; px < pud.x; px += 25) {
+                ctx.fillRect(px, py, 6, canvas.height - py);
+                ctx.strokeRect(px, py, 6, canvas.height - py);
+            }
+        } else {
+            // Charcos normales
+            ctx.beginPath();
+            ctx.ellipse(pud.x + pud.width/2, py, pud.width/2, 4, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
     });
 
     // ── VEGETATION (Frailejones / Wax Palms / Cocoteros) ──

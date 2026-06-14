@@ -1609,11 +1609,7 @@ function resetPlayerState(fullReset) {
     player.celebrationTimer = 0;
     
     if (fullReset) {
-        if (selectedChar === "male") { // Bob
-            player.lives = 4;
-        } else { // Sheena
-            player.lives = 3;
-        }
+        player.lives = 5;
     }
     
     if (selectedChar === "male") { // Bob

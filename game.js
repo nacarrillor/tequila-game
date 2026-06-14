@@ -526,9 +526,6 @@ function setLanguage(lang) {
     // Update DOM texts
     const t = translations[lang];
     if (document.getElementById('title-subtitle')) document.getElementById('title-subtitle').innerHTML = t.subtitle;
-    if (document.getElementById('intro-text')) document.getElementById('intro-text').innerHTML = t.introText;
-    if (document.getElementById('quote-text-val')) document.getElementById('quote-text-val').innerHTML = t.quoteText;
-    if (document.getElementById('quote-cite')) document.getElementById('quote-cite').innerHTML = t.quoteCite;
     document.getElementById('char-bob-role').innerHTML = t.roleBob;
     document.getElementById('char-sheena-role').innerHTML = t.roleSheena;
     document.getElementById('btn-play').innerHTML = t.btnPlay;

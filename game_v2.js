@@ -1790,21 +1790,20 @@ function initLevel() {
         hazards = [];
         // Octopuses in the sea (reusing frogs array)
         frogs = [
-            { x: 800,  y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 0 },
-            { x: 1300, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 45 },
-            { x: 1900, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 90 },
-            { x: 2600, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 15 },
-            { x: 3200, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 60 }
+            { x: 900,  y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 0 },
+            { x: 1450, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 45 },
+            { x: 2150, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 90 },
+            { x: 2850, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 15 },
+            { x: 3500, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 60 }
         ];
         snakes = [];
         fruits = [
             { x: 300, y: 250, type: "banana" },
-            { x: 1000, y: 220, type: "cherry" },
+            { x: 800, y: 220, type: "cherry" },
             { x: 1500, y: 260, type: "banana" },
-            { x: 2000, y: 220, type: "cherry" },
-            { x: 2500, y: 260, type: "banana" },
-            { x: 3000, y: 220, type: "cherry" },
-            { x: 3500, y: 200, type: "banana" },
+            { x: 2100, y: 220, type: "cherry" },
+            { x: 2800, y: 260, type: "banana" },
+            { x: 3400, y: 220, type: "cherry" },
             { x: 3825, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
         ];
     }

@@ -2502,7 +2502,11 @@ function triggerVictory() {
         vTitle.style.color = "#3D7A1E";
         vTitle.style.textShadow = "3px 3px 0 #F1C40F";
         
-        vDetails.innerHTML = '<p style="font-weight:bold; color:#3D7A1E; margin:10px 0;">' + translations[currentLang].victorySubtitle + '</p>';
+        let defaultSubtitle = currentLang === 'es' ? "¡Qué bien! Tienes grandes conocimientos de geología. ¡Sigue así para descubrir más secretos de la Tierra en el siguiente nivel!" :
+                              currentLang === 'en' ? "Great! You have great knowledge of geology. Keep it up to discover more secrets of the Earth in the next level!" :
+                              "Bravo ! Vous avez de grandes connaissances en géologie. Continuez ainsi pour découvrir plus de secrets de la Terre au niveau suivant !";
+        let subTxt = translations[currentLang].victorySubtitle || defaultSubtitle;
+        vDetails.innerHTML = '<p style="font-weight:bold; color:#3D7A1E; margin:10px 0;">' + subTxt + '</p>';
         vDetails.style.background = "#F0FFF0";
         vDetails.style.borderColor = "#5E9E3E";
         

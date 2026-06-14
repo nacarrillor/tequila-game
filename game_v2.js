@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d");
 
 let currentLang = 'es';
 let currentLevel = 1;
+let selectedLevel = 1;
 
 const translations = {
     es: {
@@ -1237,21 +1238,7 @@ function getGroundHeight(x) {
             }
         }
     } else {
-        // Hill 1
-        if (x > 800 && x < 1300) {
-            let pct = (x - 800) / 500;
-            base -= Math.sin(pct * Math.PI) * 70;
-        }
-        // Hill 2
-        if (x > 1700 && x < 2300) {
-            let pct = (x - 1700) / 600;
-            base -= Math.sin(pct * Math.PI) * 90;
-        }
-        // Hill 3
-        if (x > 2800 && x < 3300) {
-            let pct = (x - 2800) / 500;
-            base -= Math.sin(pct * Math.PI) * 60;
-        }
+        // Nivel 3 es plano (isla y mar)
     }
     
     return base;
@@ -1267,6 +1254,14 @@ function selectCharacter(gender) {
     selectedChar = gender;
     document.getElementById("char-bob").classList.toggle("selected", gender === 'male');
     document.getElementById("char-sheena").classList.toggle("selected", gender === 'female');
+}
+
+// Level Select handler
+function selectLevel(lvl) {
+    selectedLevel = lvl;
+    document.getElementById("btn-lvl1").classList.toggle("active", lvl === 1);
+    document.getElementById("btn-lvl2").classList.toggle("active", lvl === 2);
+    document.getElementById("btn-lvl3").classList.toggle("active", lvl === 3);
 }
 
 // Custom Rock Question handlers
@@ -1309,7 +1304,8 @@ function answerQuestion(optionIndex) {
         snoopyImg.src = "Happy_snoopy.webp";
         
         player.correctAnswersCount = (player.correctAnswersCount || 0) + 1;
-        if (player.correctAnswersCount === 3) {
+        let requiredAnswers = (currentLevel === 3) ? 1 : 3;
+        if (player.correctAnswersCount === requiredAnswers) {
             if (currentLevel === 3) {
                 player.vehicle = "surfboard";
                 let unlockMsg = translations[currentLang].skateboardUnlock
@@ -1408,7 +1404,7 @@ function startGame() {
     document.getElementById("game-hud").style.display = "flex";
     
     resetPlayerState(true);
-    currentLevel = 1;
+    currentLevel = selectedLevel;
     initLevel();
 }
 
@@ -1584,15 +1580,24 @@ function initLevel() {
             { x: 7625, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
         ];
     } else {
+        LEVEL_WIDTH = 4000;
+        drillRig.x = 3650;
+        
+        // Puddles will serve as the infinite sea starting at x=600
+        puddles = [
+            { x: 600, width: 3500 }
+        ];
+        hazards = [];
+        frogs = [];
+        snakes = [];
         fruits = [
             { x: 300, y: 250, type: "banana" },
-            { x: 450, y: 220, type: "cherry" },
-            { x: 900, y: 260, type: "banana" },
-            { x: 1150, y: 220, type: "cherry" },
-            { x: 1750, y: 260, type: "banana" },
-            { x: 2050, y: 210, type: "cherry" },
-            { x: 2850, y: 200, type: "banana" },
-            { x: 3250, y: 220, type: "cherry" },
+            { x: 1000, y: 220, type: "cherry" },
+            { x: 1500, y: 260, type: "banana" },
+            { x: 2000, y: 220, type: "cherry" },
+            { x: 2500, y: 260, type: "banana" },
+            { x: 3000, y: 220, type: "cherry" },
+            { x: 3500, y: 200, type: "banana" },
             { x: 3825, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
         ];
     }
@@ -1605,7 +1610,7 @@ function initLevel() {
 
     // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 5
     const rockXPositions = currentLevel === 1 ? [500, 1000, 1800, 2400, 3300, 3900, 4800, 5400, 6300, 6900] : 
-                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [650, 1350, 2100, 2850, 3500]);
+                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [400]);
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 

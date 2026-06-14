@@ -24,7 +24,7 @@ class SoundEffects {
         if (this.isBGMMuted) return;
         
         const lvl = (typeof currentLevel !== 'undefined') ? currentLevel : 1;
-        const songFile = lvl === 2 ? 'Relámpagos.mp3' : 'Epidemia.mp3';
+        const songFile = lvl === 3 ? 'Inri.mp3' : (lvl === 2 ? 'Relámpagos.mp3' : 'Epidemia.mp3');
         
         // If BGM is already playing but it is the wrong track, stop it first
         if (this.isPlayingBGM && !this.bgmAudio.src.endsWith(songFile)) {

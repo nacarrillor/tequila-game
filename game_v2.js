@@ -3,7 +3,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 let currentLang = 'es';
-let currentLevel = 2;
+let currentLevel = 1;
 
 const translations = {
     es: {
@@ -1205,15 +1205,16 @@ function getGroundHeight(x) {
     let base = GROUND_Y;
     if (currentLevel === 1) {
         const hills = [
-            { start: 900, end: 1150, h: 70 },
-            { start: 2100, end: 2350, h: 70 },
-            { start: 3300, end: 3550, h: 70 },
-            { start: 4500, end: 4750, h: 70 }
+            { start: 1200, end: 1500, h: 70 },
+            { start: 2700, end: 3000, h: 70 },
+            { start: 4200, end: 4500, h: 70 },
+            { start: 5700, end: 6000, h: 70 },
+            { start: 7200, end: 7500, h: 70 }
         ];
         for (let i = 0; i < hills.length; i++) {
             let hill = hills[i];
             if (x > hill.start && x < hill.end) {
-                let pct = (x - hill.start) / 250;
+                let pct = (x - hill.start) / (hill.end - hill.start);
                 base -= Math.sin(pct * Math.PI) * hill.h;
                 break;
             }
@@ -1407,7 +1408,7 @@ function startGame() {
     document.getElementById("game-hud").style.display = "flex";
     
     resetPlayerState(true);
-    currentLevel = 2;
+    currentLevel = 1;
     initLevel();
 }
 
@@ -1498,31 +1499,33 @@ function initLevel() {
         ];
         snakes = [];
     } else {
-        LEVEL_WIDTH = 7000;
-        drillRig.x = 6650;
+        LEVEL_WIDTH = 8000;
+        drillRig.x = 7650;
         // ======= LEVEL 1 LAYOUT (LOW-MEDIUM DIFFICULTY) =======
-        // FLAT ZONES: 0-900, 1200-2000, 2300-3100, 3400-4200, 4500-5300, 5600-7000
-        // HILLS:      900-1200, 2000-2300, 3100-3400, 4200-4500, 5300-5600
-        // ALL rocks on flat ground, ALL obstacles on hills, 400px+ clearance
+        // FLAT ZONES: 0-1200, 1500-2700, 3000-4200, 4500-5700, 6000-7200
+        // HILLS:      1200-1500, 2700-3000, 4200-4500, 5700-6000, 7200-7500
         //
-        // Rocks: 1450, 1750, 2550, 2850, 3650, 3950, 4750, 5050, 5900, 6300
+        // Rocks: 500, 1000, 1800, 2400, 3300, 3900, 4800, 5400, 6300, 6900
         //
-        // Obstacles ON HILLS only (far from rocks):
+        // Obstacles (Puddles on flat ground, Geysers on hills):
         puddles = [
-            { x: 1850, width: 60 },
+            { x: 1120, width: 60 },
             { x: 2600, width: 60 },
-            { x: 3850, width: 60 },
-            { x: 5400, width: 60 }
+            { x: 4100, width: 60 },
+            { x: 5600, width: 60 },
+            { x: 7100, width: 60 }
         ];
         hazards = [
-            { x: 1250, y: getGroundHeight(1250) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
-            { x: 4900, y: getGroundHeight(4900) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
+            { x: 2850, y: getGroundHeight(2850) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
+            { x: 5850, y: getGroundHeight(5850) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
         ];
         // Frogs on flat ground:
         frogs = [
-            { x: 650, y: getGroundHeight(650) - 20, width: 24, height: 20, vy: 0, timer: 0 },
-            { x: 3100, y: getGroundHeight(3100) - 20, width: 24, height: 20, vy: 0, timer: 40 },
-            { x: 6150, y: getGroundHeight(6150) - 20, width: 24, height: 20, vy: 0, timer: 80 }
+            { x: 750, y: getGroundHeight(750) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 2100, y: getGroundHeight(2100) - 20, width: 24, height: 20, vy: 0, timer: 40 },
+            { x: 3600, y: getGroundHeight(3600) - 20, width: 24, height: 20, vy: 0, timer: 80 },
+            { x: 5100, y: getGroundHeight(5100) - 20, width: 24, height: 20, vy: 0, timer: 20 },
+            { x: 6600, y: getGroundHeight(6600) - 20, width: 24, height: 20, vy: 0, timer: 60 }
         ];
         snakes = [];
     }
@@ -1540,20 +1543,21 @@ function initLevel() {
     if (currentLevel === 1) {
         fruits = [
             { x: 300, y: 250, type: "banana" },
-            { x: 450, y: 220, type: "cherry" },
-            { x: 900, y: 260, type: "banana" },
-            { x: 1150, y: 220, type: "cherry" },
-            { x: 1750, y: 260, type: "banana" },
-            { x: 2050, y: 210, type: "cherry" },
-            { x: 2850, y: 200, type: "banana" },
-            { x: 3250, y: 220, type: "cherry" },
-            { x: 3750, y: 250, type: "banana" },
-            { x: 4150, y: 220, type: "cherry" },
-            { x: 4750, y: 260, type: "banana" },
-            { x: 5050, y: 210, type: "cherry" },
-            { x: 5550, y: 250, type: "banana" },
-            { x: 6150, y: 220, type: "cherry" },
-            { x: 6625, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
+            { x: 800, y: 220, type: "cherry" },
+            { x: 1350, y: 200, type: "banana" },
+            { x: 1650, y: 220, type: "cherry" },
+            { x: 2250, y: 260, type: "banana" },
+            { x: 2850, y: 200, type: "cherry" },
+            { x: 3150, y: 260, type: "banana" },
+            { x: 3750, y: 210, type: "cherry" },
+            { x: 4350, y: 200, type: "banana" },
+            { x: 4650, y: 220, type: "cherry" },
+            { x: 5250, y: 260, type: "banana" },
+            { x: 5850, y: 200, type: "cherry" },
+            { x: 6150, y: 250, type: "banana" },
+            { x: 6750, y: 220, type: "cherry" },
+            { x: 7350, y: 200, type: "banana" },
+            { x: 7625, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
         ];
     } else if (currentLevel === 2) {
         fruits = [
@@ -1600,7 +1604,7 @@ function initLevel() {
     shuffleArray(baseQuestions);
 
     // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 5
-    const rockXPositions = currentLevel === 1 ? [1025, 1625, 2225, 2825, 3425, 4025, 4625, 5225, 5825, 6425] : 
+    const rockXPositions = currentLevel === 1 ? [500, 1000, 1800, 2400, 3300, 3900, 4800, 5400, 6300, 6900] : 
                            (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [650, 1350, 2100, 2850, 3500]);
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
@@ -1634,7 +1638,7 @@ function initLevel() {
     frailejones = [];
     // Frailejones placed on flat ground away from obstacles and rocks
     const frailejonesPositions = currentLevel === 1 ? [
-        150, 250, 350, 500, 1425, 1475, 2025, 2625, 3225, 3825, 4425, 5025, 5625, 6225, 6550
+        150, 350, 650, 1150, 1600, 2000, 2600, 3100, 3500, 4100, 4600, 5000, 5600, 6100, 6500, 7100, 7500
     ] : (currentLevel === 2 ? [
         150, 850, 1100, 1400, 1800, 2100, 2400, 2900, 3400, 3900, 4400, 4900, 5400, 5900, 6400, 6900, 7400, 7700
     ] : [
@@ -3043,15 +3047,15 @@ function draw() {
 
     // 4. Letrero comercial de la tienda
     ctx.fillStyle = "#FFF";
-    ctx.fillRect(shopX + 10, shopY - 95, 110, 14);
+    ctx.fillRect(shopX - 10, shopY - 105, 150, 20);
     ctx.strokeStyle = "#2C2C2C";
     ctx.lineWidth = 2;
-    ctx.strokeRect(shopX + 10, shopY - 95, 110, 14);
+    ctx.strokeRect(shopX - 10, shopY - 105, 150, 20);
     
-    ctx.font = "bold 5px 'Press Start 2P', monospace";
+    ctx.font = "bold 9px 'Press Start 2P', monospace";
     ctx.fillStyle = "#E74C3C";
     ctx.textAlign = "center";
-    ctx.fillText("LA PAPA RECORDS", shopX + 65, shopY - 86);
+    ctx.fillText("LA PAPA RECORDS", shopX + 65, shopY - 91);
     ctx.textAlign = "left";
 
     // 5. Mesas y sillas plásticas afuera
@@ -3083,14 +3087,16 @@ function draw() {
         const discoveredCount = rockSamples.filter(r => r.discovered).length;
         if (discoveredCount < rockSamples.length) {
             ctx.fillStyle = "rgba(0,0,0,0.75)";
-            ctx.fillRect(shopX + 10, shopY - 122, 110, 15);
+            ctx.fillRect(shopX - 35, shopY - 135, 200, 22);
             ctx.strokeStyle = "#FFF";
             ctx.lineWidth = 1.5;
-            ctx.strokeRect(shopX + 10, shopY - 122, 110, 15);
+            ctx.strokeRect(shopX - 35, shopY - 135, 200, 22);
             
-            ctx.font = "bold 4.5px 'Press Start 2P', monospace";
+            ctx.font = "bold 10px 'Press Start 2P', monospace";
             ctx.fillStyle = "#FFF";
-            ctx.fillText(`BUSCA LAS ${rockSamples.length} MUESTRAS`, shopX + 14, shopY - 112);
+            ctx.textAlign = "center";
+            ctx.fillText(`BUSCA LAS ${rockSamples.length} MUESTRAS`, shopX + 65, shopY - 120);
+            ctx.textAlign = "left";
         }
     }
     ctx.restore();

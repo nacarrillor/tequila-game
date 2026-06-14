@@ -154,7 +154,7 @@ const translations = {
                     "a) Sedimentos → basaltos en almohadilla → diabasas en diques → gabros → peridotitas",
                     "b) Sedimentos → gabros → diabasas en diques → basaltos en almohadilla → peridotitas",
                     "c) Peridotitas → gabros → diabasas en diques → basaltos en almohadilla → sedimentos",
-                    "d) Sedimentos → peridotitas → gabros → diabasas en diques → basaltos en almohadilla"
+                    "d) Peridotitas → sedimentos → gabros → diabasas en diques → basaltos en almohadilla"
                 ],
                 correctIndex: 2,
                 correctFeedback: "¡Excelente! Has superado esta pregunta.",
@@ -658,7 +658,9 @@ function showQuestionModal(rock) {
     rock.options.forEach((opt, idx) => {
         const btn = document.createElement("button");
         btn.className = "btn-option";
-        btn.textContent = opt;
+        // Remove 'a) ', 'b) ', etc. prefixes so they don't look scrambled when shuffled
+        const cleanOpt = opt.replace(/^[a-d]\)\s*/i, "");
+        btn.textContent = cleanOpt;
         btn.onclick = () => answerQuestion(idx);
         optionsDiv.appendChild(btn);
     });

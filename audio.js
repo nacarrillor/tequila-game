@@ -7,6 +7,7 @@ class SoundEffects {
         this.bgmAudio.loop = true;
         this.bgmAudio.volume = 0.1; // Volumen bajo (10%)
         this.isPlayingBGM = false;
+        this.isBGMMuted = false;
     }
 
     init() {
@@ -20,6 +21,7 @@ class SoundEffects {
     // ══════════════════════════════════════════════════════
     startBGM() {
         this.init();
+        if (this.isBGMMuted) return;
         
         const lvl = (typeof currentLevel !== 'undefined') ? currentLevel : 1;
         const songFile = lvl === 2 ? 'Relámpagos.mp3' : 'Epidemia.mp3';
@@ -37,6 +39,19 @@ class SoundEffects {
                 console.log("Audio play blocked by browser until user interaction: ", err);
             });
         }
+    }
+
+    toggleMute() {
+        this.isBGMMuted = !this.isBGMMuted;
+        if (this.isBGMMuted) {
+            this.bgmAudio.pause();
+            this.isPlayingBGM = false;
+        } else {
+            if (typeof gameState !== 'undefined' && gameState === "playing") {
+                this.startBGM();
+            }
+        }
+        return this.isBGMMuted;
     }
 
     stopBGM() {
@@ -437,3 +452,12 @@ class SoundEffects {
 }
 
 const AudioSFX = new SoundEffects();
+
+function toggleMute() {
+    const muted = AudioSFX.toggleMute();
+    const btn = document.getElementById("btn-mute");
+    if (btn) {
+        btn.innerHTML = muted ? "🔇" : "🔊";
+        btn.style.borderColor = muted ? "#E74C3C" : "#2C2C2C";
+    }
+}

@@ -2482,16 +2482,16 @@ function triggerVictory() {
                         "FÉLICITATIONS,<br>MISSION TERMINÉE";
                         
         vTitle.innerHTML = titleText;
-        vTitle.style.color = "#E74C3C";
-        vTitle.style.textShadow = "3px 3px 0 #8B0000";
+        vTitle.style.color = "#3D7A1E";
+        vTitle.style.textShadow = "3px 3px 0 #F1C40F";
         
         let detailsText = currentLang === 'es' ? "Has explorado todos los ambientes geológicos." :
                           currentLang === 'en' ? "You have explored all geological environments." :
                           "Vous avez exploré tous les environnements géologiques.";
                           
-        vDetails.innerHTML = '<p style="font-weight:bold; color:#E74C3C; margin:10px 0;">' + detailsText + '</p>';
-        vDetails.style.background = "#FFE8E5";
-        vDetails.style.borderColor = "#E74C3C";
+        vDetails.innerHTML = '<p style="font-weight:bold; color:#3D7A1E; margin:10px 0;">' + detailsText + '</p>';
+        vDetails.style.background = "#F0FFF0";
+        vDetails.style.borderColor = "#5E9E3E";
         
         btnReplay.innerHTML = currentLang === 'es' ? "▶ VOLVER AL INICIO" : 
                               currentLang === 'en' ? "▶ BACK TO START" : 

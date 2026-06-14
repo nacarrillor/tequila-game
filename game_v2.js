@@ -1672,13 +1672,15 @@ function initLevel() {
 
     if (currentLevel === 3) {
         // Nivel 3: Playa de Chocó
-        LEVEL_WIDTH = 4200;
-        drillRig.x = 3850;
+        LEVEL_WIDTH = 8000;
+        drillRig.x = 7650;
         puddles = [];
         hazards = [
-            { x: 950,  y: getGroundHeight(950)  - 15, width: 35, height: 15, type: "log" },
-            { x: 2100, y: getGroundHeight(2100) - 15, width: 35, height: 15, type: "log" },
-            { x: 3050, y: getGroundHeight(3050) - 15, width: 35, height: 15, type: "log" }
+            { x: 1050,  y: getGroundHeight(1050)  - 15, width: 35, height: 15, type: "log" },
+            { x: 2600, y: getGroundHeight(2600) - 15, width: 35, height: 15, type: "log" },
+            { x: 4100, y: getGroundHeight(4100) - 15, width: 35, height: 15, type: "log" },
+            { x: 5500, y: getGroundHeight(5500) - 15, width: 35, height: 15, type: "log" },
+            { x: 6800, y: getGroundHeight(6800) - 15, width: 35, height: 15, type: "log" }
         ];
         dinosaurs = [];
         frogs = [
@@ -1807,28 +1809,36 @@ function initLevel() {
         LEVEL_WIDTH = 4000;
         drillRig.x = 3650;
         
-        // Puddles will serve as the infinite sea starting at x=600, ending at x=3550 (before the shop)
+        // Puddles will serve as the infinite sea starting at x=600, ending at x=7400 (before the shop)
         puddles = [
-            { x: 600, width: 2950 }
+            { x: 600, width: 6800 }
         ];
         hazards = [];
         // Octopuses in the sea (reusing frogs array)
         frogs = [
-            { x: 900,  y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 0 },
-            { x: 1450, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 45 },
-            { x: 2150, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 90 },
-            { x: 2850, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 15 },
-            { x: 3500, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 60 }
+            { x: 1100,  y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 0 },
+            { x: 1800, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 45 },
+            { x: 2500, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 90 },
+            { x: 3200, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 15 },
+            { x: 3900, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 60 },
+            { x: 4600, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 30 },
+            { x: 5300, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 75 },
+            { x: 6000, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 20 },
+            { x: 6800, y: GROUND_Y, width: 30, height: 30, vy: 0, timer: 80 }
         ];
         snakes = [];
         fruits = [
             { x: 300, y: 250, type: "banana" },
-            { x: 800, y: 220, type: "cherry" },
-            { x: 1500, y: 260, type: "banana" },
-            { x: 2100, y: 220, type: "cherry" },
-            { x: 2800, y: 260, type: "banana" },
-            { x: 3400, y: 220, type: "cherry" },
-            { x: 3825, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
+            { x: 1200, y: 220, type: "cherry" },
+            { x: 1900, y: 260, type: "banana" },
+            { x: 2600, y: 220, type: "cherry" },
+            { x: 3300, y: 260, type: "banana" },
+            { x: 4000, y: 220, type: "cherry" },
+            { x: 4700, y: 260, type: "banana" },
+            { x: 5400, y: 220, type: "cherry" },
+            { x: 6100, y: 260, type: "banana" },
+            { x: 6900, y: 220, type: "cherry" },
+            { x: 7600, y: GROUND_Y - 22, type: "canister" }
         ];
     }
 
@@ -1838,9 +1848,9 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 5
+    // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 10
     const rockXPositions = currentLevel === 1 ? [500, 1000, 1800, 2400, 3300, 3900, 4800, 5400, 6300, 6900] : 
-                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [400, 750, 1050, 1400, 1750, 2050, 2400, 2750, 3050, 3400]);
+                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [800, 1500, 2200, 2900, 3600, 4300, 5000, 5700, 6400, 7100]);
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 

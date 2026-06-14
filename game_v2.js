@@ -3,7 +3,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 let currentLang = 'es';
-let currentLevel = 1;
+let currentLevel = 2;
 
 const translations = {
     es: {
@@ -257,10 +257,10 @@ const translations = {
                 options: [
                     "El proceso por el cual las rocas se erosionan y sus minerales vuelven al mar donde se disuelven",
                     "La secuencia de transformaciones por la que cualquier tipo de roca puede convertirse en otro tipo con el tiempo",
-                    "El movimiento de las placas tectónicas que recicla la corteza oceánica cada 200 millones de años",
+                    "El proceso continuo por el que las rocas ígneas, sedimentarias y metamórficas se transforman unas en otras a lo largo del tiempo",
                     "La alternancia entre periodos de intensa actividad volcánica y periodos de calma geológica"
                 ],
-                correctIndex: 1,
+                correctIndex: 2,
                 correctFeedback: "¡Exacto! Tienes buenos conocimientos de geología.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             },
@@ -270,7 +270,7 @@ const translations = {
                 options: [
                     "Nos indica la temperatura exacta de cada capa porque el calor acelera las ondas sísmicas",
                     "Nos permite calcular la edad de las rocas porque las ondas viajan más lento en rocas más antiguas",
-                    "Nos revela la composición y estado de las capas internas porque las ondas cambian de velocidad al atravesar materiales distintos",
+                    "Nos indica la composición y estado de las capas internas porque las ondas cambian de velocidad al atravesar materiales distintos",
                     "Nos indica la presión en cada capa porque las ondas se comprimen al encontrar zonas de alta presión"
                 ],
                 correctIndex: 2,
@@ -623,10 +623,10 @@ const translations = {
                 options: [
                     "a) The process by which rocks erode and their minerals return to the sea where they dissolve",
                     "b) The sequence of transformations by which any type of rock can turn into another type over time",
-                    "c) The tectonic plate movement that recycles oceanic crust every 200 million years",
+                    "c) The continuous process by which igneous, sedimentary and metamorphic rocks transform into each other over time",
                     "d) The alternation between periods of intense volcanic activity and periods of geological calm"
                 ],
-                correctIndex: 1,
+                correctIndex: 2,
                 correctFeedback: "Exactly! You have good knowledge of geology.",
                 incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             },
@@ -989,10 +989,10 @@ const translations = {
                 options: [
                     "a) Le processus par lequel les roches s'érodent et leurs minéraux retournent à la mer où ils se dissolvent",
                     "b) La séquence de transformations par laquelle n'importe quel type de roche peut se transformer en un autre type au fil du temps",
-                    "c) Le mouvement des plaques tectoniques qui recycle la croûte océanique tous les 200 millions d'années",
+                    "c) Le processus continu par lequel les roches ignées, sédimentaires et métamorphiques se transforment les unes en les autres au fil du temps",
                     "d) L'alternance entre des périodes d'activité volcanique intense et des périodes de calme géologique"
                 ],
-                correctIndex: 1,
+                correctIndex: 2,
                 correctFeedback: "Exact ! Vous avez de bonnes connaissances en géologie.",
                 incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             },
@@ -1218,6 +1218,23 @@ function getGroundHeight(x) {
                 break;
             }
         }
+    } else if (currentLevel === 2) {
+        const hills = [
+            { start: 800, end: 1300, h: 70 },
+            { start: 1700, end: 2300, h: 90 },
+            { start: 2800, end: 3300, h: 60 },
+            { start: 4000, end: 4500, h: 70 },
+            { start: 5200, end: 5800, h: 90 },
+            { start: 6500, end: 7000, h: 60 }
+        ];
+        for (let i = 0; i < hills.length; i++) {
+            let hill = hills[i];
+            if (x > hill.start && x < hill.end) {
+                let pct = (x - hill.start) / (hill.end - hill.start);
+                base -= Math.sin(pct * Math.PI) * hill.h;
+                break;
+            }
+        }
     } else {
         // Hill 1
         if (x > 800 && x < 1300) {
@@ -1291,7 +1308,7 @@ function answerQuestion(optionIndex) {
         snoopyImg.src = "Happy_snoopy.webp";
         
         player.correctAnswersCount = (player.correctAnswersCount || 0) + 1;
-        if (player.correctAnswersCount === 2) {
+        if (player.correctAnswersCount === 3) {
             if (currentLevel === 3) {
                 player.vehicle = "surfboard";
                 let unlockMsg = translations[currentLang].skateboardUnlock
@@ -1311,6 +1328,7 @@ function answerQuestion(optionIndex) {
             }
         }
     } else {
+        player.correctAnswersCount = 0; // Reset on incorrect answer
         resultTitle.textContent = translations[currentLang].incorrectTitle;
         resultTitle.style.color = "#E74C3C";
         
@@ -1451,24 +1469,32 @@ function initLevel() {
         snakes = [];
     } else if (currentLevel === 2) {
         // Nivel 2: no hay charcos (desierto seco), solo peligros de cañón
-        LEVEL_WIDTH = 4200;
-        drillRig.x = 3850;
+        LEVEL_WIDTH = 8000;
+        drillRig.x = 7650;
         puddles = [];
         hazards = [
-            { x: 750,  y: getGroundHeight(750)  - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
-            { x: 2200, y: getGroundHeight(2200) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 },
-            { x: 3200, y: getGroundHeight(3200) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 40 }
+            { x: 1050, y: getGroundHeight(1050) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
+            { x: 2000, y: getGroundHeight(2000) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 },
+            { x: 3050, y: getGroundHeight(3050) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 40 },
+            { x: 4250, y: getGroundHeight(4250) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 20 },
+            { x: 5500, y: getGroundHeight(5500) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 60 },
+            { x: 6750, y: getGroundHeight(6750) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 10 }
         ];
-        // Dinosaurios salvajes en el mapa del nivel 2
+        // Dinosaurios salvajes en el mapa del nivel 2 (colocados lejos de las muestras)
         dinosaurs = [
-            { x: 1150, y: getGroundHeight(1150), width: 50, height: 40, active: true },
-            { x: 2800, y: getGroundHeight(2800), width: 50, height: 40, active: true }
+            { x: 950, y: getGroundHeight(950), width: 50, height: 40, active: true },
+            { x: 2900, y: getGroundHeight(2900), width: 50, height: 40, active: true },
+            { x: 5650, y: getGroundHeight(5650), width: 50, height: 40, active: true }
         ];
-        // Spawn Fauna for Level 2
+        // Spawn Fauna for Level 2 (colocados lejos de las muestras y solo en zonas planas)
         frogs = [
-            { x: 300, y: getGroundHeight(300) - 20, width: 24, height: 20, vy: 0, timer: 15 },
-            { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 45 },
-            { x: 2600, y: getGroundHeight(2600) - 20, width: 24, height: 20, vy: 0, timer: 75 }
+            { x: 250, y: getGroundHeight(250) - 20, width: 24, height: 20, vy: 0, timer: 15 },
+            { x: 1600, y: getGroundHeight(1600) - 20, width: 24, height: 20, vy: 0, timer: 45 },
+            { x: 2650, y: getGroundHeight(2650) - 20, width: 24, height: 20, vy: 0, timer: 75 },
+            { x: 3650, y: getGroundHeight(3650) - 20, width: 24, height: 20, vy: 0, timer: 30 },
+            { x: 4900, y: getGroundHeight(4900) - 20, width: 24, height: 20, vy: 0, timer: 60 },
+            { x: 6200, y: getGroundHeight(6200) - 20, width: 24, height: 20, vy: 0, timer: 10 },
+            { x: 7120, y: getGroundHeight(7120) - 20, width: 24, height: 20, vy: 0, timer: 50 }
         ];
         snakes = [];
     } else {
@@ -1529,6 +1555,30 @@ function initLevel() {
             { x: 6150, y: 220, type: "cherry" },
             { x: 6625, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
         ];
+    } else if (currentLevel === 2) {
+        fruits = [
+            { x: 300, y: 250, type: "banana" },
+            { x: 500, y: 220, type: "cherry" },
+            { x: 900, y: 260, type: "banana" },
+            { x: 1200, y: 220, type: "cherry" },
+            { x: 1400, y: 250, type: "banana" },
+            { x: 1800, y: 260, type: "banana" },
+            { x: 2150, y: 210, type: "cherry" },
+            { x: 2400, y: 250, type: "banana" },
+            { x: 2850, y: 200, type: "banana" },
+            { x: 3200, y: 220, type: "cherry" },
+            { x: 3500, y: 250, type: "banana" },
+            { x: 3900, y: 220, type: "cherry" },
+            { x: 4400, y: 260, type: "banana" },
+            { x: 4700, y: 210, type: "cherry" },
+            { x: 5100, y: 250, type: "banana" },
+            { x: 5600, y: 220, type: "cherry" },
+            { x: 6000, y: 250, type: "banana" },
+            { x: 6400, y: 220, type: "cherry" },
+            { x: 6900, y: 260, type: "banana" },
+            { x: 7200, y: 210, type: "cherry" },
+            { x: 7625, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
+        ];
     } else {
         fruits = [
             { x: 300, y: 250, type: "banana" },
@@ -1551,7 +1601,7 @@ function initLevel() {
 
     // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 5
     const rockXPositions = currentLevel === 1 ? [1025, 1625, 2225, 2825, 3425, 4025, 4625, 5225, 5825, 6425] : 
-                           (currentLevel === 2 ? [500, 950, 1350, 1750, 2000, 2400, 3000, 3400, 3600, 3800] : [650, 1350, 2100, 2850, 3500]);
+                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [650, 1350, 2100, 2850, 3500]);
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
@@ -1585,9 +1635,11 @@ function initLevel() {
     // Frailejones placed on flat ground away from obstacles and rocks
     const frailejonesPositions = currentLevel === 1 ? [
         150, 250, 350, 500, 1425, 1475, 2025, 2625, 3225, 3825, 4425, 5025, 5625, 6225, 6550
+    ] : (currentLevel === 2 ? [
+        150, 850, 1100, 1400, 1800, 2100, 2400, 2900, 3400, 3900, 4400, 4900, 5400, 5900, 6400, 6900, 7400, 7700
     ] : [
         150, 850, 1100, 1200, 1800, 2000, 2200, 2900, 3100, 3200, 3900, 4100, 4200, 4700, 4900, 5500, 5700, 5900
-    ];
+    ]);
     frailejonesPositions.forEach((fx, i) => {
         frailejones.push({
             x: fx,

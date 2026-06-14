@@ -192,6 +192,12 @@
 
                 
                     <button class="btn-play" id="btn-play" onclick="startGame()">&#9658; JUGAR</button>
+                    <button class="btn-play" id="btn-test-lvl3" onclick="selectLevel(3); startGame();" style="display:none; background:#8e44ad; margin-top:10px; font-size: 1rem;">&#9658; JUGAR SOLO NIVEL 3 (LOCAL)</button>
+                    <script>
+                        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') {
+                            document.getElementById('btn-test-lvl3').style.display = 'block';
+                        }
+                    </script>
 
                     <div style="margin-top: 15px; font-size: 0.65rem; color: #555; text-align: center; line-height: 1.4; border-top: 1px solid #ddd; padding-top: 10px;">
                         <strong>Diseño, contenido y desarrollo</strong><br>
@@ -267,6 +273,6 @@
 
     <!-- Game Scripts -->
     <script src="audio.js?v=2.0.16"></script>
-    <script src="game_v2.js?v=2.0.22"></script>
+    <script src="game_v2.js?v=2.0.23"></script>
 </body>
 </html>

@@ -1207,15 +1207,10 @@ function getGroundHeight(x) {
     if (currentLevel === 1) {
         const hills = [
             { start: 900, end: 1150, h: 70 },
-            { start: 1500, end: 1750, h: 80 },
             { start: 2100, end: 2350, h: 70 },
-            { start: 2700, end: 2950, h: 60 },
             { start: 3300, end: 3550, h: 70 },
-            { start: 3900, end: 4150, h: 80 },
             { start: 4500, end: 4750, h: 70 },
-            { start: 5100, end: 5350, h: 60 },
-            { start: 5700, end: 5950, h: 70 },
-            { start: 6300, end: 6550, h: 80 }
+            { start: 5700, end: 5950, h: 70 }
         ];
         for (let i = 0; i < hills.length; i++) {
             let hill = hills[i];
@@ -1490,7 +1485,12 @@ function initLevel() {
         //
         // Obstacles ON HILLS only (far from rocks):
         puddles = [
-            { x: 2525, width: 75 }
+            { x: 1600, width: 60 },
+            { x: 2525, width: 75 },
+            { x: 2750, width: 60 },
+            { x: 3950, width: 60 },
+            { x: 5150, width: 60 },
+            { x: 6350, width: 60 }
         ];
         hazards = [
             { x: 1325, y: getGroundHeight(1325) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },

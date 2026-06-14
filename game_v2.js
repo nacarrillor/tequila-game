@@ -26,9 +26,9 @@ const translations = {
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "INTÉNTALO DE NUEVO",
         btnRetry: "▶ REINTENTAR",
-        victoryTitle: "¡MISIÓN<br>COMPLETADA!",
-        victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">Tienes conocimientos en geología, pasamos al siguiente nivel.</p>`,
-        btnReplay: "▶ JUGAR OTRA VEZ",
+        victoryTitle: "¡FELICITACIONES!",
+        victoryDetails: "Has recuperado los datos y encontrado un prometedor reservorio de hidrógeno. ¡El futuro de la energía limpia es brillante!",
+        btnReplay: "▶ VOLVER A JUGAR",
         btnNextLevel: "▶ SIGUIENTE NIVEL",
         hudLives: "VIDAS",
         hudH2: "GAS H₂",
@@ -41,6 +41,9 @@ const translations = {
         correctTitle: "¡CORRECTO! 🎉",
         incorrectTitle: "INCORRECTO 😢",
         btnContinue: "CONTINUAR",
+        creditsDesign: "Diseño, contenido y desarrollo",
+        creditsContact: "contacto:",
+        creditsMusic: "Música",
         questions: [
             {
                 name: "Muestra 1: Tipo de rocas",
@@ -457,8 +460,8 @@ const translations = {
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "TRY AGAIN",
         btnRetry: "▶ RETRY",
-        victoryTitle: "MISSION<br>COMPLETED!",
-        victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">You have knowledge in geology, we move to the next level.</p>`,
+        victoryTitle: "CONGRATULATIONS!",
+        victoryDetails: "You recovered the data and found a promising hydrogen reservoir. The future of clean energy is bright!",
         btnReplay: "▶ PLAY AGAIN",
         btnNextLevel: "▶ NEXT LEVEL",
         hudLives: "LIVES",
@@ -472,6 +475,9 @@ const translations = {
         correctTitle: "CORRECT! 🎉",
         incorrectTitle: "INCORRECT 😢",
         btnContinue: "CONTINUE",
+        creditsDesign: "Design, content and development",
+        creditsContact: "contact:",
+        creditsMusic: "Music",
         questions: [
             {
                 name: "Sample 1: Rock Types",
@@ -888,14 +894,16 @@ const translations = {
         gameOverTitle: "GAME OVER",
         failedAttemptTitle: "RÉESSAYER",
         btnRetry: "▶ RÉESSAYER",
-        victoryTitle: "MISSION<br>ACCOMPLIE!",
-        victoryDetails: `<p style="font-weight:bold; color:#3D7A1E; text-align:center; margin:10px 0;">Vous avez des connaissances en géologie, nous passons au niveau suivant.</p>`,
-        btnReplay: "▶ REJOUER",
+        victoryTitle: "FÉLICITATIONS!",
+        victoryDetails: "Vous avez récupéré les données et trouvé un réservoir d'hydrogène prometteur. L'avenir de l'énergie propre est brillant!",
         btnNextLevel: "▶ NIVEAU SUIVANT",
         hudLives: "VIES",
         hudH2: "GAZ H₂",
         hudGeo: "GÉOPHONES",
         hudRocks: "ÉCHANTILLONS",
+        creditsDesign: "Conception, contenu et développement",
+        creditsContact: "contact :",
+        creditsMusic: "Musique",
         energyLabel: "ÉNERGIE: ",
         faultLabel: "FAILLE",
         newRockLabel: "[NOUVEL ÉCHANTILLON]",
@@ -1324,6 +1332,9 @@ function setLanguage(lang) {
     document.getElementById('victory-details').innerHTML = t.victoryDetails;
     document.getElementById('btn-replay').innerHTML = currentLevel < 3 ? t.btnNextLevel : t.btnReplay;
     document.getElementById('btn-continue').innerHTML = t.btnContinue;
+    if (document.getElementById('credits-design')) document.getElementById('credits-design').innerHTML = t.creditsDesign;
+    if (document.getElementById('credits-contact')) document.getElementById('credits-contact').innerHTML = t.creditsContact;
+    if (document.getElementById('credits-music')) document.getElementById('credits-music').innerHTML = t.creditsMusic;
     
     // Update HUD labels (we preserve the spans!)
     const livesSpan = document.getElementById("hud-lives") ? document.getElementById("hud-lives").outerHTML : `<span id="hud-lives">${"♥".repeat(Math.max(0, player.lives))}</span>`;

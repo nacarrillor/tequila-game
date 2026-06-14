@@ -1009,38 +1009,47 @@ let venomProjectiles = [];
 function getGroundHeight(x) {
     let base = GROUND_Y;
     
-    // Hill 1
-    if (x > 800 && x < 1300) {
-        let pct = (x - 800) / 500;
-        base -= Math.sin(pct * Math.PI) * 70;
-    }
-    // Hill 2
-    if (x > 1700 && x < 2300) {
-        let pct = (x - 1700) / 600;
-        base -= Math.sin(pct * Math.PI) * 90;
-    }
-    // Hill 3
-    if (x > 2800 && x < 3300) {
-        let pct = (x - 2800) / 500;
-        base -= Math.sin(pct * Math.PI) * 60;
-    }
-    
-    // Extra mountains for Level 1 length extension
     if (currentLevel === 1) {
+        // Hill 1
+        if (x > 900 && x < 1200) {
+            let pct = (x - 900) / 300;
+            base -= Math.sin(pct * Math.PI) * 70;
+        }
+        // Hill 2
+        if (x > 2000 && x < 2300) {
+            let pct = (x - 2000) / 300;
+            base -= Math.sin(pct * Math.PI) * 90;
+        }
+        // Hill 3
+        if (x > 3100 && x < 3400) {
+            let pct = (x - 3100) / 300;
+            base -= Math.sin(pct * Math.PI) * 60;
+        }
         // Hill 4
-        if (x > 3800 && x < 4300) {
-            let pct = (x - 3800) / 500;
+        if (x > 4200 && x < 4500) {
+            let pct = (x - 4200) / 300;
             base -= Math.sin(pct * Math.PI) * 70;
         }
         // Hill 5
-        if (x > 4600 && x < 5100) {
-            let pct = (x - 4600) / 500;
-            base -= Math.sin(pct * Math.PI) * 80;
-        }
-        // Hill 6
-        if (x > 5400 && x < 6000) {
-            let pct = (x - 5400) / 600;
+        if (x > 5300 && x < 5600) {
+            let pct = (x - 5300) / 300;
             base -= Math.sin(pct * Math.PI) * 90;
+        }
+    } else {
+        // Hill 1
+        if (x > 800 && x < 1300) {
+            let pct = (x - 800) / 500;
+            base -= Math.sin(pct * Math.PI) * 70;
+        }
+        // Hill 2
+        if (x > 1700 && x < 2300) {
+            let pct = (x - 1700) / 600;
+            base -= Math.sin(pct * Math.PI) * 90;
+        }
+        // Hill 3
+        if (x > 2800 && x < 3300) {
+            let pct = (x - 2800) / 500;
+            base -= Math.sin(pct * Math.PI) * 60;
         }
     }
     
@@ -1282,27 +1291,28 @@ function initLevel() {
     } else {
         LEVEL_WIDTH = 7000;
         drillRig.x = 6650;
+        // ======= LEVEL 1 LAYOUT (LOW-MEDIUM DIFFICULTY) =======
+        // FLAT ZONES: 0-900, 1200-2000, 2300-3100, 3400-4200, 4500-5300, 5600-7000
+        // HILLS:      900-1200, 2000-2300, 3100-3400, 4200-4500, 5300-5600
+        // ALL rocks on flat ground, ALL obstacles on hills, 400px+ clearance
+        //
+        // Rocks: 1450, 1750, 2550, 2850, 3650, 3950, 4750, 5050, 5900, 6300
+        //
+        // Obstacles ON HILLS only (far from rocks):
         puddles = [
             { x: 1050, width: 70 },
-            { x: 1750, width: 80 },
-            { x: 2550, width: 75 },
-            { x: 3550, width: 70 },
-            { x: 4350, width: 80 },
-            { x: 5150, width: 75 },
-            { x: 5850, width: 80 }
+            { x: 3250, width: 75 },
+            { x: 4350, width: 80 }
         ];
         hazards = [
-            { x: 850, y: getGroundHeight(850) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
-            { x: 2780, y: getGroundHeight(2780) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 100 },
-            { x: 4850, y: getGroundHeight(4850) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 50 }
+            { x: 2150, y: getGroundHeight(2150) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
+            { x: 5450, y: getGroundHeight(5450) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
         ];
-        // Spawn Fauna for Level 1
+        // Frogs on hills only — far from any rock sample
         frogs = [
-            { x: 350, y: getGroundHeight(350) - 20, width: 24, height: 20, vy: 0, timer: 0 },
-            { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 30 },
-            { x: 3150, y: getGroundHeight(3150) - 20, width: 24, height: 20, vy: 0, timer: 60 },
-            { x: 4450, y: getGroundHeight(4450) - 20, width: 24, height: 20, vy: 0, timer: 90 },
-            { x: 5650, y: getGroundHeight(5650) - 20, width: 24, height: 20, vy: 0, timer: 120 }
+            { x: 1000, y: getGroundHeight(1000) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 2100, y: getGroundHeight(2100) - 20, width: 24, height: 20, vy: 0, timer: 40 },
+            { x: 4300, y: getGroundHeight(4300) - 20, width: 24, height: 20, vy: 0, timer: 80 }
         ];
         snakes = [];
     }
@@ -1355,7 +1365,9 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    const rockXPositions = currentLevel === 1 ? [550, 950, 1450, 2150, 3000, 3850, 4650, 5450, 6100, 6400] : [650, 1350, 2100, 2850, 3500];
+    // Level 1 rocks: ALL on FLAT ground (outside hill ranges), 400px+ from any obstacle
+    // Flat zones: 0-900, 1200-2000, 2300-3100, 3400-4200, 4500-5300, 5600-7000
+    const rockXPositions = currentLevel === 1 ? [1450, 1750, 2550, 2850, 3650, 3950, 4750, 5050, 5900, 6300] : [650, 1350, 2100, 2850, 3500];
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
     rockSamples = baseQuestions.map((q, idx) => {
@@ -1385,8 +1397,11 @@ function initLevel() {
 
     // Generar frailejones del páramo a lo largo del nivel
     frailejones = [];
-    const frailejonesPositions = [
-        100, 300, 750, 1150, 1650, 1950, 2450, 2850, 3400, 3750, 4200, 4550, 5000, 5350, 6000, 6300
+    // Frailejones placed ON HILLS and far from rock positions
+    const frailejonesPositions = currentLevel === 1 ? [
+        150, 300, 500, 1000, 1100, 2100, 2200, 3200, 3300, 4300, 4400, 5400, 5500
+    ] : [
+        150, 850, 1100, 1200, 1800, 2000, 2200, 2900, 3100, 3200, 3900, 4100, 4200, 4700, 4900, 5500, 5700, 5900
     ];
     frailejonesPositions.forEach((fx, i) => {
         frailejones.push({

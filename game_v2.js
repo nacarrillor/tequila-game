@@ -1307,12 +1307,11 @@ function answerQuestion(optionIndex) {
         let requiredAnswers = (currentLevel === 3) ? 1 : 3;
         if (player.correctAnswersCount === requiredAnswers) {
             if (currentLevel === 3) {
-                player.vehicle = "surfboard";
+                player.surfboardUnlocked = true;
                 let unlockMsg = translations[currentLang].skateboardUnlock
                     .replace("🛹", "🏄‍♂️")
                     .replace("TRANSPORTE", "TRANSPORTE: ¡TABLA DE SURF!");
-                resultSubtitle.innerHTML += unlockMsg;
-                AudioSFX.playSurf();
+                resultSubtitle.innerHTML += unlockMsg + " (Sube al mar)";
             } else if (currentLevel === 2) {
                 player.vehicle = "dinosaur";
                 let unlockMsg = translations[currentLang].skateboardUnlock
@@ -1367,6 +1366,7 @@ function resetPlayerState(fullReset) {
     player.geophonesPlaced = 0;
     player.drilledH2Percent = 0;
     player.vehicle = null;
+    player.surfboardUnlocked = false;
     player.isSniffing = false;
     player.isDrilling = false;
     player.correctAnswersCount = 0;
@@ -1892,6 +1892,16 @@ function update() {
         player.y = currentGround - player.height;
         player.vy = 0;
         player.isGrounded = true;
+    }
+
+    // Auto-mount/unmount surfboard in Level 3
+    if (currentLevel === 3 && player.surfboardUnlocked) {
+        if (player.x > 530 && player.vehicle !== "surfboard") {
+            player.vehicle = "surfboard";
+            AudioSFX.playSurf();
+        } else if (player.x <= 530 && player.vehicle === "surfboard") {
+            player.vehicle = null;
+        }
     }
 
     // Spawn rising deep-sea hydrogen bubbles (desactivado para más adelante)

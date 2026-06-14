@@ -1300,9 +1300,7 @@ function initLevel() {
         //
         // Obstacles ON HILLS only (far from rocks):
         puddles = [
-            { x: 1050, width: 70 },
-            { x: 3250, width: 75 },
-            { x: 4350, width: 80 }
+            { x: 3250, width: 75 }
         ];
         hazards = [
             { x: 2150, y: getGroundHeight(2150) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
@@ -1310,9 +1308,8 @@ function initLevel() {
         ];
         // Frogs on hills only — far from any rock sample
         frogs = [
-            { x: 1000, y: getGroundHeight(1000) - 20, width: 24, height: 20, vy: 0, timer: 0 },
-            { x: 2100, y: getGroundHeight(2100) - 20, width: 24, height: 20, vy: 0, timer: 40 },
-            { x: 4300, y: getGroundHeight(4300) - 20, width: 24, height: 20, vy: 0, timer: 80 }
+            { x: 1050, y: getGroundHeight(1050) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 4350, y: getGroundHeight(4350) - 20, width: 24, height: 20, vy: 0, timer: 80 }
         ];
         snakes = [];
     }
@@ -1399,7 +1396,7 @@ function initLevel() {
     frailejones = [];
     // Frailejones placed ON HILLS and far from rock positions
     const frailejonesPositions = currentLevel === 1 ? [
-        150, 300, 500, 1000, 1100, 2100, 2200, 3200, 3300, 4300, 4400, 5400, 5500
+        150, 300, 500, 900, 2000, 3100, 4200, 5300
     ] : [
         150, 850, 1100, 1200, 1800, 2000, 2200, 2900, 3100, 3200, 3900, 4100, 4200, 4700, 4900, 5500, 5700, 5900
     ];

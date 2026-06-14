@@ -383,6 +383,19 @@ const translations = {
                 correctIndex: 2,
                 correctFeedback: "¡Correcto! Las harzburgitas son el residuo de una fusión más intensa.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 7: Trampas de Hidrógeno",
+                question: "¿Por qué el hidrógeno natural no se acumula fácilmente en los mismos tipos de trampas que el petróleo o el gas natural?",
+                options: [
+                    "a) Porque el hidrógeno es tan reactivo que disuelve las rocas sello impidiendo que se formen trampas",
+                    "b) Porque su molécula es tan pequeña que puede escapar a través de poros y fisuras impermeables para el gas natural",
+                    "c) Porque el hidrógeno solo se genera en rocas muy profundas donde no existen estructuras anticlinales",
+                    "d) Porque los microorganismos del subsuelo consumen el hidrógeno antes de que llegue a cualquier trampa estructural"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! La pequeña molécula de H2 puede escapar de trampas convencionales.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
         ]
     },
@@ -762,6 +775,19 @@ const translations = {
                 correctIndex: 2,
                 correctFeedback: "Correct! Harzburgites are the residue of more intense melting.",
                 incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 7: Hydrogen Traps",
+                question: "Why does natural hydrogen not accumulate easily in the same types of traps as oil or natural gas?",
+                options: [
+                    "a) Because hydrogen is so reactive that it dissolves seal rocks, preventing traps from forming",
+                    "b) Because its molecule is so small that it can escape through pores and fissures impermeable to natural gas",
+                    "c) Because hydrogen is only generated in very deep rocks where anticlinal structures do not exist",
+                    "d) Because subsurface microorganisms consume the hydrogen before it reaches any structural trap"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct! The small H2 molecule can escape conventional traps.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             }
         ]
     },
@@ -1140,6 +1166,19 @@ const translations = {
                 ],
                 correctIndex: 2,
                 correctFeedback: "Correct ! Les harzburgites sont le résidu d'une fusion plus intense.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 7 : Pièges à hydrogène",
+                question: "Pourquoi l'hydrogène naturel ne s'accumule-t-il pas facilement dans les mêmes types de pièges que le pétrole ou le gaz naturel ?",
+                options: [
+                    "a) Parce que l'hydrogène est si réactif qu'il dissout les roches couvertures, empêchant la formation de pièges",
+                    "b) Parce que sa molécule est si petite qu'elle peut s'échapper à travers des pores et des fissures imperméables au gaz naturel",
+                    "c) Parce que l'hydrogène n'est généré que dans des roches très profondes où il n'y a pas de structures anticlinales",
+                    "d) Parce que les micro-organismes du sous-sol consomment l'hydrogène avant qu'il n'atteigne un piège structural"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct ! La petite molécule de H2 peut s'échapper des pièges conventionnels.",
                 incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             }
         ]

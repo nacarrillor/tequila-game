@@ -1355,7 +1355,7 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    const rockXPositions = currentLevel === 1 ? [200, 600, 1300, 2150, 3000, 3850, 4650, 5450, 6100, 6400] : [650, 1350, 2100, 2850, 3500];
+    const rockXPositions = currentLevel === 1 ? [500, 950, 1450, 2150, 3000, 3850, 4650, 5450, 6100, 6400] : [650, 1350, 2100, 2850, 3500];
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
     rockSamples = baseQuestions.map((q, idx) => {

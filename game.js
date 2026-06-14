@@ -1300,17 +1300,17 @@ function initLevel() {
         //
         // Obstacles ON HILLS only (far from rocks):
         puddles = [
-            { x: 3250, width: 75 }
+            { x: 2700, width: 75 }
         ];
         hazards = [
-            { x: 2150, y: getGroundHeight(2150) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
-            { x: 5450, y: getGroundHeight(5450) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
+            { x: 1600, y: getGroundHeight(1600) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
+            { x: 4900, y: getGroundHeight(4900) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 80 }
         ];
         // Frogs on flat ground:
         frogs = [
-            { x: 800, y: getGroundHeight(800) - 20, width: 24, height: 20, vy: 0, timer: 0 },
-            { x: 3450, y: getGroundHeight(3450) - 20, width: 24, height: 20, vy: 0, timer: 40 },
-            { x: 4550, y: getGroundHeight(4550) - 20, width: 24, height: 20, vy: 0, timer: 80 }
+            { x: 700, y: getGroundHeight(700) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 3800, y: getGroundHeight(3800) - 20, width: 24, height: 20, vy: 0, timer: 40 },
+            { x: 6000, y: getGroundHeight(6000) - 20, width: 24, height: 20, vy: 0, timer: 80 }
         ];
         snakes = [];
     }
@@ -1363,9 +1363,8 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    // Level 1 rocks: ALL on FLAT ground (outside hill ranges), 400px+ from any obstacle
-    // Flat zones: 0-900, 1200-2000, 2300-3100, 3400-4200, 4500-5300, 5600-7000
-    const rockXPositions = currentLevel === 1 ? [1450, 1750, 2550, 2850, 3700, 4000, 4800, 5100, 5900, 6300] : [650, 1350, 2100, 2850, 3500];
+    // Level 1 rocks: ALL on hills/mountains, obstacles on flat ground
+    const rockXPositions = currentLevel === 1 ? [1000, 1100, 2100, 2200, 3200, 3300, 4300, 4400, 5400, 5500] : [650, 1350, 2100, 2850, 3500];
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
     rockSamples = baseQuestions.map((q, idx) => {
@@ -1395,9 +1394,9 @@ function initLevel() {
 
     // Generar frailejones del páramo a lo largo del nivel
     frailejones = [];
-    // Frailejones placed ON HILLS and far from rock positions
+    // Frailejones placed on flat ground away from obstacles and rocks
     const frailejonesPositions = currentLevel === 1 ? [
-        150, 250, 350, 500, 600, 700, 920, 1150, 1250, 1950, 2000, 2250, 2350, 3100, 3300, 3550, 4100, 4200, 4400, 4650, 5300, 5550, 5700, 6100, 6550
+        150, 250, 350, 500, 1350, 1450, 1850, 2450, 2550, 2950, 3550, 3650, 4050, 4650, 4750, 5150, 5800, 6200, 6350, 6550
     ] : [
         150, 850, 1100, 1200, 1800, 2000, 2200, 2900, 3100, 3200, 3900, 4100, 4200, 4700, 4900, 5500, 5700, 5900
     ];
@@ -3056,7 +3055,7 @@ function draw() {
     // Draw version tag on canvas
     ctx.font = "6px 'Press Start 2P'";
     ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
-    ctx.fillText("v2.0.2", canvas.width - 55, canvas.height - 13);
+    ctx.fillText("v2.0.3", canvas.width - 55, canvas.height - 13);
 
     // Actualizar HUD DOM (score boxes)
     updateHUD();

@@ -312,7 +312,7 @@ const translations = {
                 options: [
                     "a) Que la mayoría se encuentra disuelto en agua salina profunda, no en forma gaseosa libre",
                     "b) Que asciende tan rápido que se dispersa antes de poder medirse con precisión",
-                    "c) Que gran parte es consumido por microorganismos quimiolitótrofos antes de acumularse",
+                    "c) Que gran parte es consumido por microorganismos antes de acumularse",
                     "d) Que los sensores actuales no distinguen entre hidrógeno natural y el procedente de materia orgánica"
                 ],
                 correctIndex: 2,
@@ -369,6 +369,19 @@ const translations = {
                 ],
                 correctIndex: 1,
                 correctFeedback: "¡Excelente! Has superado esta pregunta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 6: Ofiolitas",
+                question: "En una ofiolita, ¿qué diferencia a las harzburgitas de las lherzolitas?",
+                options: [
+                    "a) Las harzburgitas tienen más clinopiroxeno, lo que indica menor grado de fusión",
+                    "b) Las lherzolitas tienen más ortopiroxeno, señal de que el manto estaba más empobrecido",
+                    "c) Las harzburgitas carecen de clinopiroxeno porque fue consumido durante una fusión más intensa",
+                    "d) Las lherzolitas se forman exclusivamente en el manto litosférico y las harzburgitas en el astenosférico"
+                ],
+                correctIndex: 2,
+                correctFeedback: "¡Correcto! Las harzburgitas son el residuo de una fusión más intensa.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
         ]
@@ -678,7 +691,7 @@ const translations = {
                 options: [
                     "a) That most of it is dissolved in deep saline water, not in free gaseous form",
                     "b) That it ascends so quickly that it disperses before it can be measured accurately",
-                    "c) That a large part is consumed by chemolithotrophic microorganisms before accumulating",
+                    "c) That a large part is consumed by microorganisms before accumulating",
                     "d) That current sensors do not distinguish between natural hydrogen and that from organic matter"
                 ],
                 correctIndex: 2,
@@ -735,6 +748,19 @@ const translations = {
                 ],
                 correctIndex: 1,
                 correctFeedback: "Excellent! You passed this question.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 6: Ophiolites",
+                question: "In an ophiolite, what differentiates harzburgites from lherzolites?",
+                options: [
+                    "a) Harzburgites have more clinopyroxene, indicating a lower degree of melting",
+                    "b) Lherzolites have more orthopyroxene, a sign that the mantle was more depleted",
+                    "c) Harzburgites lack clinopyroxene because it was consumed during more intense melting",
+                    "d) Lherzolites form exclusively in the lithospheric mantle and harzburgites in the asthenospheric"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Correct! Harzburgites are the residue of more intense melting.",
                 incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             }
         ]
@@ -1044,7 +1070,7 @@ const translations = {
                 options: [
                     "a) Que la majeure partie est dissoute dans l'eau salée profonde, non sous forme gazeuse libre",
                     "b) Qu'il monte si vite qu'il se disperse avant de pouvoir être mesuré avec précision",
-                    "c) Qu'une grande partie est consommée par des micro-organismes chimiolithotrophes avant de s'accumuler",
+                    "c) Qu'une grande partie est consommée par des micro-organismes avant de s'accumuler",
                     "d) Que les capteurs actuels ne distinguent pas l'hydrogène naturel de celui issu de la matière organique"
                 ],
                 correctIndex: 2,
@@ -1101,6 +1127,19 @@ const translations = {
                 ],
                 correctIndex: 1,
                 correctFeedback: "Excellent ! Vous avez réussi cette question.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 6 : Ophiolites",
+                question: "Dans une ophiolite, qu'est-ce qui différencie les harzburgites des lherzolites ?",
+                options: [
+                    "a) Les harzburgites ont plus de clinopyroxène, ce qui indique un degré de fusion plus faible",
+                    "b) Les lherzolites ont plus d'orthopyroxène, signe que le manteau était plus appauvri",
+                    "c) Les harzburgites manquent de clinopyroxène car il a été consommé lors d'une fusion plus intense",
+                    "d) Les lherzolites se forment exclusivement dans le manteau lithosphérique et les harzburgites dans l'asthénosphérique"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Correct ! Les harzburgites sont le résidu d'une fusion plus intense.",
                 incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             }
         ]

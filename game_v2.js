@@ -1389,7 +1389,7 @@ function startGame() {
     document.getElementById("game-hud").style.display = "flex";
     
     resetPlayerState(true);
-    currentLevel = 1;
+    currentLevel = 2;
     initLevel();
 }
 

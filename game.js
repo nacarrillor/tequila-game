@@ -1037,6 +1037,11 @@ function getGroundHeight(x) {
             let pct = (x - 4600) / 500;
             base -= Math.sin(pct * Math.PI) * 80;
         }
+        // Hill 6
+        if (x > 5400 && x < 6000) {
+            let pct = (x - 5400) / 600;
+            base -= Math.sin(pct * Math.PI) * 90;
+        }
     }
     
     return base;
@@ -1275,27 +1280,29 @@ function initLevel() {
         ];
         snakes = [];
     } else {
-        LEVEL_WIDTH = 5600;
-        drillRig.x = 5250;
+        LEVEL_WIDTH = 7000;
+        drillRig.x = 6650;
         puddles = [
             { x: 1050, width: 70 },
             { x: 1750, width: 80 },
             { x: 2550, width: 75 },
-            { x: 3450, width: 70 },
-            { x: 4250, width: 80 },
-            { x: 4850, width: 75 }
+            { x: 3550, width: 70 },
+            { x: 4350, width: 80 },
+            { x: 5150, width: 75 },
+            { x: 5850, width: 80 }
         ];
         hazards = [
             { x: 850, y: getGroundHeight(850) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
-            { x: 2680, y: getGroundHeight(2680) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 100 },
-            { x: 4050, y: getGroundHeight(4050) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 50 }
+            { x: 2780, y: getGroundHeight(2780) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 100 },
+            { x: 4850, y: getGroundHeight(4850) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 50 }
         ];
         // Spawn Fauna for Level 1
         frogs = [
             { x: 350, y: getGroundHeight(350) - 20, width: 24, height: 20, vy: 0, timer: 0 },
             { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 30 },
             { x: 3150, y: getGroundHeight(3150) - 20, width: 24, height: 20, vy: 0, timer: 60 },
-            { x: 4450, y: getGroundHeight(4450) - 20, width: 24, height: 20, vy: 0, timer: 90 }
+            { x: 4450, y: getGroundHeight(4450) - 20, width: 24, height: 20, vy: 0, timer: 90 },
+            { x: 5650, y: getGroundHeight(5650) - 20, width: 24, height: 20, vy: 0, timer: 120 }
         ];
         snakes = [];
     }
@@ -1322,9 +1329,11 @@ function initLevel() {
             { x: 3250, y: 220, type: "cherry" },
             { x: 3750, y: 250, type: "banana" },
             { x: 4150, y: 220, type: "cherry" },
-            { x: 4650, y: 260, type: "banana" },
+            { x: 4750, y: 260, type: "banana" },
             { x: 5050, y: 210, type: "cherry" },
-            { x: 5225, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
+            { x: 5550, y: 250, type: "banana" },
+            { x: 6150, y: 220, type: "cherry" },
+            { x: 6625, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
         ];
     } else {
         fruits = [
@@ -1346,7 +1355,7 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    const rockXPositions = currentLevel === 1 ? [150, 550, 1300, 2050, 2300, 2950, 3650, 3850, 4600, 5100] : [650, 1350, 2100, 2850, 3500];
+    const rockXPositions = currentLevel === 1 ? [200, 600, 1300, 2150, 3000, 3850, 4650, 5450, 6100, 6400] : [650, 1350, 2100, 2850, 3500];
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
     rockSamples = baseQuestions.map((q, idx) => {

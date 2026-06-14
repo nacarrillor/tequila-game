@@ -1479,31 +1479,17 @@ function showQuestionModal(rock) {
         optionsDiv.appendChild(btn);
     });
     
-    // Timer logic
-    const totalQuizTime = 15; // 15 seconds to answer
-    let quizTimeRemaining = totalQuizTime;
-    const timerBar = document.getElementById("question-timer-bar");
-    if (timerBar) {
-        timerBar.style.width = "100%";
-        timerBar.style.backgroundColor = "#2ecc71"; // Green
-    }
-    
+    // Timer logic using player's main energy
     if (quizTimerInterval) clearInterval(quizTimerInterval);
     quizTimerInterval = setInterval(() => {
-        quizTimeRemaining -= 0.1;
-        let pct = (quizTimeRemaining / totalQuizTime) * 100;
-        if (pct < 0) pct = 0;
+        // Drain main energy (e.g., 0.5 per 100ms = 5 per second)
+        player.energy -= 0.5;
         
-        if (timerBar) {
-            timerBar.style.width = pct + "%";
-            if (pct < 25) {
-                timerBar.style.backgroundColor = "#e74c3c"; // Red
-            } else if (pct < 50) {
-                timerBar.style.backgroundColor = "#f1c40f"; // Yellow
-            }
-        }
+        // Force canvas redraw so the user sees the bottom energy bar shrinking
+        draw();
         
-        if (quizTimeRemaining <= 0) {
+        if (player.energy <= 0) {
+            player.energy = 0;
             clearInterval(quizTimerInterval);
             answerQuestion(-1); // -1 means timeout
         }

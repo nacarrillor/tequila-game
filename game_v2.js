@@ -174,73 +174,6 @@ const translations = {
         ],
         questionsLevel2: [
             {
-                name: "Muestra 1: Cuantificación de H₂",
-                question: "¿Qué hace especialmente complicado cuantificar los recursos mundiales de hidrógeno natural?",
-                options: [
-                    "a) Que la mayoría se encuentra disuelto en agua salina profunda, no en forma gaseosa libre",
-                    "b) Que asciende tan rápido que se dispersa antes de poder medirse con precisión",
-                    "c) Que gran parte es consumido por microorganismos quimiolitótrofos antes de acumularse",
-                    "d) Que los sensores actuales no distinguen entre hidrógeno natural y el procedente de materia orgánica"
-                ],
-                correctIndex: 2,
-                correctFeedback: "¡Excelente! Has respondido de manera correcta.",
-                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
-            },
-            {
-                name: "Muestra 2: Química de la Serpentinización",
-                question: "La serpentinización produce hidrógeno porque...",
-                options: [
-                    "a) La oxidación del Fe²⁺ a Fe³⁺ del olivino reduce el H⁺ del agua, liberando H₂ molecular",
-                    "b) La reducción del Fe³⁺ a Fe²⁺ durante la hidratación del olivino libera electrones que disocian el H₂O en H₂",
-                    "c) El magnesio liberado del olivino durante la hidratación reacciona con el H₂O produciendo H₂ y brucita",
-                    "d) El hierro del olivino reacciona con el CO₂ profundo generando hidrógeno y carbonatos"
-                ],
-                correctIndex: 0,
-                correctFeedback: "¡Correcto! Muy bien contestado.",
-                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
-            },
-            {
-                name: "Muestra 3: Significado de Ofiolita",
-                question: "¿Qué representa una ofiolita desde el punto de vista geológico?",
-                options: [
-                    "a) Un fragmento de corteza continental antigua obducido sobre otra placa continental",
-                    "b) Una secuencia de rocas que representa corteza oceánica y manto superior emplazada sobre corteza continental",
-                    "c) Una secuencia volcánica submarina generada en zonas de subducción intraoceánica",
-                    "d) Un conjunto de rocas ultramáficas intruidas en la corteza continental durante colisiones"
-                ],
-                correctIndex: 1,
-                correctFeedback: "¡Correcto! Muy bien contestado.",
-                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
-            },
-            {
-                name: "Muestra 4: Secuencia Ofiolítica",
-                question: "¿Cuál es el orden estratigráfico correcto de una ofiolita, desde la base hasta el techo?",
-                options: [
-                    "a) Sedimentos → basaltos en almohadilla → diabasas en diques → gabros → peridotitas",
-                    "b) Sedimentos → gabros → diabasas en diques → basaltos en almohadilla → peridotitas",
-                    "c) Peridotitas → gabros → diabasas en diques → basaltos en almohadilla → sedimentos",
-                    "d) Peridotitas → sedimentos → gabros → diabasas en diques → basaltos en almohadilla"
-                ],
-                correctIndex: 2,
-                correctFeedback: "¡Excelente! Has superado esta pregunta.",
-                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
-            },
-            {
-                name: "Muestra 5: Mineral Guía",
-                question: "¿Qué mineral es especialmente útil para determinar las condiciones de formación de una ofiolita?",
-                options: [
-                    "a) Olivino, porque su composición refleja directamente la temperatura del manto",
-                    "b) Cromita, porque su química registra la temperatura y el grado de fusión del manto fuente",
-                    "c) Piroxeno, porque su contenido en calcio indica la profundidad de cristalización",
-                    "d) Plagioclasa, porque su proporción An/Ab varía según la presión de formación del magma"
-                ],
-                correctIndex: 1,
-                correctFeedback: "¡Excelente! Has superado esta pregunta.",
-                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
-            }
-        ],
-        questionsLevel3: [
-            {
                 name: "Muestra 1: Tipo de costa",
                 question: "¿Qué caracteriza principalmente a la costa del Chocó en el Pacífico colombiano?",
                 options: [
@@ -304,6 +237,73 @@ const translations = {
                 correctIndex: 0,
                 correctFeedback: "¡Excelente! Has superado todas las preguntas geológicas de la costa pacífica.",
                 incorrectFeedback: "Incorrecto. Tu exploración ha terminado."
+            }
+        ],
+        questionsLevel3: [
+            {
+                name: "Muestra 1: Cuantificación de H₂",
+                question: "¿Qué hace especialmente complicado cuantificar los recursos mundiales de hidrógeno natural?",
+                options: [
+                    "a) Que la mayoría se encuentra disuelto en agua salina profunda, no en forma gaseosa libre",
+                    "b) Que asciende tan rápido que se dispersa antes de poder medirse con precisión",
+                    "c) Que gran parte es consumido por microorganismos quimiolitótrofos antes de acumularse",
+                    "d) Que los sensores actuales no distinguen entre hidrógeno natural y el procedente de materia orgánica"
+                ],
+                correctIndex: 2,
+                correctFeedback: "¡Excelente! Has respondido de manera correcta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 2: Química de la Serpentinización",
+                question: "La serpentinización produce hidrógeno porque...",
+                options: [
+                    "a) La oxidación del Fe²⁺ a Fe³⁺ del olivino reduce el H⁺ del agua, liberando H₂ molecular",
+                    "b) La reducción del Fe³⁺ a Fe²⁺ durante la hidratación del olivino libera electrones que disocian el H₂O en H₂",
+                    "c) El magnesio liberado del olivino durante la hidratación reacciona con el H₂O produciendo H₂ y brucita",
+                    "d) El hierro del olivino reacciona con el CO₂ profundo generando hidrógeno y carbonatos"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Correcto! Muy bien contestado.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 3: Significado de Ofiolita",
+                question: "¿Qué representa una ofiolita desde el punto de vista geológico?",
+                options: [
+                    "a) Un fragmento de corteza continental antigua obducido sobre otra placa continental",
+                    "b) Una secuencia de rocas que representa corteza oceánica y manto superior emplazada sobre corteza continental",
+                    "c) Una secuencia volcánica submarina generada en zonas de subducción intraoceánica",
+                    "d) Un conjunto de rocas ultramáficas intruidas en la corteza continental durante colisiones"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! Muy bien contestado.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 4: Secuencia Ofiolítica",
+                question: "¿Cuál es el orden estratigráfico correcto de una ofiolita, desde la base hasta el techo?",
+                options: [
+                    "a) Sedimentos → basaltos en almohadilla → diabasas en diques → gabros → peridotitas",
+                    "b) Sedimentos → gabros → diabasas en diques → basaltos en almohadilla → peridotitas",
+                    "c) Peridotitas → gabros → diabasas en diques → basaltos en almohadilla → sedimentos",
+                    "d) Peridotitas → sedimentos → gabros → diabasas en diques → basaltos en almohadilla"
+                ],
+                correctIndex: 2,
+                correctFeedback: "¡Excelente! Has superado esta pregunta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 5: Mineral Guía",
+                question: "¿Qué mineral es especialmente útil para determinar las condiciones de formación de una ofiolita?",
+                options: [
+                    "a) Olivino, porque su composición refleja directamente la temperatura del manto",
+                    "b) Cromita, porque su química registra la temperatura y el grado de fusión del manto fuente",
+                    "c) Piroxeno, porque su contenido en calcio indica la profundidad de cristalización",
+                    "d) Plagioclasa, porque su proporción An/Ab varía según la presión de formación del magma"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Excelente! Has superado esta pregunta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
         ]
     },
@@ -475,73 +475,6 @@ const translations = {
         ],
         questionsLevel2: [
             {
-                name: "Sample 1: H₂ Quantification",
-                question: "What makes it especially difficult to quantify global natural hydrogen resources?",
-                options: [
-                    "a) That most of it is dissolved in deep saline water, not in free gaseous form",
-                    "b) That it ascends so quickly that it disperses before it can be measured accurately",
-                    "c) That a large part is consumed by chemolithotrophic microorganisms before accumulating",
-                    "d) That current sensors do not distinguish between natural hydrogen and that from organic matter"
-                ],
-                correctIndex: 2,
-                correctFeedback: "Excellent! You answered correctly.",
-                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
-            },
-            {
-                name: "Sample 2: Chemistry of Serpentinization",
-                question: "Serpentinization produces hydrogen because...",
-                options: [
-                    "a) Water breaks the bonds of olivine, releasing hydrogen from H₂O by oxidizing ferrous to ferric iron",
-                    "b) Water dissolves magnesium from olivine, releasing hydrogen as an acid byproduct",
-                    "c) Pressure fractures olivine and releases hydrogen trapped in its crystal structure",
-                    "d) Iron in olivine reacts with deep CO₂, generating hydrogen and carbonates"
-                ],
-                correctIndex: 0,
-                correctFeedback: "Correct! Well answered.",
-                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
-            },
-            {
-                name: "Sample 3: Meaning of Ophiolite",
-                question: "What does an ophiolite represent from a geological point of view?",
-                options: [
-                    "a) A fragment of ancient continental crust obducted onto another continental plate",
-                    "b) A sequence of rocks representing oceanic crust and upper mantle emplaced onto continental crust",
-                    "c) A submarine volcanic sequence generated in intra-oceanic subduction zones",
-                    "d) A set of ultramafic rocks intruded into continental crust during collisions"
-                ],
-                correctIndex: 1,
-                correctFeedback: "Correct! Well answered.",
-                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
-            },
-            {
-                name: "Sample 4: Ophiolitic Sequence",
-                question: "What is the correct order of the ophiolitic sequence from top to bottom?",
-                options: [
-                    "a) Sediments → pillow basalts → sheeted dykes → gabbros → peridotites",
-                    "b) Sediments → gabbros → sheeted dykes → pillow basalts → peridotites",
-                    "c) Peridotites → gabbros → sheeted dykes → pillow basalts → sediments",
-                    "d) Sediments → peridotites → gabbros → sheeted dykes → pillow basalts"
-                ],
-                correctIndex: 0,
-                correctFeedback: "Excellent! You passed this question.",
-                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
-            },
-            {
-                name: "Sample 5: Guide Mineral",
-                question: "Which mineral is especially useful for determining the formation conditions of an ophiolite?",
-                options: [
-                    "a) Olivine, because its composition directly reflects the mantle temperature",
-                    "b) Chromite, because its chemistry records the temperature and degree of melting of the source mantle",
-                    "c) Pyroxene, because its calcium content indicates crystallization depth",
-                    "d) Plagioclase, because its An/Ab ratio varies with magma formation pressure"
-                ],
-                correctIndex: 1,
-                correctFeedback: "Excellent! You passed this question.",
-                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
-            }
-        ],
-        questionsLevel3: [
-            {
                 name: "Sample 1: Coast Type",
                 question: "What mainly characterizes the Chocó coast in the Colombian Pacific?",
                 options: [
@@ -605,6 +538,73 @@ const translations = {
                 correctIndex: 0,
                 correctFeedback: "Excellent! You have passed all geological questions for the Pacific coast.",
                 incorrectFeedback: "Incorrect. Your exploration has ended."
+            }
+        ],
+        questionsLevel3: [
+            {
+                name: "Sample 1: H₂ Quantification",
+                question: "What makes it especially difficult to quantify global natural hydrogen resources?",
+                options: [
+                    "a) That most of it is dissolved in deep saline water, not in free gaseous form",
+                    "b) That it ascends so quickly that it disperses before it can be measured accurately",
+                    "c) That a large part is consumed by chemolithotrophic microorganisms before accumulating",
+                    "d) That current sensors do not distinguish between natural hydrogen and that from organic matter"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Excellent! You answered correctly.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 2: Chemistry of Serpentinization",
+                question: "Serpentinization produces hydrogen because...",
+                options: [
+                    "a) Water breaks the bonds of olivine, releasing hydrogen from H₂O by oxidizing ferrous to ferric iron",
+                    "b) Water dissolves magnesium from olivine, releasing hydrogen as an acid byproduct",
+                    "c) Pressure fractures olivine and releases hydrogen trapped in its crystal structure",
+                    "d) Iron in olivine reacts with deep CO₂, generating hydrogen and carbonates"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Correct! Well answered.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 3: Meaning of Ophiolite",
+                question: "What does an ophiolite represent from a geological point of view?",
+                options: [
+                    "a) A fragment of ancient continental crust obducted onto another continental plate",
+                    "b) A sequence of rocks representing oceanic crust and upper mantle emplaced onto continental crust",
+                    "c) A submarine volcanic sequence generated in intra-oceanic subduction zones",
+                    "d) A set of ultramafic rocks intruded into continental crust during collisions"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct! Well answered.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 4: Ophiolitic Sequence",
+                question: "What is the correct order of the ophiolitic sequence from top to bottom?",
+                options: [
+                    "a) Sediments → pillow basalts → sheeted dykes → gabbros → peridotites",
+                    "b) Sediments → gabbros → sheeted dykes → pillow basalts → peridotites",
+                    "c) Peridotites → gabbros → sheeted dykes → pillow basalts → sediments",
+                    "d) Sediments → peridotites → gabbros → sheeted dykes → pillow basalts"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent! You passed this question.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 5: Guide Mineral",
+                question: "Which mineral is especially useful for determining the formation conditions of an ophiolite?",
+                options: [
+                    "a) Olivine, because its composition directly reflects the mantle temperature",
+                    "b) Chromite, because its chemistry records the temperature and degree of melting of the source mantle",
+                    "c) Pyroxene, because its calcium content indicates crystallization depth",
+                    "d) Plagioclase, because its An/Ab ratio varies with magma formation pressure"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Excellent! You passed this question.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             }
         ]
     },
@@ -776,73 +776,6 @@ const translations = {
         ],
         questionsLevel2: [
             {
-                name: "Échantillon 1 : Quantification de l'H₂",
-                question: "Qu'est-ce qui rend particulièrement difficile la quantification des ressources mondiales en hydrogène naturel ?",
-                options: [
-                    "a) Que la majeure partie est dissoute dans l'eau salée profonde, non sous forme gazeuse libre",
-                    "b) Qu'il monte si vite qu'il se disperse avant de pouvoir être mesuré avec précision",
-                    "c) Qu'une grande partie est consommée par des micro-organismes chimiolithotrophes avant de s'accumuler",
-                    "d) Que les capteurs actuels ne distinguent pas l'hydrogène naturel de celui issu de la matière organique"
-                ],
-                correctIndex: 2,
-                correctFeedback: "Excellent ! Vous avez répondu correctement.",
-                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
-            },
-            {
-                name: "Échantillon 2 : Chimie de la serpentinisation",
-                question: "La serpentinisation produit de l'hydrogène car...",
-                options: [
-                    "a) L'eau brise les liaisons de l'olivine, libérant l'hydrogène de l'H₂O en oxydant le fer ferreux en fer ferrique",
-                    "b) L'eau dissout le magnésium de l'olivine, libérant de l'hydrogène comme sous-produit acide",
-                    "c) La pression fracture l'olivine et libère l'hydrogène piégé dans sa structure cristalline",
-                    "d) Le fer de l'olivine réagit avec le CO₂ profond, générant de l'hydrogène et des carbonates"
-                ],
-                correctIndex: 0,
-                correctFeedback: "Correct ! Bien répondu.",
-                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
-            },
-            {
-                name: "Échantillon 3 : Signification d'ophiolite",
-                question: "Que représente une ophiolite d'un point de vue géologique ?",
-                options: [
-                    "a) Un fragment de croûte continentale ancienne obduit sur une autre plaque continentale",
-                    "b) Une séquence de roches représentant la croûte océanique et le manteau supérieur mise en place sur la croûte continentale",
-                    "c) Une séquence volcanique sous-marine générée dans des zones de subduction intra-océanique",
-                    "d) Un ensemble de roches ultramafiques intrudées dans la croûte continentale lors de collisions"
-                ],
-                correctIndex: 1,
-                correctFeedback: "Correct ! Bien répondu.",
-                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
-            },
-            {
-                name: "Échantillon 4 : Séquence ophiolitique",
-                question: "Quel est l'ordre correct de la séquence ophiolitique de haut en bas ?",
-                options: [
-                    "a) Sédiments → basaltes en coussins → filons en feuillets → gabbros → péridotites",
-                    "b) Sédiments → gabbros → filons en feuillets → basaltes en coussins → péridotites",
-                    "c) Péridotites → gabbros → filons en feuillets → basaltes en coussins → sédiments",
-                    "d) Sédiments → péridotites → gabbros → filons en feuillets → basaltes en coussins"
-                ],
-                correctIndex: 0,
-                correctFeedback: "Excellent ! Vous avez réussi cette question.",
-                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
-            },
-            {
-                name: "Échantillon 5 : Minéral guide",
-                question: "Quel minéral est particulièrement utile pour déterminer les conditions de formation d'une ophiolite ?",
-                options: [
-                    "a) L'olivine, car sa composition reflète directement la température du manteau",
-                    "b) La chromite, car sa chimie enregistre la température et le degré de fusion du manteau source",
-                    "c) Le pyroxène, car sa teneur en calcium indique la profondeur de cristallisation",
-                    "d) Le plagioclase, car son rapport An/Ab varie avec la pression de formation du magma"
-                ],
-                correctIndex: 1,
-                correctFeedback: "Excellent ! Vous avez réussi cette question.",
-                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
-            }
-        ],
-        questionsLevel3: [
-            {
                 name: "Échantillon 1 : Type de côte",
                 question: "Qu'est-ce qui caractérise principalement la côte du Chocó dans le Pacifique colombien ?",
                 options: [
@@ -906,6 +839,73 @@ const translations = {
                 correctIndex: 0,
                 correctFeedback: "Excellent ! Vous avez réussi toutes les questions géologiques sur la côte Pacifique.",
                 incorrectFeedback: "Incorrect. Votre exploration est terminée."
+            }
+        ],
+        questionsLevel3: [
+            {
+                name: "Échantillon 1 : Quantification de l'H₂",
+                question: "Qu'est-ce qui rend particulièrement difficile la quantification des ressources mondiales en hydrogène naturel ?",
+                options: [
+                    "a) Que la majeure partie est dissoute dans l'eau salée profonde, non sous forme gazeuse libre",
+                    "b) Qu'il monte si vite qu'il se disperse avant de pouvoir être mesuré avec précision",
+                    "c) Qu'une grande partie est consommée par des micro-organismes chimiolithotrophes avant de s'accumuler",
+                    "d) Que les capteurs actuels ne distinguent pas l'hydrogène naturel de celui issu de la matière organique"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Excellent ! Vous avez répondu correctement.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 2 : Chimie de la serpentinisation",
+                question: "La serpentinisation produit de l'hydrogène car...",
+                options: [
+                    "a) L'eau brise les liaisons de l'olivine, libérant l'hydrogène de l'H₂O en oxydant le fer ferreux en fer ferrique",
+                    "b) L'eau dissout le magnésium de l'olivine, libérant de l'hydrogène comme sous-produit acide",
+                    "c) La pression fracture l'olivine et libère l'hydrogène piégé dans sa structure cristalline",
+                    "d) Le fer de l'olivine réagit avec le CO₂ profond, générant de l'hydrogène et des carbonates"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Correct ! Bien répondu.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 3 : Signification d'ophiolite",
+                question: "Que représente une ophiolite d'un point de vue géologique ?",
+                options: [
+                    "a) Un fragment de croûte continentale ancienne obduit sur une autre plaque continentale",
+                    "b) Une séquence de roches représentant la croûte océanique et le manteau supérieur mise en place sur la croûte continentale",
+                    "c) Une séquence volcanique sous-marine générée dans des zones de subduction intra-océanique",
+                    "d) Un ensemble de roches ultramafiques intrudées dans la croûte continentale lors de collisions"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct ! Bien répondu.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 4 : Séquence ophiolitique",
+                question: "Quel est l'ordre correct de la séquence ophiolitique de haut en bas ?",
+                options: [
+                    "a) Sédiments → basaltes en coussins → filons en feuillets → gabbros → péridotites",
+                    "b) Sédiments → gabbros → filons en feuillets → basaltes en coussins → péridotites",
+                    "c) Péridotites → gabbros → filons en feuillets → basaltes en coussins → sédiments",
+                    "d) Sédiments → péridotites → gabbros → filons en feuillets → basaltes en coussins"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent ! Vous avez réussi cette question.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 5 : Minéral guide",
+                question: "Quel minéral est particulièrement utile pour déterminer les conditions de formation d'une ophiolite ?",
+                options: [
+                    "a) L'olivine, car sa composition reflète directement la température du manteau",
+                    "b) La chromite, car sa chimie enregistre la température et le degré de fusion du manteau source",
+                    "c) Le pyroxène, car sa teneur en calcium indique la profondeur de cristallisation",
+                    "d) Le plagioclase, car son rapport An/Ab varie avec la pression de formation du magma"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Excellent ! Vous avez réussi cette question.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             }
         ]
     }
@@ -3050,7 +3050,7 @@ function draw() {
     // Draw version tag on canvas
     ctx.font = "6px 'Press Start 2P'";
     ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
-    ctx.fillText("v2.0.4", canvas.width - 55, canvas.height - 13);
+    ctx.fillText("v2.0.5", canvas.width - 55, canvas.height - 13);
 
     // Actualizar HUD DOM (score boxes)
     updateHUD();

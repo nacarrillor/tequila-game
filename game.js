@@ -1386,7 +1386,7 @@ function initLevel() {
     // Generar frailejones del páramo a lo largo del nivel
     frailejones = [];
     const frailejonesPositions = [
-        150, 380, 560, 820, 1050, 1850, 2080, 2300, 2700, 2950, 3200, 3550, 3750
+        100, 300, 750, 1150, 1650, 1950, 2450, 2850, 3400, 3750, 4200, 4550, 5000, 5350, 6000, 6300
     ];
     frailejonesPositions.forEach((fx, i) => {
         frailejones.push({

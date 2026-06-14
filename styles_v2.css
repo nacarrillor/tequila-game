@@ -649,3 +649,42 @@ body {
         border-width: 2px;
     }
 }
+
+/* Landscape prompt for mobile devices */
+#landscape-prompt {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #1A1A1A;
+    color: #FFF;
+    z-index: 99999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-arcade);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    padding: 20px;
+}
+
+.rotate-icon {
+    font-size: 4rem;
+    animation: rotatePhone 2s infinite ease-in-out;
+}
+
+@keyframes rotatePhone {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(-90deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@media screen and (max-width: 850px) and (orientation: portrait) {
+    #landscape-prompt {
+        display: flex;
+    }
+    .cabinet-container {
+        display: none !important;
+    }
+}
+

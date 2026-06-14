@@ -105,6 +105,71 @@ const translations = {
                 correctIndex: 1,
                 correctFeedback: "¡Excelente! Has superado esta pregunta.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 6: Roca vs Mineral",
+                question: "¿Qué diferencia una roca de un mineral?",
+                options: [
+                    "Las rocas se forman bajo el agua y los minerales en tierra firme",
+                    "Los minerales son más duros que las rocas porque están más comprimidos",
+                    "Una roca puede estar formada por varios minerales, pero un mineral siempre tiene la misma composición",
+                    "Las rocas son naturales y los minerales pueden ser artificiales o naturales"
+                ],
+                correctIndex: 2,
+                correctFeedback: "¡Excelente! Has respondido de manera correcta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 7: Sal vs Diamante",
+                question: "¿Qué tienen en común la sal de cocina y el diamante?",
+                options: [
+                    "Ambos son minerales: sólidos naturales, inorgánicos y con estructura cristalina",
+                    "Ambos son minerales porque se extraen del subsuelo mediante minería",
+                    "Ambos son minerales porque están formados únicamente por un solo elemento químico",
+                    "Ambos son minerales porque se disuelven en agua a temperaturas muy altas"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Correcto! Muy bien contestado.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 8: Capas horizontales",
+                question: "Una roca sedimentaria muestra capas horizontales. ¿Qué nos dice eso?",
+                options: [
+                    "Que se formó por enfriamiento lento de magma en el interior de la corteza",
+                    "Que fue sometida a grandes presiones que aplanaron sus minerales en capas",
+                    "Que los materiales se fueron depositando uno sobre otro con el tiempo, capa a capa",
+                    "Que la roca es muy antigua porque solo las rocas viejas desarrollan esas capas"
+                ],
+                correctIndex: 2,
+                correctFeedback: "¡Exacto! Tienes buenos conocimientos de geología.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 9: Fósiles en sedimentarias",
+                question: "¿Por qué los fósiles solo se encuentran en rocas sedimentarias y casi nunca en las otras?",
+                options: [
+                    "Porque los seres vivos solo vivían cerca de ríos y mares donde se forman las sedimentarias",
+                    "Porque el calor y la presión que forman las rocas ígneas y metamórficas destruyen los restos orgánicos",
+                    "Porque las rocas ígneas y metamórficas son demasiado duras para que los fósiles queden atrapados",
+                    "Porque los fósiles solo se conservan en ambientes húmedos y las otras rocas se forman en seco"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Excelente! Has superado esta pregunta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 10: Escala de Mohs",
+                question: "¿Qué nos indica la dureza de un mineral según la escala de Mohs?",
+                options: [
+                    "La cantidad de energía que se necesita para fundir el mineral en un volcán",
+                    "La resistencia del mineral a ser rayado por otro material",
+                    "El peso del mineral en relación a su tamaño, es decir su densidad",
+                    "La temperatura a la que el mineral empieza a cambiar su estructura cristalina"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! Excelente respuesta.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
         ],
         questionsLevel2: [
@@ -340,6 +405,71 @@ const translations = {
                 ],
                 correctIndex: 1,
                 correctFeedback: "Excellent! You passed this question.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 6: Rock vs Mineral",
+                question: "What distinguishes a rock from a mineral?",
+                options: [
+                    "Rocks form underwater and minerals form on land",
+                    "Minerals are harder than rocks because they are more compressed",
+                    "A rock can be composed of several minerals, but a mineral always has the same composition",
+                    "Rocks are natural and minerals can be artificial or natural"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Excellent! You answered correctly.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 7: Salt vs Diamond",
+                question: "What do table salt and diamond have in common?",
+                options: [
+                    "Both are minerals: natural, inorganic solids with a crystalline structure",
+                    "Both are minerals because they are extracted from the subsoil by mining",
+                    "Both are minerals because they are made of only one chemical element",
+                    "Both are minerals because they dissolve in water at very high temperatures"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Correct! Well answered.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 8: Horizontal Layers",
+                question: "A sedimentary rock shows horizontal layers. What does that tell us?",
+                options: [
+                    "That it was formed by slow cooling of magma inside the crust",
+                    "That it was subjected to high pressures that flattened its minerals into layers",
+                    "That materials were deposited one on top of another over time, layer by layer",
+                    "That the rock is very old because only old rocks develop these layers"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Exactly! You have good knowledge of geology.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 9: Fossils in Sedimentary Rocks",
+                question: "Why are fossils only found in sedimentary rocks and almost never in the others?",
+                options: [
+                    "Because living beings only lived near rivers and seas where sedimentary rocks form",
+                    "Because the heat and pressure that form igneous and metamorphic rocks destroy organic remains",
+                    "Because igneous and metamorphic rocks are too hard for fossils to get trapped",
+                    "Because fossils are only preserved in humid environments and the other rocks form in dry conditions"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Excellent! You passed this question.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 10: Mohs Hardness Scale",
+                question: "What does the hardness of a mineral tell us according to the Mohs scale?",
+                options: [
+                    "The amount of energy needed to melt the mineral in a volcano",
+                    "The resistance of the mineral to being scratched by another material",
+                    "The weight of the mineral in relation to its size, i.e., its density",
+                    "The temperature at which the mineral starts to change its crystalline structure"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct! Excellent answer.",
                 incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             }
         ],
@@ -577,6 +707,71 @@ const translations = {
                 correctIndex: 1,
                 correctFeedback: "Excellent ! Vous avez réussi cette question.",
                 incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 6: Roche vs Minéral",
+                question: "Qu'est-ce qui différencie une roche d'un minéral ?",
+                options: [
+                    "Les roches se forment sous l'eau et les minéraux sur la terre ferme",
+                    "Les minéraux sont plus durs que les roches car ils sont plus comprimés",
+                    "Une roche peut être formée de plusieurs minéraux, mais un minéral a toujours la même composition",
+                    "Les roches sont naturelles et les minéraux peuvent être artificiels ou naturels"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Excellent ! Vous avez répondu correctement.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 7: Sel vs Diamant",
+                question: "Qu'ont en commun le sel de cuisine et le diamant ?",
+                options: [
+                    "Les deux sont des minéraux : solides naturels, inorganiques avec une structure cristalline",
+                    "Les deux sont des minéraux car ils sont extraits du sous-sol par l'exploitation minière",
+                    "Les deux sont des minéraux car ils sont formés d'un seul élément chimique",
+                    "Les deux sont des minéraux car ils se dissolvent dans l'eau à très haute température"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Correct ! Bien répondu.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 8: Couches horizontales",
+                question: "Une roche sédimentaire présente des couches horizontales. Qu'est-ce que cela nous indique ?",
+                options: [
+                    "Qu'elle s'est formée par refroidissement lent du magma à l'intérieur de la croûte",
+                    "Qu'elle a été soumise à de fortes pressions qui ont aplati ses minéraux en couches",
+                    "Que les matériaux se sont déposés les uns sur les autres au fil du temps, couche par couche",
+                    "Que la roche est très ancienne car seules les vieilles roches développent ces couches"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Exact ! Vous avez de bonnes connaissances en géologie.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 9: Fossiles dans les roches sédimentaires",
+                question: "Pourquoi les fossiles ne se trouvent-ils que dans les roches sédimentaires et presque jamais dans les autres ?",
+                options: [
+                    "Parce que les êtres vivants ne vivaient qu'à proximité des rivières et des mers où se forment les roches sédimentaires",
+                    "Parce que la chaleur et la pression qui forment les roches ignées et métamorphiques détruisent les restes organiques",
+                    "Parce que les roches ignées et métamorphiques sont trop dures pour que les fossiles y soient piégés",
+                    "Parce que les fossiles ne sont préservés que dans des environnements humides et que les autres roches se forment au sec"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Excellent ! Vous avez réussi cette question.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 10: Échelle de dureté de Mohs",
+                question: "Qu'indique la dureté d'un minéral selon l'échelle de Mohs ?",
+                options: [
+                    "La quantité d'énergie nécessaire pour faire fondre le minéral dans un volcan",
+                    "La résistance du minéral à être rayé par un autre matériau",
+                    "Le poids du minéral par rapport à sa taille, c'est-à-dire sa densité",
+                    "La température à laquelle le minéral commence à changer sa structure cristalline"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct ! Excellente réponse.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             }
         ],
         questionsLevel2: [
@@ -767,7 +962,7 @@ let keys = {};
 // Game Constants
 const GRAVITY = 0.5;
 const GROUND_Y = 400;
-const LEVEL_WIDTH = 4200; // Total length of the stage
+let LEVEL_WIDTH = 4200; // Total length of the stage
 
 // Camera
 let cameraX = 0;
@@ -828,6 +1023,20 @@ function getGroundHeight(x) {
     if (x > 2800 && x < 3300) {
         let pct = (x - 2800) / 500;
         base -= Math.sin(pct * Math.PI) * 60;
+    }
+    
+    // Extra mountains for Level 1 length extension
+    if (currentLevel === 1) {
+        // Hill 4
+        if (x > 3800 && x < 4300) {
+            let pct = (x - 3800) / 500;
+            base -= Math.sin(pct * Math.PI) * 70;
+        }
+        // Hill 5
+        if (x > 4600 && x < 5100) {
+            let pct = (x - 4600) / 500;
+            base -= Math.sin(pct * Math.PI) * 80;
+        }
     }
     
     return base;
@@ -1027,6 +1236,8 @@ function initLevel() {
 
     if (currentLevel === 3) {
         // Nivel 3: Playa de Chocó
+        LEVEL_WIDTH = 4200;
+        drillRig.x = 3850;
         puddles = [];
         hazards = [
             { x: 950,  y: getGroundHeight(950)  - 15, width: 35, height: 15, type: "log" },
@@ -1043,6 +1254,8 @@ function initLevel() {
         snakes = [];
     } else if (currentLevel === 2) {
         // Nivel 2: no hay charcos (desierto seco), solo peligros de cañón
+        LEVEL_WIDTH = 4200;
+        drillRig.x = 3850;
         puddles = [];
         hazards = [
             { x: 900,  y: getGroundHeight(900)  - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
@@ -1062,20 +1275,27 @@ function initLevel() {
         ];
         snakes = [];
     } else {
+        LEVEL_WIDTH = 5600;
+        drillRig.x = 5250;
         puddles = [
             { x: 1050, width: 70 },
             { x: 1750, width: 80 },
-            { x: 2550, width: 75 }
+            { x: 2550, width: 75 },
+            { x: 3450, width: 70 },
+            { x: 4250, width: 80 },
+            { x: 4850, width: 75 }
         ];
         hazards = [
             { x: 850, y: getGroundHeight(850) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 0 },
-            { x: 2680, y: getGroundHeight(2680) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 100 }
+            { x: 2680, y: getGroundHeight(2680) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 100 },
+            { x: 4050, y: getGroundHeight(4050) - 20, width: 25, height: 20, type: "geyser", isErupting: false, timer: 50 }
         ];
         // Spawn Fauna for Level 1
         frogs = [
             { x: 350, y: getGroundHeight(350) - 20, width: 24, height: 20, vy: 0, timer: 0 },
             { x: 1550, y: getGroundHeight(1550) - 20, width: 24, height: 20, vy: 0, timer: 30 },
-            { x: 3150, y: getGroundHeight(3150) - 20, width: 24, height: 20, vy: 0, timer: 60 }
+            { x: 3150, y: getGroundHeight(3150) - 20, width: 24, height: 20, vy: 0, timer: 60 },
+            { x: 4450, y: getGroundHeight(4450) - 20, width: 24, height: 20, vy: 0, timer: 90 }
         ];
         snakes = [];
     }
@@ -1090,17 +1310,35 @@ function initLevel() {
     fractures  = []; // Sin geófonos
 
     // Scattered energy fruits (MODIS Bananas, VIIRS Cherries, H2 Canisters)
-    fruits = [
-        { x: 300, y: 250, type: "banana" },
-        { x: 450, y: 220, type: "cherry" },
-        { x: 900, y: 260, type: "banana" },
-        { x: 1150, y: 220, type: "cherry" },
-        { x: 1750, y: 260, type: "banana" },
-        { x: 2050, y: 210, type: "cherry" },
-        { x: 2850, y: 200, type: "banana" },
-        { x: 3250, y: 220, type: "cherry" },
-        { x: 3825, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
-    ];
+    if (currentLevel === 1) {
+        fruits = [
+            { x: 300, y: 250, type: "banana" },
+            { x: 450, y: 220, type: "cherry" },
+            { x: 900, y: 260, type: "banana" },
+            { x: 1150, y: 220, type: "cherry" },
+            { x: 1750, y: 260, type: "banana" },
+            { x: 2050, y: 210, type: "cherry" },
+            { x: 2850, y: 200, type: "banana" },
+            { x: 3250, y: 220, type: "cherry" },
+            { x: 3750, y: 250, type: "banana" },
+            { x: 4150, y: 220, type: "cherry" },
+            { x: 4650, y: 260, type: "banana" },
+            { x: 5050, y: 210, type: "cherry" },
+            { x: 5225, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
+        ];
+    } else {
+        fruits = [
+            { x: 300, y: 250, type: "banana" },
+            { x: 450, y: 220, type: "cherry" },
+            { x: 900, y: 260, type: "banana" },
+            { x: 1150, y: 220, type: "cherry" },
+            { x: 1750, y: 260, type: "banana" },
+            { x: 2050, y: 210, type: "cherry" },
+            { x: 2850, y: 200, type: "banana" },
+            { x: 3250, y: 220, type: "cherry" },
+            { x: 3825, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
+        ];
+    }
 
     // Cargar preguntas según nivel (geología básica en Nivel 1, hidrógeno en Nivel 2)
     const activeQuestions = currentLevel === 1 ? translations[currentLang].questions : 
@@ -1108,7 +1346,7 @@ function initLevel() {
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    const rockXPositions = [650, 1350, 2100, 2850, 3500];
+    const rockXPositions = currentLevel === 1 ? [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000] : [650, 1350, 2100, 2850, 3500];
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
     rockSamples = baseQuestions.map((q, idx) => {
@@ -1181,7 +1419,7 @@ function updateHUD() {
     livesEl.textContent  = "♥".repeat(Math.max(0, player.lives));
     h2El.textContent     = `${Math.floor(player.h2Collected)}/60`;
     geoEl.textContent    = `${player.geophonesPlaced}/3`;
-    rocksEl.textContent  = `${rockSamples.filter(r => r.discovered).length}/5`;
+    rocksEl.textContent  = `${rockSamples.filter(r => r.discovered).length}/${rockSamples.length}`;
 }
 
 // Keyboard Input Handlers

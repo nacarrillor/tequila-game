@@ -1783,9 +1783,9 @@ function initLevel() {
         LEVEL_WIDTH = 4000;
         drillRig.x = 3650;
         
-        // Puddles will serve as the infinite sea starting at x=600
+        // Puddles will serve as the infinite sea starting at x=600, ending at x=3550 (before the shop)
         puddles = [
-            { x: 600, width: 3500 }
+            { x: 600, width: 2950 }
         ];
         hazards = [];
         // Octopuses in the sea (reusing frogs array)

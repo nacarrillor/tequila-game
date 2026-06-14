@@ -1850,7 +1850,7 @@ function initLevel() {
 
     // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 10
     const rockXPositions = currentLevel === 1 ? [500, 1000, 1800, 2400, 3300, 3900, 4800, 5400, 6300, 6900] : 
-                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [800, 1500, 2200, 2900, 3600, 4300, 5000, 5700, 6400, 7100]);
+                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [450, 1200, 1950, 2700, 3450, 4200, 4950, 5700, 6450, 7200]);
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 

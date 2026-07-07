@@ -191,7 +191,16 @@
                         </div>
                     </div>
 
-                
+                    <!-- Cuadro de Instrucciones -->
+                    <div style="background: rgba(255, 255, 255, 0.95); border: 3px solid #5E9E3E; border-radius: 10px; padding: 12px 16px; max-width: 460px; width: 100%; text-align: left; margin-top: 8px; box-shadow: 3px 3px 0 rgba(0,0,0,0.15); color: #1A1A1A;">
+                        <div id="instructions-title" style="font-family: var(--font-heading); font-weight: 800; font-size: 0.85rem; color: #3D7A1E; margin-bottom: 6px; text-align: center;">📋 INSTRUCCIONES</div>
+                        <div style="font-family: var(--font-body); font-size: 0.75rem; line-height: 1.5;">
+                            <p id="instr-controls" style="margin: 0 0 6px 0;"><strong>🎮 Controles:</strong> Muévete con las flechas <kbd style="background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;">←</kbd> y <kbd style="background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;">→</kbd>. Salta con la barra <kbd style="background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;">ESPACIO</kbd> o la flecha <kbd style="background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;">↑</kbd>.</p>
+                            <p id="instr-dangers" style="margin: 0 0 6px 0;"><strong>⚠️ Peligros:</strong> Los géiseres 🌋, los lagos 🌊, las rocas 🪨 y los animales salvajes (ranas 🐸 / pulpos 🐙) te quitan vida. ¡Evítalos!</p>
+                            <p id="instr-energy" style="margin: 0;"><strong>🍎 Energía:</strong> Tu barra de energía baja constantemente. Come frutas 🍌🍒 para recuperar energía. Si llega a cero es Game Over.</p>
+                        </div>
+                    </div>
+
                     <button class="btn-play" id="btn-play" onclick="startGame()">&#9658; JUGAR</button>
 
 
@@ -267,5 +276,62 @@
     <!-- Game Scripts -->
     <script src="audio.js?v=2.0.16"></script>
     <script src="game_v2.js?v=2.0.31"></script>
+    <script>
+        // Hook into translations object to add instructions keys
+        if (typeof translations !== 'undefined') {
+            translations.es.instrTitle = "📋 INSTRUCCIONES";
+            translations.es.instrControls = "<strong>🎮 Controles:</strong> Muévete con las flechas <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>←</kbd> y <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>→</kbd>. Salta con la barra <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>ESPACIO</kbd> o la flecha <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>↑</kbd>.";
+            translations.es.instrDangers = "<strong>⚠️ Peligros:</strong> Los géiseres 🌋, los lagos 🌊, las rocas 🪨 y los animales salvajes (ranas 🐸 / pulpos 🐙) te quitan vida. ¡Evítalos!";
+            translations.es.instrEnergy = "<strong>🍎 Energía:</strong> Tu barra de energía baja constantemente. Come frutas 🍌🍒 para recuperar energía. Si llega a cero es Game Over.";
+
+            translations.en.instrTitle = "📋 INSTRUCTIONS";
+            translations.en.instrControls = "<strong>🎮 Controls:</strong> Move with arrows <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>←</kbd> and <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>→</kbd>. Jump with <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>SPACE</kbd> or <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>↑</kbd> arrow.";
+            translations.en.instrDangers = "<strong>⚠️ Dangers:</strong> Geysers 🌋, lakes 🌊, rocks 🪨 and wild animals (frogs 🐸 / octopuses 🐙) remove lives. Avoid them!";
+            translations.en.instrEnergy = "<strong>🍎 Energy:</strong> Your energy bar decreases constantly. Eat fruits 🍌🍒 to recover energy. If it reaches zero it is Game Over.";
+
+            translations.fr.instrTitle = "📋 INSTRUCTIONS";
+            translations.fr.instrControls = "<strong>🎮 Commandes:</strong> Déplacez-vous avec les flèches <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>←</kbd> et <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>→</kbd>. Sautez avec <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>ESPACE</kbd> ou <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>↑</kbd>.";
+            translations.fr.instrDangers = "<strong>⚠️ Dangers:</strong> Les geysers 🌋, les lacs 🌊, les roches 🪨 et les animaux sauvages (grenouilles 🐸 / poulpes 🐙) vous retirent des vies. Évitez-les !";
+            translations.fr.instrEnergy = "<strong>🍎 Énergie:</strong> Votre barre d'énergie diminue constamment. Mangez des fruits 🍌🍒 pour la recharger. Si elle atteint zéro, c'est Game Over.";
+        }
+
+        // Decorate the original setLanguage function
+        const originalSetLanguage = window.setLanguage;
+        window.setLanguage = function(lang) {
+            if (typeof originalSetLanguage === 'function') {
+                originalSetLanguage(lang);
+            }
+            // Manually translate instructions box on call
+            const t = translations[lang];
+            if (t) {
+                if (document.getElementById('instructions-title')) document.getElementById('instructions-title').innerHTML = t.instrTitle;
+                if (document.getElementById('instr-controls')) document.getElementById('instr-controls').innerHTML = t.instrControls;
+                if (document.getElementById('instr-dangers')) document.getElementById('instr-dangers').innerHTML = t.instrDangers;
+                if (document.getElementById('instr-energy')) document.getElementById('instr-energy').innerHTML = t.instrEnergy;
+            }
+        };
+
+        // Decorate triggerGameOver to override death reason in Level 3
+        const originalTriggerGameOver = window.triggerGameOver;
+        window.triggerGameOver = function(reason) {
+            let customReason = reason;
+            if (typeof currentLevel !== 'undefined' && currentLevel === 3) {
+                const t = translations[currentLang];
+                if (reason === t.gameOverReasonPuddle) {
+                    customReason = currentLang === "es" ? "Te ha atacado la fauna marina." : 
+                                   (currentLang === "fr" ? "Vous avez été attaqué par la faune marine." : 
+                                   "You were attacked by marine fauna.");
+                }
+            }
+            if (typeof originalTriggerGameOver === 'function') {
+                originalTriggerGameOver(customReason);
+            }
+        };
+
+        // Initialize with default language
+        if (typeof currentLang !== 'undefined') {
+            window.setLanguage(currentLang);
+        }
+    </script>
 </body>
 </html>

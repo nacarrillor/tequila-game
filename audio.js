@@ -5,7 +5,7 @@ class SoundEffects {
         this.ctx = null;
         this.bgmAudio = new Audio('Epidemia.mp3');
         this.bgmAudio.loop = true;
-        this.bgmAudio.volume = 0.1; // Volumen bajo (10%)
+        this.bgmAudio.volume = 0.03; // Volumen bajo (3%)
         this.isPlayingBGM = false;
         this.isBGMMuted = false;
     }

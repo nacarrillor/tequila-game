@@ -1390,7 +1390,9 @@ let player = {
     dinoNearby: null, // Ref to dinosaur near player
     isSniffing: false,
     isDrilling: false,
-    correctAnswersCount: 0
+    correctAnswersCount: 0,
+    isInvincible: false,
+    invincibilityTimer: 0
 };
 
 // Game Entities
@@ -1476,6 +1478,10 @@ function showQuestionModal(rock) {
     activeRockSample = rock;
     gameState = "quiz";
     
+    if (player._energyBeforeQuiz === undefined) {
+        player._energyBeforeQuiz = player.energy;
+    }
+    
     document.getElementById("question-title").textContent = rock.question;
     const optionsDiv = document.getElementById("question-options");
     optionsDiv.innerHTML = ""; // Clear existing options
@@ -1494,7 +1500,9 @@ function showQuestionModal(rock) {
     if (quizTimerInterval) clearInterval(quizTimerInterval);
     quizTimerInterval = setInterval(() => {
         // Drain main energy (e.g., 0.15 per 100ms = 1.5 per second)
-        player.energy -= 0.15;
+        if (!player.isInvincible) {
+            player.energy -= 0.15;
+        }
         
         // Force canvas redraw so the user sees the bottom energy bar shrinking
         draw();
@@ -1582,11 +1590,21 @@ function closeRockResult() {
     if (activeRockSample) {
         if (activeRockSample.wasAnsweredCorrectly) {
             activeRockSample.discovered = true;
-            
+            delete player._energyBeforeQuiz;
             gameState = "playing";
         } else {
-            // Si responde mal, es muerte (pierde vida)
-            handlePlayerDeath(translations[currentLang].gameOverReasonQuiz);
+            if (player.isInvincible) {
+                // Se perdona la vida por invencibilidad y se le da la oportunidad de volver a responderla
+                // Se restaura la energía original que tenía antes de empezar esta pregunta para que pueda volver a intentarlo
+                if (player._energyBeforeQuiz !== undefined) {
+                    player.energy = player._energyBeforeQuiz;
+                }
+                showQuestionModal(activeRockSample);
+            } else {
+                // Si responde mal, es muerte (pierde vida)
+                delete player._energyBeforeQuiz;
+                handlePlayerDeath(translations[currentLang].gameOverReasonQuiz);
+            }
         }
     }
 }
@@ -1605,6 +1623,8 @@ function resetPlayerState(fullReset) {
     player.isSniffing = false;
     player.isDrilling = false;
     player.correctAnswersCount = 0;
+    player.isInvincible = false;
+    player.invincibilityTimer = 0;
     player.celebrating = false;
     player.celebrationTimer = 0;
     
@@ -1778,6 +1798,7 @@ function initLevel() {
             { x: 2250, y: 260, type: "banana" },
             { x: 2850, y: 200, type: "cherry" },
             { x: 3150, y: 260, type: "banana" },
+            { x: 3500, y: 150, type: "invincibility_h2" }, // Único H2 por nivel
             { x: 3750, y: 210, type: "cherry" },
             { x: 4350, y: 200, type: "banana" },
             { x: 4650, y: 220, type: "cherry" },
@@ -1801,6 +1822,7 @@ function initLevel() {
             { x: 2850, y: 200, type: "banana" },
             { x: 3200, y: 220, type: "cherry" },
             { x: 3500, y: 250, type: "banana" },
+            { x: 3600, y: 130, type: "invincibility_h2" }, // Único H2 por nivel
             { x: 3900, y: 220, type: "cherry" },
             { x: 4400, y: 260, type: "banana" },
             { x: 4700, y: 210, type: "cherry" },
@@ -1837,6 +1859,7 @@ function initLevel() {
             { x: 1900, y: 260, type: "banana" },
             { x: 2600, y: 220, type: "cherry" },
             { x: 3300, y: 260, type: "banana" },
+            { x: 3600, y: 120, type: "invincibility_h2" }, // Único H2 por nivel
             { x: 4000, y: 220, type: "cherry" },
             { x: 4700, y: 260, type: "banana" },
             { x: 5400, y: 220, type: "cherry" },
@@ -1987,6 +2010,15 @@ window.addEventListener("keyup", (e) => {
 
 // Physics and game update logic
 function update() {
+    // Actualizar temporizador de invencibilidad (corre en tiempo real incluso en el quiz)
+    if (player.isInvincible && gameState !== "menu" && gameState !== "gameover" && gameState !== "victory") {
+        player.invincibilityTimer--;
+        if (player.invincibilityTimer <= 0) {
+            player.isInvincible = false;
+            player.invincibilityTimer = 0;
+        }
+    }
+
     if (gameState !== "playing") return;
 
     // Controlar animación de celebración (saltos y confeti de colores)
@@ -2072,7 +2104,9 @@ function update() {
 
     // Slow energy drain (Bob has 25% slower energy drain!)
     let drainRate = selectedChar === "male" ? 0.03 : 0.04;
-    player.energy -= drainRate;
+    if (!player.isInvincible) {
+        player.energy -= drainRate;
+    }
     if (player.energy <= 0) {
         handlePlayerDeath(translations[currentLang].gameOverReasonEnergy);
         return;
@@ -2101,7 +2135,7 @@ function update() {
         });
     }
 
-    if (inPuddle && !onAnyIsland && player.vehicle !== "surfboard") {
+    if (inPuddle && !onAnyIsland && player.vehicle !== "surfboard" && !player.isInvincible) {
         handlePlayerDeath(translations[currentLang].gameOverReasonPuddle);
         return;
     }
@@ -2289,7 +2323,12 @@ function update() {
     // 6. Food and canister collection
     fruits.forEach((fruit, idx) => {
         if (Math.abs(player.x - fruit.x) < 30 && Math.abs(player.y - fruit.y) < 50) {
-            if (fruit.type === "canister") {
+            if (fruit.type === "invincibility_h2") {
+                fruits.splice(idx, 1);
+                player.isInvincible = true;
+                player.invincibilityTimer = 1800; // 30 seconds * 60 fps
+                AudioSFX.playCollect();
+            } else if (fruit.type === "canister") {
                 const discoveredCount = rockSamples.filter(r => r.discovered).length;
                 if (discoveredCount >= rockSamples.length) {
                     fruits.splice(idx, 1);
@@ -2320,7 +2359,7 @@ function update() {
         let isColliding = Math.abs(player.x - haz.x) < 25 && player.y >= currentGroundHeight - player.height - 10;
         if (haz.type === "geyser" && !haz.isErupting) isColliding = false; // geysers only hurt when erupting
 
-        if (isColliding) {
+        if (isColliding && !player.isInvincible) {
             if (haz.type === "log") {
                 let logDeathMsg = currentLang === 'es' ? "Tropezaste con un tronco en la playa." : (currentLang === 'fr' ? "Vous avez trébuché sur un tronc sur la plage." : "You tripped over a log on the beach.");
                 handlePlayerDeath(logDeathMsg);
@@ -2382,7 +2421,7 @@ function update() {
         // Check collision with player
         let frogCol = Math.abs(player.x + player.width/2 - (frog.x + 12)) < (player.width + 24)/2 &&
                       Math.abs(player.y + player.height/2 - (frog.y + 10)) < (player.height + 20)/2;
-        if (frogCol) {
+        if (frogCol && !player.isInvincible) {
             handleFaunaHit();
         }
     });
@@ -2410,7 +2449,7 @@ function update() {
         // Check collision with player
         let snakeCol = Math.abs(player.x + player.width/2 - (snake.x + 16)) < (player.width + 32)/2 &&
                        Math.abs(player.y + player.height/2 - (snake.y + 12)) < (player.height + 24)/2;
-        if (snakeCol) {
+        if (snakeCol && !player.isInvincible) {
             handleFaunaHit();
         }
     });
@@ -2425,7 +2464,9 @@ function update() {
                       Math.abs(player.y + player.height/2 - (proj.y + 5)) < (player.height + 10)/2;
         if (projCol) {
             venomProjectiles.splice(i, 1);
-            handleFaunaHit();
+            if (!player.isInvincible) {
+                handleFaunaHit();
+            }
             continue;
         }
 
@@ -3118,7 +3159,58 @@ function draw() {
 
     // ── FRUTAS & CANISTERS — vivos como sprites de Flappy Bird ──
     fruits.forEach(fruit => {
-        if (fruit.type === "canister") {
+        if (fruit.type === "invincibility_h2") {
+            ctx.save();
+            let glow = 10 + Math.sin(Date.now() / 100) * 4;
+            ctx.shadowBlur = glow;
+            ctx.shadowColor = "rgba(0, 220, 255, 0.9)";
+            
+            // Draw connector line
+            ctx.strokeStyle = "#B2EBF2";
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(fruit.x - 7, fruit.y);
+            ctx.lineTo(fruit.x + 7, fruit.y);
+            ctx.stroke();
+
+            // Draw Atom 1 (Hydrogen 1)
+            ctx.fillStyle = "#E0F7FA";
+            ctx.strokeStyle = "#00ACC1";
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(fruit.x - 7, fruit.y, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            // Inner highlight
+            ctx.fillStyle = "#FFFFFF";
+            ctx.beginPath();
+            ctx.arc(fruit.x - 9, fruit.y - 2, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw Atom 2 (Hydrogen 2)
+            ctx.fillStyle = "#E0F7FA";
+            ctx.strokeStyle = "#00ACC1";
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(fruit.x + 7, fruit.y, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            // Inner highlight
+            ctx.fillStyle = "#FFFFFF";
+            ctx.beginPath();
+            ctx.arc(fruit.x + 5, fruit.y - 2, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Label "H" in center of atoms
+            ctx.font = "bold 7px monospace";
+            ctx.fillStyle = "#00838F";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("H", fruit.x - 7, fruit.y + 1);
+            ctx.fillText("H", fruit.x + 7, fruit.y + 1);
+
+            ctx.restore();
+        } else if (fruit.type === "canister") {
             // Dibujar taza de café caliente (tinto)
             ctx.save();
             ctx.fillStyle = "#E67E22"; // Taza color terracota/cerámica
@@ -3719,7 +3811,30 @@ function draw() {
     ctx.fillText(`${translations[currentLang].energyLabel}${Math.floor(player.energy)}%`, 18, canvas.height - 13);
     ctx.shadowColor = "transparent";
 
-
+    // Barra de Invencibilidad H2 (si está activa)
+    if (player.isInvincible && player.invincibilityTimer > 0) {
+        let barY = canvas.height - 38;
+        // Fondo de la barra
+        ctx.fillStyle = "rgba(0,0,0,0.3)";
+        ctx.fillRect(10, barY, canvas.width - 20, 10);
+        // Barra cian brillante con degradado
+        let percent = player.invincibilityTimer / 1800; // max 30 seconds
+        let glowColor = `hsl(${(Date.now() / 4) % 360}, 100%, 65%)`;
+        ctx.fillStyle = glowColor;
+        ctx.fillRect(10, barY, percent * (canvas.width - 20), 10);
+        // Borde
+        ctx.strokeStyle = "rgba(0,0,0,0.5)";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(10, barY, canvas.width - 20, 10);
+        // Texto
+        ctx.font = "7px 'Press Start 2P'";
+        ctx.fillStyle = "#fff";
+        ctx.shadowColor = "#000"; ctx.shadowOffsetX = 1; ctx.shadowOffsetY = 1;
+        let secondsLeft = Math.ceil(player.invincibilityTimer / 60);
+        let textLabel = currentLang === "es" ? "BONUS H₂: " : (currentLang === "fr" ? "BONUS H₂: " : "H₂ BONUS: ");
+        ctx.fillText(`${textLabel}${secondsLeft}s`, 18, barY + 8);
+        ctx.shadowColor = "transparent";
+    }
 
     // Actualizar HUD DOM (score boxes)
     updateHUD();
@@ -4042,6 +4157,12 @@ function drawCocotero(ctx, x, groundY, height, scale) {
 // ═══════════════════════════════════════════════════════════
 function drawGeologist(ctx, px, py, dir, charType) {
     ctx.save();
+
+    if (player.isInvincible) {
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = `hsl(${(Date.now() / 4) % 360}, 100%, 60%)`;
+        ctx.filter = `hue-rotate(${(Date.now() / 3) % 360}deg)`;
+    }
 
     if (player.vehicle === "dinosaur") {
         py -= 14;

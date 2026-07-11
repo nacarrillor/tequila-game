@@ -2873,21 +2873,6 @@ function draw() {
     // ── VEGETATION (Frailejones / Wax Palms / Cocoteros) ──
     frailejones.forEach(fr => {
         if (currentLevel === 3) {
-            // Si el cocotero está dentro del mar (rango de 600 a 7400), dibujamos una pequeña isla de arena debajo
-            let inSea = fr.x >= 600 && fr.x <= 7400;
-            if (inSea) {
-                let ix = fr.x;
-                let iy = getGroundHeight(fr.x) + 5;
-                ctx.save();
-                ctx.fillStyle = "#E6C280"; // Color arena de playa
-                ctx.beginPath();
-                ctx.ellipse(ix, iy, 40 * fr.scale, 10 * fr.scale, 0, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.strokeStyle = "#D4A373";
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                ctx.restore();
-            }
             drawCocotero(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.scale);
         } else if (currentLevel === 2) {
             drawPalmaDeCera(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.scale);

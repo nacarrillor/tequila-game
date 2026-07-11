@@ -1501,7 +1501,7 @@ function showQuestionModal(rock) {
     quizTimerInterval = setInterval(() => {
         // Drain main energy (e.g., 0.15 per 100ms = 1.5 per second)
         if (!player.isInvincible) {
-            player.energy -= 0.15;
+            player.energy -= 0.075; // Slower drain during quiz (was 0.15)
         }
         
         // Force canvas redraw so the user sees the bottom energy bar shrinking
@@ -1632,13 +1632,8 @@ function resetPlayerState(fullReset) {
         player.lives = 5;
     }
     
-    if (selectedChar === "male") { // Bob
-        player.speed = 4.2;
-        player.jumpForce = -11;
-    } else { // Sheena
-        player.speed = 5.2;
-        player.jumpForce = -12.8;
-    }
+    player.speed = 4.8;
+    player.jumpForce = -12;
     
     cameraX = 0;
     activeEducationalModal = false;
@@ -1798,7 +1793,7 @@ function initLevel() {
             { x: 2250, y: 260, type: "banana" },
             { x: 2850, y: 200, type: "cherry" },
             { x: 3150, y: 260, type: "banana" },
-            { x: 3500, y: 150, type: "invincibility_h2" }, // Único H2 por nivel
+            { x: 3430, y: 280, type: "invincibility_h2" }, // Único H2 por nivel, desplazado de 3500 para evitar solapar el frailejón
             { x: 3750, y: 210, type: "cherry" },
             { x: 4350, y: 200, type: "banana" },
             { x: 4650, y: 220, type: "cherry" },
@@ -1822,7 +1817,7 @@ function initLevel() {
             { x: 2850, y: 200, type: "banana" },
             { x: 3200, y: 220, type: "cherry" },
             { x: 3500, y: 250, type: "banana" },
-            { x: 3600, y: 130, type: "invincibility_h2" }, // Único H2 por nivel
+            { x: 3600, y: 280, type: "invincibility_h2" }, // Único H2 por nivel
             { x: 3900, y: 220, type: "cherry" },
             { x: 4400, y: 260, type: "banana" },
             { x: 4700, y: 210, type: "cherry" },
@@ -1859,7 +1854,7 @@ function initLevel() {
             { x: 1900, y: 260, type: "banana" },
             { x: 2600, y: 220, type: "cherry" },
             { x: 3300, y: 260, type: "banana" },
-            { x: 3600, y: 120, type: "invincibility_h2" }, // Único H2 por nivel
+            { x: 3600, y: 280, type: "invincibility_h2" }, // Único H2 por nivel
             { x: 4000, y: 220, type: "cherry" },
             { x: 4700, y: 260, type: "banana" },
             { x: 5400, y: 220, type: "cherry" },
@@ -1911,7 +1906,7 @@ function initLevel() {
     frailejones = [];
     // Frailejones placed on flat ground away from obstacles and rocks
     const frailejonesPositions = currentLevel === 1 ? [
-        150, 350, 650, 1150, 1600, 2000, 2600, 3100, 3500, 4100, 4600, 5000, 5600, 6100, 6500, 7100, 7500
+        150, 350, 650, 1060, 1600, 2000, 2520, 3100, 3500, 4020, 4600, 5000, 5500, 6100, 6500, 7020, 7500
     ] : (currentLevel === 2 ? [
         150, 850, 1100, 1400, 1800, 2100, 2400, 2900, 3400, 3900, 4400, 4900, 5400, 5900, 6400, 6900, 7400, 7700
     ] : [
@@ -2102,8 +2097,8 @@ function update() {
         return;
     }
 
-    // Slow energy drain (Bob has 25% slower energy drain!)
-    let drainRate = selectedChar === "male" ? 0.03 : 0.04;
+    // Slow energy drain (identical for both characters)
+    let drainRate = 0.015;
     if (!player.isInvincible) {
         player.energy -= drainRate;
     }
@@ -2272,8 +2267,8 @@ function update() {
             if (keys["KeyZ"]) {
                 player.isSniffing = true;
                 if (circle.h2Level > 0) {
-                    let sniffSpeed = selectedChar === "female" ? 1.6 : 0.8;
-                    let sniffH2 = selectedChar === "female" ? 0.4 : 0.2;
+                    let sniffSpeed = 1.2; // Identical sniffing speed for both
+                    let sniffH2 = 0.3;    // Identical sniffing amount for both
                     circle.h2Level -= sniffSpeed;
                     player.h2Collected += sniffH2;
                     AudioSFX.playCollect();
@@ -3161,53 +3156,90 @@ function draw() {
     fruits.forEach(fruit => {
         if (fruit.type === "invincibility_h2") {
             ctx.save();
-            let glow = 10 + Math.sin(Date.now() / 100) * 4;
+            let glow = 18 + Math.sin(Date.now() / 80) * 6;
             ctx.shadowBlur = glow;
-            ctx.shadowColor = "rgba(0, 220, 255, 0.9)";
+            ctx.shadowColor = "rgba(186, 104, 200, 0.85)"; // Beautiful bright purple/magenta glow
             
-            // Draw connector line
-            ctx.strokeStyle = "#B2EBF2";
-            ctx.lineWidth = 3;
+            // 1. Draw Covalent Orbit (Dotted scientific ring wrapping the molecule)
+            ctx.strokeStyle = "rgba(225, 190, 231, 0.45)";
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([3, 4]);
             ctx.beginPath();
-            ctx.moveTo(fruit.x - 7, fruit.y);
-            ctx.lineTo(fruit.x + 7, fruit.y);
+            ctx.ellipse(fruit.x, fruit.y, 40, 20, Math.PI / 6, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]); // Reset dash
+
+            // 2. Draw connector line (covalent bond) with linear gradient
+            let bondGrad = ctx.createLinearGradient(fruit.x - 14, fruit.y, fruit.x + 14, fruit.y);
+            bondGrad.addColorStop(0, "#7B1FA2");
+            bondGrad.addColorStop(0.5, "#E1BEE7");
+            bondGrad.addColorStop(1, "#7B1FA2");
+            
+            ctx.strokeStyle = bondGrad;
+            ctx.lineWidth = 6;
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.moveTo(fruit.x - 14, fruit.y);
+            ctx.lineTo(fruit.x + 14, fruit.y);
             ctx.stroke();
 
-            // Draw Atom 1 (Hydrogen 1)
-            ctx.fillStyle = "#E0F7FA";
-            ctx.strokeStyle = "#00ACC1";
+            // Inner shiny core of the bond
+            ctx.strokeStyle = "#FFFFFF";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(fruit.x - 8, fruit.y);
+            ctx.lineTo(fruit.x + 8, fruit.y);
+            ctx.stroke();
+
+            // 3. Draw Atom 1 (Left Hydrogen) - Radial Gradient for a 3D Sphere/Glass look
+            let grad1 = ctx.createRadialGradient(
+                fruit.x - 14 - 4, fruit.y - 4, 1,
+                fruit.x - 14, fruit.y, 14
+            );
+            grad1.addColorStop(0, "#FFFFFF");   // Light shine point
+            grad1.addColorStop(0.2, "#F3E5F5"); // Very soft pinkish lavender
+            grad1.addColorStop(0.7, "#9C27B0");  // Vibrant purple
+            grad1.addColorStop(1, "#4A148C");    // Deep dark purple border/shadow
+
+            ctx.fillStyle = grad1;
+            ctx.strokeStyle = "#4A148C";
             ctx.lineWidth = 1.5;
             ctx.beginPath();
-            ctx.arc(fruit.x - 7, fruit.y, 8, 0, Math.PI * 2);
+            ctx.arc(fruit.x - 14, fruit.y, 14, 0, Math.PI * 2);
             ctx.fill();
             ctx.stroke();
-            // Inner highlight
-            ctx.fillStyle = "#FFFFFF";
-            ctx.beginPath();
-            ctx.arc(fruit.x - 9, fruit.y - 2, 2.5, 0, Math.PI * 2);
-            ctx.fill();
 
-            // Draw Atom 2 (Hydrogen 2)
-            ctx.fillStyle = "#E0F7FA";
-            ctx.strokeStyle = "#00ACC1";
+            // 4. Draw Atom 2 (Right Hydrogen) - Radial Gradient
+            let grad2 = ctx.createRadialGradient(
+                fruit.x + 14 - 4, fruit.y - 4, 1,
+                fruit.x + 14, fruit.y, 14
+            );
+            grad2.addColorStop(0, "#FFFFFF");
+            grad2.addColorStop(0.2, "#F3E5F5");
+            grad2.addColorStop(0.7, "#9C27B0");
+            grad2.addColorStop(1, "#4A148C");
+
+            ctx.fillStyle = grad2;
+            ctx.strokeStyle = "#4A148C";
             ctx.lineWidth = 1.5;
             ctx.beginPath();
-            ctx.arc(fruit.x + 7, fruit.y, 8, 0, Math.PI * 2);
+            ctx.arc(fruit.x + 14, fruit.y, 14, 0, Math.PI * 2);
             ctx.fill();
             ctx.stroke();
-            // Inner highlight
-            ctx.fillStyle = "#FFFFFF";
-            ctx.beginPath();
-            ctx.arc(fruit.x + 5, fruit.y - 2, 2.5, 0, Math.PI * 2);
-            ctx.fill();
 
-            // Label "H" in center of atoms
-            ctx.font = "bold 7px monospace";
-            ctx.fillStyle = "#00838F";
+            // 5. Label "H" in center of atoms (White with deep purple shadow for contrast)
+            ctx.font = "bold 15px sans-serif";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-            ctx.fillText("H", fruit.x - 7, fruit.y + 1);
-            ctx.fillText("H", fruit.x + 7, fruit.y + 1);
+            
+            // Draw a subtle shadow text under the main H labels for better readability on 3D gradients
+            ctx.fillStyle = "#31005b";
+            ctx.fillText("H", fruit.x - 14, fruit.y + 2.5);
+            ctx.fillText("H", fruit.x + 14, fruit.y + 2.5);
+            
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillText("H", fruit.x - 14, fruit.y + 1.5);
+            ctx.fillText("H", fruit.x + 14, fruit.y + 1.5);
 
             ctx.restore();
         } else if (fruit.type === "canister") {

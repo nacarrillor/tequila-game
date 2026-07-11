@@ -653,3 +653,28 @@ body {
         border-width: 2px;
     }
 }
+
+/* Estilos de botones de selección de nivel */
+.lvl-btn {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    padding: 6px 12px;
+    border: 2px solid #5E9E3E;
+    border-radius: 6px;
+    background: #FFF;
+    color: #1A1A1A;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+}
+.lvl-btn:hover {
+    background: #EEFDE8;
+    transform: translateY(-1px);
+}
+.lvl-btn.active {
+    background: #5E9E3E;
+    color: #FFF;
+    border-color: #3D7A1E;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2);
+}

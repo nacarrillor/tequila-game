@@ -439,6 +439,138 @@ const translations = {
                 correctFeedback: "¡Muy bien! Los isótopos de neón son excelentes discriminadores de fuentes.",
                 incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
             }
+        ],
+        questionsLevel4: [
+            {
+                name: "Muestra 1: Formación geológica",
+                question: "¿En qué formación geológica se encuentra el lecho de Caño Cristales?",
+                options: [
+                    "a) La Serranía de la Macarena (Escudo Guayanés)",
+                    "b) La Cordillera Oriental de los Andes",
+                    "c) El Cinturón de Fuego del Pacífico",
+                    "d) La llanura aluvial de la Orinoquía"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Excelente! La Serranía de la Macarena es parte del Escudo Guayanés.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 2: Macarenia clavigera",
+                question: "¿Qué le da los característicos tonos rojos y rosados a Caño Cristales?",
+                options: [
+                    "a) Algas rojas de agua salada estancadas en el cauce",
+                    "b) La planta acuática endémica Macarenia clavigera al recibir sol",
+                    "c) Depósitos ricos en óxido de hierro disueltos en la corriente",
+                    "d) La refracción de la luz solar en los microcristales de cuarzo"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Correcto! Es la planta Macarenia clavigera la que cambia de color con el sol.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 3: Tipo de roca de La Macarena",
+                question: "¿De qué tipo son las rocas que forman el lecho rocoso del río?",
+                options: [
+                    "a) Basaltos volcánicos oscuros",
+                    "b) Calizas sedimentarias ricas en fósiles marinos",
+                    "c) Cuarcitas y areniscas silíceas muy antiguas",
+                    "d) Granitos plutónicos de grano grueso"
+                ],
+                correctIndex: 2,
+                correctFeedback: "¡Muy bien! Son cuarcitas y areniscas silíceas de gran resistencia.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 4: Edad de las rocas",
+                question: "¿Cuál es la antigüedad aproximada del Escudo Guayanés en esta región?",
+                options: [
+                    "a) Alrededor de 10 millones de años (Cenozoico)",
+                    "b) Unos 150 millones de años (Mesozoico)",
+                    "c) Cerca de 300 millones de años (Paleozoico)",
+                    "d) Más de 1.000 millones de años (Precámbrico)"
+                ],
+                correctIndex: 3,
+                correctFeedback: "¡Perfecto! Son de las rocas expuestas más antiguas del continente.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 5: ¿Por qué hay tantos colores?",
+                question: "¿Qué factores ambientales determinan la intensidad de color en el río?",
+                options: [
+                    "a) La exposición directa al sol y la velocidad del agua",
+                    "b) El nivel de contaminación química y acidez del cauce",
+                    "c) La temperatura ambiente y la cantidad de peces",
+                    "d) La presencia de sedimentos finos suspendidos en el flujo"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Exacto! El sol directo estimula los pigmentos de la Macarenia clavigera.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 6: Marmitas de gigante",
+                question: "¿Cómo se llaman las cavidades cilíndricas esculpidas en el lecho del río?",
+                options: [
+                    "a) Dolinas de colapso cárstico",
+                    "b) Marmitas de gigante (potholes) formadas por remolinos y piedras",
+                    "c) Fosas tectónicas de extensión local",
+                    "d) Cráteres de impacto de meteoritos antiguos"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Excelente! Los remolinos de agua y piedras desgastan la cuarcita formando pozos.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 7: Transparencia de sus aguas",
+                question: "¿Por qué el agua de Caño Cristales es tan pura y transparente?",
+                options: [
+                    "a) Porque el lecho de cuarcitas limpias no aporta lodos ni arcillas finas",
+                    "b) Porque hay plantas de carbón activado naturales en las orillas",
+                    "c) Porque la evaporación es tan alta que el agua se condensa pura",
+                    "d) Porque el cauce está pavimentado artificialmente para turismo"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Correcto! Las cuarcitas del río no se disuelven ni generan sedimentos turbios.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 8: Nutrientes del río",
+                question: "¿Cómo se clasifican las aguas de Caño Cristales a nivel trófico?",
+                options: [
+                    "a) Eutróficas (ricas en fósforo y nitrógeno)",
+                    "b) Mesotróficas (con nutrientes moderados)",
+                    "c) Distróficas (aguas ácidas y cargadas de lodo)",
+                    "d) Oligotróficas (extremadamente bajas en nutrientes y materia orgánica)"
+                ],
+                correctIndex: 3,
+                correctFeedback: "¡Exacto! Tienen tan pocos nutrientes que casi no hay peces grandes.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 9: Origen de La Macarena",
+                question: "¿Qué caracteriza tectónicamente a la Serranía de la Macarena?",
+                options: [
+                    "a) Es un bloque elevado que une el Escudo Guayanés con los Andes",
+                    "b) Es una península volcánica joven en medio del llano",
+                    "c) Es una fosa tectónica hundida por debajo del nivel del mar",
+                    "d) Es una cordillera formada únicamente por el choque de placas oceánicas"
+                ],
+                correctIndex: 0,
+                correctFeedback: "¡Excelente! Une la geología andina con la antigua cuenca guayanesa.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            },
+            {
+                name: "Muestra 10: Importancia del escudo",
+                question: "¿Cuál es el rol geológico del Escudo Guayanés en Sudamérica?",
+                options: [
+                    "a) Actuar como el cinturón volcánico activo de la placa",
+                    "b) Ser uno de los cratones o núcleos continentales más antiguos y estables",
+                    "c) Ser una fosa de acumulación de sedimentos jóvenes",
+                    "d) Ser una placa tectónica independiente que choca con el Caribe"
+                ],
+                correctIndex: 1,
+                correctFeedback: "¡Espectacular! Has completado el conocimiento geológico de Caño Cristales.",
+                incorrectFeedback: "Respuesta incorrecta. Tu exploración geológica ha terminado."
+            }
         ]
     },
     en: {
@@ -871,6 +1003,138 @@ const translations = {
                 ],
                 correctIndex: 1,
                 correctFeedback: "Very good! Neon isotopes are excellent source discriminators.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            }
+        ],
+        questionsLevel4: [
+            {
+                name: "Sample 1: Geological formation",
+                question: "In which geological formation is the riverbed of Caño Cristales located?",
+                options: [
+                    "a) The Serranía de la Macarena (Guiana Shield)",
+                    "b) The Eastern Cordillera of the Andes",
+                    "c) The Pacific Ring of Fire",
+                    "d) The alluvial plain of the Orinoquía"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent! The Serranía de la Macarena is part of the Guiana Shield.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 2: Macarenia clavigera",
+                question: "What gives Caño Cristales its characteristic red and pink hues?",
+                options: [
+                    "a) Red saltwater algae stagnant in the riverbed",
+                    "b) The endemic aquatic plant Macarenia clavigera when exposed to sun",
+                    "c) Iron oxide-rich deposits dissolved in the current",
+                    "d) Sunlight refraction in quartz microcrystals"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct! The Macarenia clavigera plant changes color with solar exposure.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 3: Rock type of La Macarena",
+                question: "What type of rocks make up the rocky bed of the river?",
+                options: [
+                    "a) Dark volcanic basalts",
+                    "b) Sedimentary limestones rich in marine fossils",
+                    "c) Very ancient quartzites and siliceous sandstones",
+                    "d) Coarse-grained plutonic granites"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Very good! They are highly resistant quartzites and siliceous sandstones.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 4: Age of the rocks",
+                question: "What is the approximate age of the Guiana Shield rocks in this region?",
+                options: [
+                    "a) Around 10 million years (Cenozoic)",
+                    "b) About 150 million years (Mesozoic)",
+                    "c) Close to 300 million years (Paleozoic)",
+                    "d) More than 1 billion years (Precambrian)"
+                ],
+                correctIndex: 3,
+                correctFeedback: "Perfect! They are among the oldest exposed rocks on the continent.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 5: Why so many colors?",
+                question: "What environmental factors determine the intensity of colors in the river?",
+                options: [
+                    "a) Direct sun exposure and water flow velocity",
+                    "b) Chemical pollution levels and acidity of the channel",
+                    "c) Ambient temperature and amount of fish",
+                    "d) Fine suspended sediment present in the stream"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Exactly! Direct sun stimulates the pigments of the Macarenia clavigera.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 6: Giant's kettles",
+                question: "What is the name of the cylindrical holes sculpted in the riverbed?",
+                options: [
+                    "a) Karstic collapse sinkholes",
+                    "b) Giant's kettles (potholes) formed by whirlpools and pebbles",
+                    "c) Local extensional grabens",
+                    "d) Ancient meteorite impact craters"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Excellent! Swirling water and stones wear down the quartzite, creating deep wells.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 7: Transparency of its waters",
+                question: "Why is the water of Caño Cristales so pure and transparent?",
+                options: [
+                    "a) Because the clean quartzite bed does not contribute mud or fine clays",
+                    "b) Because there are natural activated carbon plants along the banks",
+                    "c) Because high evaporation rates leave only pure condensed water",
+                    "d) Because the channel is artificially paved for tourism"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Correct! The river's quartzites do not dissolve or generate turbid sediments.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 8: River nutrients",
+                question: "How are the waters of Caño Cristales classified at a trophic level?",
+                options: [
+                    "a) Eutrophic (rich in phosphorus and nitrogen)",
+                    "b) Mesotrophic (with moderate nutrients)",
+                    "c) Dystrophic (acidic waters loaded with mud)",
+                    "d) Oligotrophic (extremely low in nutrients and organic matter)"
+                ],
+                correctIndex: 3,
+                correctFeedback: "Exactly! They have so few nutrients that there are almost no large fish.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 9: Origin of La Macarena",
+                question: "What tectonically characterizes the Serranía de la Macarena?",
+                options: [
+                    "a) It is an uplifted block linking the Guiana Shield with the Andes",
+                    "b) It is a young volcanic peninsula in the middle of the plains",
+                    "c) It is a tectonic rift valley sunken below sea level",
+                    "d) It is a range formed solely by ocean plate collision"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent! It bridges Andean geology and the ancient Guiana craton.",
+                incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
+            },
+            {
+                name: "Sample 10: Shield importance",
+                question: "What is the geological role of the Guiana Shield in South America?",
+                options: [
+                    "a) Serving as the active volcanic belt of the plate",
+                    "b) Being one of the oldest and most stable continental cores or cratons",
+                    "c) Being a deep sink for young sediments",
+                    "d) Being an independent tectonic plate colliding with the Caribbean"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Spectacular! You have completed the geological knowledge of Caño Cristales.",
                 incorrectFeedback: "Incorrect answer. Your geological exploration has ended."
             }
         ]
@@ -1306,6 +1570,138 @@ const translations = {
                 correctFeedback: "Très bien ! Les isotopes du néon discriminent excellemment les sources.",
                 incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
             }
+        ],
+        questionsLevel4: [
+            {
+                name: "Échantillon 1 : Formation géologique",
+                question: "Dans quelle formation géologique se trouve le lit de Caño Cristales ?",
+                options: [
+                    "a) La Serranía de la Macarena (Bouclier Guyanais)",
+                    "b) La Cordillère Orientale de los Andes",
+                    "c) La Ceinture de feu du Pacifique",
+                    "d) La plaine alluviale de l'Orénoque"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent ! La Serranía de la Macarena fait partie du Bouclier Guyanais.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 2 : Macarenia clavigera",
+                question: "Qu'est-ce qui donne à Caño Cristales ses teintes rouges et roses caractéristiques ?",
+                options: [
+                    "a) Des algues rouges d'eau salée stagnantes dans le lit du fleuve",
+                    "b) La plante aquatique endémique Macarenia clavigera lorsqu'elle reçoit le soleil",
+                    "c) Des dépôts riches en oxyde de fer dissous dans le courant",
+                    "d) La réfraction de la lumière solaire dans les microcristaux de quartz"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Correct ! C'est la plante Macarenia clavigera qui change de couleur avec le soleil.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 3 : Type de roche",
+                question: "Quel type de roches compose le lit rocheux de la rivière ?",
+                options: [
+                    "a) Des basaltes volcaniques sombres",
+                    "b) Des calcaires sédimentaires riches en fossiles marins",
+                    "c) Des quartzites et des grès siliceux très anciens",
+                    "d) Des granites plutoniques à gros grains"
+                ],
+                correctIndex: 2,
+                correctFeedback: "Très bien ! Ce sont des quartzites et des grès siliceux très résistants.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 4 : Âge des roches",
+                question: "Quel est l'âge approximatif des roches du Bouclier Guyanais dans cette région ?",
+                options: [
+                    "a) Environ 10 millions d'années (Cénozoïque)",
+                    "b) Environ 150 millions d'années (Mésozoïque)",
+                    "c) Près de 300 millions d'années (Paléozoïque)",
+                    "d) Plus d'un milliard d'années (Précambrien)"
+                ],
+                correctIndex: 3,
+                correctFeedback: "Parfait ! Elles font partie des roches exposées les plus anciennes du continent.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 5 : Pourquoi tant de couleurs ?",
+                question: "Quels facteurs environnementaux déterminent l'intensité des couleurs dans la rivière ?",
+                options: [
+                    "a) L'exposition directe au soleil et la vitesse du courant",
+                    "b) Le niveau de pollution chimique et l'acidité du cours d'eau",
+                    "c) La température ambiante et la quantité de poissons",
+                    "d) Des sédiments fins en suspension"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Exact ! Le soleil direct stimule les pigments de Macarenia clavigera.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 6 : Marmites de géant",
+                question: "Comment s'appellent les cavités cylindriques creusées dans le lit de la rivière ?",
+                options: [
+                    "a) Des dolines d'effondrement karstique",
+                    "b) Des marmites de géant (potholes) formées par des tourbillons et des pierres",
+                    "c) Des fosses tectoniques d'extension locale",
+                    "d) Des cratères d'impact de météorites anciennes"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Excellent ! Les tourbillons d'eau et les pierres érodent la quartzite en formant des puits.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 7 : Transparence des eaux",
+                question: "Pourquoi l'eau de Caño Cristales est-elle si pure et transparente ?",
+                options: [
+                    "a) Parce que le lit de quartzites propres n'apporte ni boue ni argile fine",
+                    "b) Parce qu'il y a des plantes à charbon actif naturelles sur les berges",
+                    "c) Parce que l'évaporation élevée ne laisse que de l'eau condensée pure",
+                    "d) Parce que le chenal est artificiellement pavé pour le tourisme"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Correct ! Les quartzites ne se dissolvent pas et ne troublent pas l'eau.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 8 : Nutriments",
+                question: "Comment classe-t-on les eaux de Caño Cristales au niveau trophique ?",
+                options: [
+                    "a) Eutrophes (riches en phosphore et azote)",
+                    "b) Mésotrophes (nutriments modérés)",
+                    "c) Dystrophes (eaux acides chargées de boue)",
+                    "d) Oligotrophes (extrêmement pauvres en nutriments et matière organique)"
+                ],
+                correctIndex: 3,
+                correctFeedback: "Exact ! Elles contiennent si peu de nutriments qu'il n'y a presque pas de grands poissons.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 9 : Origine de La Macarena",
+                question: "Qu'est-ce qui caractérise tectoniquement la Serranía de la Macarena ?",
+                options: [
+                    "a) C'est un bloc surélevé qui relie le Bouclier Guyanais aux Andes",
+                    "b) C'est une jeune péninsule volcanique au milieu des plaines",
+                    "c) C'est un fossé tectonique effondré sous le niveau de la mer",
+                    "d) C'est une chaîne formée uniquement par la collision de plaques océaniques"
+                ],
+                correctIndex: 0,
+                correctFeedback: "Excellent ! Elle relie la géologie andine à l'ancien craton guyanais.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            },
+            {
+                name: "Échantillon 10 : Importance du bouclier",
+                question: "Quel est le rôle géologique du Bouclier Guyanais en Amérique du Sud ?",
+                options: [
+                    "a) Agir comme la ceinture volcanique active de la plaque",
+                    "b) Être l'un des cratons ou noyaux continentaux les plus anciens et stables",
+                    "c) Être une fosse d'accumulation de sédiments jeunes",
+                    "d) Être une plaque tectonique indépendante entrant en collision avec les Caraïbes"
+                ],
+                correctIndex: 1,
+                correctFeedback: "Spectaculaire ! Vous avez complété les connaissances géologiques de Caño Cristales.",
+                incorrectFeedback: "Réponse incorrecte. Votre exploration géologique est terminée."
+            }
         ]
     }
 };
@@ -1330,7 +1726,7 @@ function setLanguage(lang) {
     document.getElementById('btn-retry').innerHTML = t.btnRetry;
     document.getElementById('victory-title').innerHTML = t.victoryTitle;
     document.getElementById('victory-details').innerHTML = t.victoryDetails;
-    document.getElementById('btn-replay').innerHTML = currentLevel < 3 ? t.btnNextLevel : t.btnReplay;
+    document.getElementById('btn-replay').innerHTML = currentLevel < 4 ? t.btnNextLevel : t.btnReplay;
     document.getElementById('btn-continue').innerHTML = t.btnContinue;
     if (document.getElementById('credits-design')) document.getElementById('credits-design').innerHTML = t.creditsDesign;
     if (document.getElementById('credits-contact')) document.getElementById('credits-contact').innerHTML = t.creditsContact;
@@ -1470,6 +1866,9 @@ function selectLevel(lvl) {
     document.getElementById("btn-lvl1").classList.toggle("active", lvl === 1);
     document.getElementById("btn-lvl2").classList.toggle("active", lvl === 2);
     document.getElementById("btn-lvl3").classList.toggle("active", lvl === 3);
+    if (document.getElementById("btn-lvl4")) {
+        document.getElementById("btn-lvl4").classList.toggle("active", lvl === 4);
+    }
 }
 
 let quizTimerInterval = null;
@@ -1550,6 +1949,12 @@ function answerQuestion(optionIndex) {
                 let unlockMsg = translations[currentLang].skateboardUnlock
                     .replace("🛹", "🦖")
                     .replace("TRANSPORTE", "TRANSPORTE: ¡DINOSAURIO!");
+                resultSubtitle.innerHTML += unlockMsg;
+            } else if (currentLevel === 4) {
+                player.vehicle = "hoverboard";
+                let unlockMsg = translations[currentLang].skateboardUnlock
+                    .replace("🛹", "🚀")
+                    .replace("TRANSPORTE", "TRANSPORTE: ¡HOVERBOARD VOLADOR!");
                 resultSubtitle.innerHTML += unlockMsg;
             } else {
                 player.vehicle = "skateboard";
@@ -1680,6 +2085,8 @@ function handleVictoryButtonClick() {
         currentLevel = 2;
     } else if (currentLevel === 2) {
         currentLevel = 3;
+    } else if (currentLevel === 3) {
+        currentLevel = 4;
     } else {
         currentLevel = 1;
     }
@@ -1692,7 +2099,31 @@ function initLevel() {
     snakes = [];
     venomProjectiles = [];
 
-    if (currentLevel === 3) {
+    if (currentLevel === 4) {
+        // Nivel 4: Caño Cristales (Río de los cinco colores)
+        LEVEL_WIDTH = 8000;
+        drillRig.x = 7650;
+        puddles = [
+            { x: 800, width: 250, colorName: "red" },
+            { x: 1900, width: 300, colorName: "pink" },
+            { x: 3000, width: 200, colorName: "green" },
+            { x: 4200, width: 250, colorName: "yellow" },
+            { x: 5500, width: 300, colorName: "red" },
+            { x: 6700, width: 200, colorName: "blue" }
+        ];
+        hazards = [
+            { x: 1400, y: getGroundHeight(1400) - 15, width: 35, height: 15, type: "log" },
+            { x: 3500, y: getGroundHeight(3500) - 15, width: 35, height: 15, type: "log" },
+            { x: 6000, y: getGroundHeight(6000) - 15, width: 35, height: 15, type: "log" }
+        ];
+        dinosaurs = [];
+        frogs = [
+            { x: 600,  y: getGroundHeight(600) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 2300, y: getGroundHeight(2300) - 20, width: 24, height: 20, vy: 0, timer: 45 },
+            { x: 4900, y: getGroundHeight(4900) - 20, width: 24, height: 20, vy: 0, timer: 15 }
+        ];
+        snakes = [];
+    } else if (currentLevel === 3) {
         // Nivel 3: Playa de Chocó
         LEVEL_WIDTH = 8000;
         drillRig.x = 7650;
@@ -1829,7 +2260,7 @@ function initLevel() {
             { x: 7200, y: 210, type: "cherry" },
             { x: 7625, y: GROUND_Y - 22, type: "canister" } // Tinto final en la mesa
         ];
-    } else {
+    } else if (currentLevel === 3) {
         // Puddles will serve as the infinite sea starting at x=600, ending at x=7400 (before the shop)
         puddles = [
             { x: 600, width: 6800 }
@@ -1862,17 +2293,57 @@ function initLevel() {
             { x: 6900, y: 220, type: "cherry" },
             { x: 7600, y: GROUND_Y - 22, type: "canister" }
         ];
+    } else {
+        // Nivel 4: Caño Cristales (Río de los cinco colores)
+        LEVEL_WIDTH = 8000;
+        drillRig.x = 7650;
+        puddles = [
+            { x: 800, width: 250, colorName: "red" },
+            { x: 1900, width: 300, colorName: "pink" },
+            { x: 3000, width: 200, colorName: "green" },
+            { x: 4200, width: 250, colorName: "yellow" },
+            { x: 5500, width: 300, colorName: "red" },
+            { x: 6700, width: 200, colorName: "blue" }
+        ];
+        hazards = [
+            { x: 1400, y: getGroundHeight(1400) - 15, width: 35, height: 15, type: "log" },
+            { x: 3500, y: getGroundHeight(3500) - 15, width: 35, height: 15, type: "log" },
+            { x: 6000, y: getGroundHeight(6000) - 15, width: 35, height: 15, type: "log" }
+        ];
+        dinosaurs = [];
+        frogs = [
+            { x: 600,  y: getGroundHeight(600) - 20, width: 24, height: 20, vy: 0, timer: 0 },
+            { x: 2300, y: getGroundHeight(2300) - 20, width: 24, height: 20, vy: 0, timer: 45 },
+            { x: 4900, y: getGroundHeight(4900) - 20, width: 24, height: 20, vy: 0, timer: 15 }
+        ];
+        snakes = [];
+        fruits = [
+            { x: 300, y: 250, type: "banana" },
+            { x: 1200, y: 220, type: "cherry" },
+            { x: 1900, y: 260, type: "banana" },
+            { x: 2600, y: 220, type: "cherry" },
+            { x: 3300, y: 260, type: "banana" },
+            { x: 3600, y: 280, type: "invincibility_h2" }, // Único H2 por nivel
+            { x: 4000, y: 220, type: "cherry" },
+            { x: 4700, y: 260, type: "banana" },
+            { x: 5400, y: 220, type: "cherry" },
+            { x: 6100, y: 260, type: "banana" },
+            { x: 6900, y: 220, type: "cherry" },
+            { x: 7600, y: GROUND_Y - 22, type: "canister" }
+        ];
     }
 
     // Cargar preguntas según nivel (geología básica en Nivel 1, hidrógeno en Nivel 2)
     const activeQuestions = currentLevel === 1 ? translations[currentLang].questions : 
-                            (currentLevel === 2 ? translations[currentLang].questionsLevel2 : translations[currentLang].questionsLevel3);
+                            (currentLevel === 2 ? translations[currentLang].questionsLevel2 : 
+                            (currentLevel === 3 ? translations[currentLang].questionsLevel3 : translations[currentLang].questionsLevel4));
     const baseQuestions = JSON.parse(JSON.stringify(activeQuestions));
     shuffleArray(baseQuestions);
 
-    // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 10
+    // Level 1 rocks: exactly 1 per hill on 10 separate hills, Level 2 has 10 rocks, Level 3 has 10, Level 4 has 10
     const rockXPositions = currentLevel === 1 ? [500, 1000, 1800, 2400, 3300, 3900, 4800, 5400, 6300, 6900] : 
-                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : [450, 1200, 1950, 2700, 3450, 4200, 4950, 5700, 6450, 7200]);
+                           (currentLevel === 2 ? [500, 1400, 2400, 3400, 3900, 4700, 5100, 6000, 6400, 7300] : 
+                           (currentLevel === 3 ? [450, 1200, 1950, 2700, 3450, 4200, 4950, 5700, 6450, 7200] : [500, 1100, 1800, 2500, 3200, 3900, 4600, 5300, 6000, 6700]));
 
     const rockColors = ["#84cc16", "#3f3f46", "#fca5a5", "#e2e8f0", "#fbbf24"];
 
@@ -1909,9 +2380,11 @@ function initLevel() {
         150, 350, 650, 1060, 1600, 2000, 2520, 3100, 3500, 4020, 4600, 5000, 5500, 6100, 6500, 7020, 7500
     ] : (currentLevel === 2 ? [
         150, 850, 1100, 1400, 1800, 2100, 2400, 2900, 3400, 3900, 4400, 4900, 5400, 5900, 6400, 6900, 7400, 7700
-    ] : [
+    ] : (currentLevel === 3 ? [
         150, 850, 1100, 1200, 1800, 2000, 2200, 2900, 3100, 3200, 3900, 4100, 4200, 4700, 4900, 5500, 5700, 5900
-    ]);
+    ] : [
+        150, 450, 1200, 1500, 2400, 2700, 3400, 3800, 4600, 5000, 6000, 6400, 7100, 7400
+    ]));
     frailejonesPositions.forEach((fx, i) => {
         frailejones.push({
             x: fx,
@@ -1924,7 +2397,7 @@ function initLevel() {
     // Generate stunning bio-energy background particles or birds
     ambientParticles = [];
     for (let i = 0; i < 45; i++) {
-        let isBird = currentLevel === 3;
+        let isBird = currentLevel === 3 || currentLevel === 4;
         if (isBird && i > 15) break; // Solo 15 guacamayas, no 45
         ambientParticles.push({
             x: Math.random() * LEVEL_WIDTH,
@@ -2554,7 +3027,7 @@ function triggerVictory() {
     let vDetails = document.getElementById("victory-details");
     let btnReplay = document.getElementById("btn-replay");
 
-    if (currentLevel === 3) {
+    if (currentLevel === 4) {
         let titleText = currentLang === 'es' ? "FELICITACIONES,<br>FINALIZASTE LA MISIÓN" : 
                         currentLang === 'en' ? "CONGRATULATIONS,<br>MISSION FINISHED" : 
                         "FÉLICITATIONS,<br>MISSION TERMINÉE";
@@ -2602,7 +3075,11 @@ function draw() {
 
     // ── Sky gradient ──
     let gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    if (currentLevel === 3) {
+    if (currentLevel === 4) {
+        gradient.addColorStop(0,   "#D35400"); // Naranja atardecer profundo
+        gradient.addColorStop(0.5, "#E67E22"); // Naranja-amarillo cálido
+        gradient.addColorStop(1,   "#FADBD8"); // Horizonte rosáceo suave
+    } else if (currentLevel === 3) {
         gradient.addColorStop(0,   "#4ED4FF"); // lighter bright tropical cyan
         gradient.addColorStop(1,   "#AEEAFF"); // pale blue horizon
     } else if (currentLevel === 2) {
@@ -2618,7 +3095,7 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // ── White/Pinkish clouds parallax (capa 1 — lentas) ──
-    ctx.fillStyle = currentLevel === 3 ? "rgba(255, 255, 255, 0.88)" : (currentLevel === 2 ? "rgba(244, 143, 177, 0.55)" : "rgba(255, 255, 255, 0.82)");
+    ctx.fillStyle = currentLevel === 4 ? "rgba(253, 235, 208, 0.7)" : (currentLevel === 3 ? "rgba(255, 255, 255, 0.88)" : (currentLevel === 2 ? "rgba(244, 143, 177, 0.55)" : "rgba(255, 255, 255, 0.82)"));
     let cloudOffset1 = (cameraX * 0.12) % canvas.width;
     let cloudSeeds1 = [60, 200, 370, 520, 680];
     cloudSeeds1.forEach(cx => {
@@ -2700,7 +3177,7 @@ function draw() {
     }
 
     // ── Nubes capa 2 — más rápidas ──
-    ctx.fillStyle = currentLevel === 3 ? "rgba(255, 255, 255, 0.75)" : (currentLevel === 2 ? "rgba(255, 171, 145, 0.45)" : "rgba(255, 255, 255, 0.65)");
+    ctx.fillStyle = currentLevel === 4 ? "rgba(253, 235, 208, 0.55)" : (currentLevel === 3 ? "rgba(255, 255, 255, 0.75)" : (currentLevel === 2 ? "rgba(255, 171, 145, 0.45)" : "rgba(255, 255, 255, 0.65)"));
     let cloudOffset2 = (cameraX * 0.22) % canvas.width;
     let cloudSeeds2 = [130, 310, 490, 700];
     cloudSeeds2.forEach(cx => {
@@ -2709,7 +3186,33 @@ function draw() {
     });
 
     // ── Parallax mountains / canyon walls ──
-    if (currentLevel === 3) {
+    if (currentLevel === 4) {
+        // Tepuyes planos de La Macarena
+        let hillOff = (cameraX * 0.15) % 400;
+        ctx.fillStyle = "#8D493A";  // Arcilla rojiza de La Macarena
+        for (let i = -1; i < 4; i++) {
+            let hx = i * 400 - hillOff;
+            ctx.beginPath();
+            ctx.moveTo(hx, GROUND_Y + 10);
+            ctx.lineTo(hx + 80, GROUND_Y - 70);
+            ctx.lineTo(hx + 320, GROUND_Y - 70);
+            ctx.lineTo(hx + 400, GROUND_Y + 10);
+            ctx.closePath();
+            ctx.fill();
+        }
+        ctx.fillStyle = "#5C2E24";  // Capa trasera más oscura
+        let hillOff2 = (cameraX * 0.22) % 300;
+        for (let i = -1; i < 5; i++) {
+            let hx = i * 300 - hillOff2;
+            ctx.beginPath();
+            ctx.moveTo(hx, GROUND_Y + 14);
+            ctx.lineTo(hx + 60, GROUND_Y - 45);
+            ctx.lineTo(hx + 240, GROUND_Y - 45);
+            ctx.lineTo(hx + 300, GROUND_Y + 14);
+            ctx.closePath();
+            ctx.fill();
+        }
+    } else if (currentLevel === 3) {
         // Distant green jungle islands in Chocó
         let islandOff = (cameraX * 0.15) % 400;
         ctx.fillStyle = "#1E4620";  // dark jungle green silhouette
@@ -2817,7 +3320,7 @@ function draw() {
 
     // ── GROUND ──
     // Soil base
-    ctx.fillStyle = currentLevel === 3 ? "#C2B280" : (currentLevel === 2 ? "#A04000" : "#8D6239"); // sand vs clay vs dirt
+    ctx.fillStyle = currentLevel === 4 ? "#784212" : (currentLevel === 3 ? "#C2B280" : (currentLevel === 2 ? "#A04000" : "#8D6239")); // La Macarena brown vs sand vs clay vs dirt
     ctx.beginPath();
     ctx.moveTo(0, canvas.height);
     for (let x = 0; x <= LEVEL_WIDTH; x += 15) {
@@ -2828,7 +3331,7 @@ function draw() {
     ctx.fill();
 
     // Ground surface crust
-    ctx.strokeStyle = currentLevel === 3 ? "#E3D398" : (currentLevel === 2 ? "#D35400" : "#5E9E3E"); // bright sand vs orange crust vs green grass
+    ctx.strokeStyle = currentLevel === 4 ? "#27AE60" : (currentLevel === 3 ? "#E3D398" : (currentLevel === 2 ? "#D35400" : "#5E9E3E")); // vibrant savanna green vs bright sand vs orange crust vs green grass
     ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.moveTo(0, getGroundHeight(0));
@@ -2856,6 +3359,26 @@ function draw() {
         ctx.strokeStyle = "#2980B9";
         ctx.lineWidth = 2;
         
+        if (currentLevel === 4) {
+            // Caño Cristales (Río de los 5 colores)
+            if (pud.colorName === "red") {
+                ctx.fillStyle = "rgba(217, 30, 24, 0.85)"; // Rojo
+                ctx.strokeStyle = "#962D22";
+            } else if (pud.colorName === "pink") {
+                ctx.fillStyle = "rgba(244, 143, 177, 0.85)"; // Rosado
+                ctx.strokeStyle = "#C2185B";
+            } else if (pud.colorName === "green") {
+                ctx.fillStyle = "rgba(46, 204, 113, 0.85)"; // Verde
+                ctx.strokeStyle = "#1E8449";
+            } else if (pud.colorName === "yellow") {
+                ctx.fillStyle = "rgba(241, 196, 15, 0.85)"; // Amarillo
+                ctx.strokeStyle = "#B7950B";
+            } else if (pud.colorName === "blue") {
+                ctx.fillStyle = "rgba(52, 152, 219, 0.85)"; // Azul
+                ctx.strokeStyle = "#1F618D";
+            }
+        }
+        
         if (pud.width > 1000) {
             // Es el mar gigante del Nivel 3
             ctx.fillStyle = "rgba(10, 110, 200, 0.85)"; // Océano profundo
@@ -2870,9 +3393,11 @@ function draw() {
         }
     });
 
-    // ── VEGETATION (Frailejones / Wax Palms / Cocoteros) ──
+    // ── VEGETATION (Frailejones / Wax Palms / Cocoteros / Flores de La Macarena) ──
     frailejones.forEach(fr => {
-        if (currentLevel === 3) {
+        if (currentLevel === 4) {
+            drawSavannaFlower(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.scale);
+        } else if (currentLevel === 3) {
             drawCocotero(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.scale);
         } else if (currentLevel === 2) {
             drawPalmaDeCera(ctx, fr.x, getGroundHeight(fr.x), fr.height, fr.scale);
@@ -3707,6 +4232,28 @@ function draw() {
         ctx.arc(px + pw/2 + 12, py + ph + 3, 4, 0, Math.PI * 2);
         ctx.fill(); ctx.stroke();
         ctx.restore();
+    } else if (player.vehicle === "hoverboard") {
+        ctx.save();
+        // Neon glow trail
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#F1C40F";
+        
+        // Tabla hoverboard
+        ctx.fillStyle = "#8E44AD"; // Morado neon
+        ctx.strokeStyle = "#FFFFFF";
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        ctx.ellipse(px + pw/2, py + ph - 2, 22, 3, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Propulsores neon
+        ctx.fillStyle = "#FBBF24";
+        ctx.beginPath();
+        ctx.arc(px + pw/2 - 14, py + ph, 2, 0, Math.PI * 2);
+        ctx.arc(px + pw/2 + 14, py + ph, 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
     }
 
     if (player.vehicle === "dinosaur") {
@@ -4179,6 +4726,65 @@ function drawCocotero(ctx, x, groundY, height, scale) {
         ctx.quadraticCurveTo(-5 + lx/2, -height + ly/2 - 10, -5 + lx, -height + ly);
         ctx.stroke();
     }
+
+    ctx.restore();
+}
+
+// ═══════════════════════════════════════════════════════════
+// FLOR DE LA MACARENA / SAVANNA FLOWER (Caño Cristales)
+// ═══════════════════════════════════════════════════════════
+function drawSavannaFlower(ctx, x, groundY, height, scale) {
+    ctx.save();
+    ctx.translate(x, groundY);
+    ctx.scale(scale, scale);
+
+    // Sombra en el suelo
+    ctx.fillStyle = "rgba(0,0,0,0.12)";
+    ctx.beginPath();
+    ctx.ellipse(0, 4, 12, 3, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Tallo verde
+    ctx.strokeStyle = "#27AE60";
+    ctx.lineWidth = 3.5;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -height);
+    ctx.stroke();
+
+    // Hojas laterales
+    ctx.fillStyle = "#2ECC71";
+    ctx.strokeStyle = "#27AE60";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.ellipse(-5, -height/2, 9, 3.5, -Math.PI/4, 0, Math.PI * 2);
+    ctx.ellipse(5, -height/2 - 8, 9, 3.5, Math.PI/4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Pétalos de flor (rojo/rosado vibrante)
+    ctx.fillStyle = "#E74C3C";
+    ctx.strokeStyle = "#C0392B";
+    ctx.lineWidth = 1;
+    for (let i = 0; i < 6; i++) {
+        let angle = i * Math.PI / 3;
+        let px = Math.cos(angle) * 7.5;
+        let py = -height + Math.sin(angle) * 7.5;
+        ctx.beginPath();
+        ctx.arc(px, py, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    // Centro amarillo de la flor
+    ctx.fillStyle = "#F1C40F";
+    ctx.strokeStyle = "#D4AC0D";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(0, -height, 5.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
 
     ctx.restore();
 }

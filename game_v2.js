@@ -1863,9 +1863,9 @@ function selectCharacter(gender) {
 // Level Select handler
 function selectLevel(lvl) {
     selectedLevel = lvl;
-    document.getElementById("btn-lvl1").classList.toggle("active", lvl === 1);
-    document.getElementById("btn-lvl2").classList.toggle("active", lvl === 2);
-    document.getElementById("btn-lvl3").classList.toggle("active", lvl === 3);
+    if (document.getElementById("btn-lvl1")) document.getElementById("btn-lvl1").classList.toggle("active", lvl === 1);
+    if (document.getElementById("btn-lvl2")) document.getElementById("btn-lvl2").classList.toggle("active", lvl === 2);
+    if (document.getElementById("btn-lvl3")) document.getElementById("btn-lvl3").classList.toggle("active", lvl === 3);
     if (document.getElementById("btn-lvl4")) {
         document.getElementById("btn-lvl4").classList.toggle("active", lvl === 4);
     }

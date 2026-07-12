@@ -196,10 +196,20 @@
                         <div id="instructions-title" style="font-family: var(--font-heading); font-weight: 800; font-size: 0.85rem; color: #3D7A1E; margin-bottom: 6px; text-align: center;">📋 INSTRUCCIONES</div>
                         <div style="font-family: var(--font-body); font-size: 0.75rem; line-height: 1.5;">
                             <p id="instr-controls" style="margin: 0 0 6px 0;"><strong>🎮 Controles:</strong> Muévete con las flechas <kbd style="background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;">←</kbd> y <kbd style="background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;">→</kbd>. Salta con la barra <kbd style="background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;">ESPACIO</kbd> o la flecha <kbd style="background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;">↑</kbd>.</p>
-                            <p id="instr-dangers" style="margin: 0 0 6px 0;"><strong>⚠️ Peligros:</strong> Los géiseres 🌋, los lagos 🌊, las rocas 🪨 y los animales salvajes (ranas 🐸 / pulpos 🐙) te quitan vida. ¡Evítalos!</p>
+                            <p id="instr-dangers" style="margin: 0 0 6px 0;"><strong>⚠️ Peligros:</strong> Los géiseres 🌋, los lagos 🌊, las rocas 🪨 y los animales salvajes (ranas 🐸 / pulpos 🐙 / serpientes 🐍) te quitan vida. ¡Evítalos!</p>
                             <p id="instr-energy" style="margin: 0 0 6px 0;"><strong>🍎 Energía:</strong> Tu barra de energía baja constantemente. Come frutas 🍌🍒 para recuperar energía. Si llega a cero es Game Over.</p>
                             <p id="instr-bonus" style="margin: 0;"><strong>⚛️ BONUS H₂:</strong> Atrapa la molécula de H₂ para 30s de invencibilidad (tiempo real continuo) y congela el gasto de energía.</p>
                         </div>
+                    </div>
+
+                    <!-- Seleccion de nivel (Ocultada) -->
+                    <div style="display: none; font-family: var(--font-heading); font-weight: 800; font-size: 0.85rem; color: #EEFDE8; margin-top: 10px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">🗺️ SELECCIONAR NIVEL</div>
+                    <div class="level-selector" style="display: none;">
+                        <button class="level-btn active" id="btn-lvl1" onclick="selectLevel(1)">1</button>
+                        <button class="level-btn" id="btn-lvl2" onclick="selectLevel(2)">2</button>
+                        <button class="level-btn" id="btn-lvl3" onclick="selectLevel(3)">3</button>
+                        <button class="level-btn" id="btn-lvl4" onclick="selectLevel(4)">4</button>
+                        <button class="level-btn" id="btn-lvl5" onclick="selectLevel(5)">5</button>
                     </div>
 
                     <button class="btn-play" id="btn-play" onclick="startGame()">&#9658; JUGAR</button>
@@ -281,19 +291,19 @@
         if (typeof translations !== 'undefined') {
             translations.es.instrTitle = "📋 INSTRUCCIONES";
             translations.es.instrControls = "<strong>🎮 Controles:</strong> Muévete con las flechas <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>←</kbd> y <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>→</kbd>. Salta con la barra <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>ESPACIO</kbd> o la flecha <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>↑</kbd>.";
-            translations.es.instrDangers = "<strong>⚠️ Peligros:</strong> Los géiseres 🌋, los lagos 🌊, las rocas 🪨 y los animales salvajes (ranas 🐸 / pulpos 🐙) te quitan vida. ¡Evítalos!";
+            translations.es.instrDangers = "<strong>⚠️ Peligros:</strong> Los géiseres 🌋, los lagos 🌊, las rocas 🪨 y los animales salvajes (ranas 🐸 / pulpos 🐙 / serpientes 🐍) te quitan vida. ¡Evítalos!";
             translations.es.instrEnergy = "<strong>🍎 Energía:</strong> Tu barra de energía baja constantemente. Come frutas 🍌🍒 para recuperar energía. Si llega a cero es Game Over.";
             translations.es.instrBonus = "<strong>⚛️ BONUS H₂:</strong> Atrapa la molécula de H₂ para 30s de invencibilidad (tiempo real continuo) y congela el gasto de energía.";
 
             translations.en.instrTitle = "📋 INSTRUCTIONS";
             translations.en.instrControls = "<strong>🎮 Controls:</strong> Move with arrows <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>←</kbd> and <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>→</kbd>. Jump with <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>SPACE</kbd> or <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>↑</kbd> arrow.";
-            translations.en.instrDangers = "<strong>⚠️ Dangers:</strong> Geysers 🌋, lakes 🌊, rocks 🪨 and wild animals (frogs 🐸 / octopuses 🐙) remove lives. Avoid them!";
+            translations.en.instrDangers = "<strong>⚠️ Dangers:</strong> Geysers 🌋, lakes 🌊, rocks 🪨 and wild animals (frogs 🐸 / octopuses 🐙 / snakes 🐍) remove lives. Avoid them!";
             translations.en.instrEnergy = "<strong>🍎 Energy:</strong> Your energy bar decreases constantly. Eat fruits 🍌🍒 to recover energy. If it reaches zero it is Game Over.";
             translations.en.instrBonus = "<strong>⚛️ H₂ BONUS:</strong> Catch the H₂ molecule for 30s of invincibility (real-time countdown) and freeze energy decay.";
 
             translations.fr.instrTitle = "📋 INSTRUCTIONS";
             translations.fr.instrControls = "<strong>🎮 Commandes:</strong> Déplacez-vous avec les flèches <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>←</kbd> et <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>→</kbd>. Sautez avec <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>ESPACE</kbd> ou <kbd style='background:#eee; border:1px solid #ccc; border-radius:3px; padding:1px 4px; font-size:0.7rem;'>↑</kbd>.";
-            translations.fr.instrDangers = "<strong>⚠️ Dangers:</strong> Les geysers 🌋, les lacs 🌊, les roches 🪨 et les animaux sauvages (grenouilles 🐸 / poulpes 🐙) vous retirent des vies. Évitez-les !";
+            translations.fr.instrDangers = "<strong>⚠️ Dangers:</strong> Les geysers 🌋, les lacs 🌊, les roches 🪨 et les animaux sauvages (grenouilles 🐸 / poulpes 🐙 / serpents 🐍) vous retirent des vies. Évitez-les !";
             translations.fr.instrEnergy = "<strong>🍎 Énergie:</strong> Votre barre d'énergie diminue constamment. Mangez des fruits 🍌🍒 pour la recharger. Si elle atteint zéro, c'est Game Over.";
             translations.fr.instrBonus = "<strong>⚛️ BONUS H₂:</strong> Attrapez la molécule de H₂ pour 30s d'invincibilité (temps réel continu) et figez la perte d'énergie.";
         }

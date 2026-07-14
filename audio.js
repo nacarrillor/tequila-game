@@ -5,7 +5,7 @@ class SoundEffects {
         this.ctx = null;
         this.bgmAudio = new Audio('Epidemia.mp3');
         this.bgmAudio.loop = true;
-        this.bgmAudio.volume = 0.004; // Volumen extra bajo (0.4%)
+        this.bgmAudio.volume = 0.015; // Volumen bajo pero audible (1.5%)
         this.isPlayingBGM = false;
         this.isBGMMuted = false;
     }
@@ -34,7 +34,7 @@ class SoundEffects {
 
         if (!this.isPlayingBGM) {
             this.bgmAudio.src = songFile;
-            this.bgmAudio.volume = 0.004; // Asegurar volumen bajo al cambiar canción/src
+            this.bgmAudio.volume = 0.015; // Asegurar volumen bajo pero audible al cambiar canción/src
             this.isPlayingBGM = true;
             this.bgmAudio.play().catch(err => {
                 console.log("Audio play blocked by browser until user interaction: ", err);

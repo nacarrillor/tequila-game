@@ -2070,6 +2070,7 @@ let quizTimerInterval = null;
 function showQuestionModal(rock) {
     activeRockSample = rock;
     gameState = "quiz";
+    toggleTouchControls(false);
     
     if (player._energyBeforeQuiz === undefined) {
         player._energyBeforeQuiz = player.energy;
@@ -2191,6 +2192,7 @@ function closeRockResult() {
             activeRockSample.discovered = true;
             delete player._energyBeforeQuiz;
             gameState = "playing";
+            toggleTouchControls(true);
         } else {
             if (player.isInvincible) {
                 // Se perdona la vida por invencibilidad y se le da la oportunidad de volver a responderla
@@ -2241,12 +2243,28 @@ function resetPlayerState(fullReset) {
     bubbleFloatingTexts = [];
 }
 
+function toggleTouchControls(show) {
+    const touchControls = document.getElementById("touch-controls-v2");
+    if (touchControls) {
+        if (show) {
+            // Only show on touch/mobile devices
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            if (isTouchDevice) {
+                touchControls.style.setProperty("display", "flex", "important");
+            }
+        } else {
+            touchControls.style.setProperty("display", "none", "important");
+        }
+    }
+}
+
 function startGame() {
     AudioSFX.init();
     AudioSFX.startBGM();
     gameState = "playing";
     document.getElementById("character-select-screen").style.display = "none";
     document.getElementById("game-hud").style.display = "flex";
+    toggleTouchControls(true);
     
     resetPlayerState(true);
     currentLevel = selectedLevel;
@@ -2261,11 +2279,13 @@ function restartGame() {
         // Volver al panel de selección de personaje (panel principal) para iniciar desde 0
         document.getElementById("character-select-screen").style.display = "flex";
         document.getElementById("game-hud").style.display = "none";
+        toggleTouchControls(false);
         gameState = "menu";
         return;
     }
     
     document.getElementById("game-hud").style.display = "flex";
+    toggleTouchControls(true);
     
     resetPlayerState(false);
     
@@ -3232,6 +3252,7 @@ function handlePlayerDeath(reason) {
 function triggerGameOver(reason) {
     gameState = "gameover";
     AudioSFX.playGameOver();
+    toggleTouchControls(false);
     
     // Determinar título según vidas restantes
     const hasLives = player.lives > 0;
@@ -3266,6 +3287,7 @@ function triggerGameOver(reason) {
 function triggerVictory() {
     gameState = "victory";
     document.getElementById("game-hud").style.display = "none";
+    toggleTouchControls(false);
 
     let vTitle = document.getElementById("victory-title");
     let vDetails = document.getElementById("victory-details");

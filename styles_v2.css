@@ -427,7 +427,7 @@ body {
 }
 
 /* ══ Touch Controls (Mobile) ══ */
-#touch-controls {
+#touch-controls-v2 {
     display: none; /* Hidden by default, shown via JS on touch devices */
     position: fixed;
     bottom: 35px; /* Elevated to avoid phone system swipe bars */
@@ -627,14 +627,14 @@ body {
     }
 
     /* Show touch controls on mobile */
-    #touch-controls {
+    #touch-controls-v2.visible {
         display: flex !important;
     }
 }
 
 /* Also show on touch devices regardless of width */
 @media (hover: none) and (pointer: coarse) {
-    #touch-controls {
+    #touch-controls-v2.visible {
         display: flex !important;
     }
 }
